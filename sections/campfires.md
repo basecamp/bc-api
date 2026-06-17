@@ -313,7 +313,7 @@ This endpoint will return `201 Created` with the current JSON representation of 
 ```
 
 ###### Example JSON Response (plain text)
-<!-- START POST /chats/2/lines.json -->
+<!-- START POST /buckets/1/chats/2/lines.json -->
 ```json
 {
   "id": 1069479921,
@@ -371,10 +371,10 @@ This endpoint will return `201 Created` with the current JSON representation of 
   "content": "Good morning"
 }
 ```
-<!-- END POST /chats/2/lines.json -->
+<!-- END POST /buckets/1/chats/2/lines.json -->
 
 ###### Example JSON Response (rich text)
-<!-- START POST /chats/2/lines.json (rich text) -->
+<!-- START POST /buckets/1/chats/2/lines.json (rich text) -->
 ```json
 {
   "id": 1069479922,
@@ -432,7 +432,7 @@ This endpoint will return `201 Created` with the current JSON representation of 
   "content": "<strong>Hello</strong> from the API"
 }
 ```
-<!-- END POST /chats/2/lines.json (rich text) -->
+<!-- END POST /buckets/1/chats/2/lines.json (rich text) -->
 
 ###### Copy as cURL
 

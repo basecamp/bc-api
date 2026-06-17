@@ -3,7 +3,7 @@ Authentication
 
 > Speak, friend, and enter.
 
-All Basecamp 4 API requests are authenticated by passing along an OAuth 2 token.
+All Basecamp 5 API requests are authenticated by passing along an OAuth 2 token.
 
 - [OAuth 2 overview](#oauth-2-overview)
 - [OAuth 2 from scratch](#oauth-2-from-scratch)
@@ -93,7 +93,7 @@ This endpoint requires the `Authorization: Bearer YOUR_OAUTH_TOKEN` header and r
 - An `identity` with the user's name and email (**not** used for identifying users within Basecamp—use the [Get person][people] endpoints for that)
 - A list of `accounts` the user can access, with `href` fields for making API requests
 
-This should be the first request after obtaining a user's authorization token. Pick the account with `"product": "bc3"` and use its `href` as the base URL for Basecamp 4 API requests.
+This should be the first request after obtaining a user's authorization token. Pick the account with `"product": "bc3"` and use its `href` as the base URL for Basecamp 5 API requests.
 
 ###### Example JSON Response
 <!-- START GET https://launchpad.37signals.com/authorization.json -->

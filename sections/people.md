@@ -18,6 +18,8 @@ Get all people
 
 * `GET /people.json` will return all people visible to the current user.
 
+Wherever a person is represented, the `email_address` is only returned in full to account administrators and owners, and to the person themselves. For everyone else it is redacted (e.g. `"j••••@•••••••••.•••"`).
+
 ###### Example JSON Response
 <!-- START GET /people.json -->
 ```json

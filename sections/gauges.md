@@ -258,7 +258,7 @@ _Optional parameters_:
 
 * `gauge_needle[color]` - the status color: `green` (default), `yellow`, or `red`.
 * `gauge_needle[description]` - a rich text (HTML) description of the progress update.
-* `notify` - who to notify about this update: `everyone` (all project members), `working_on` (people actively working on the project), `custom` (specific people via `subscriptions`), or omit to notify nobody.
+* `notify` - who to notify about this update: `default` (people subscribed to project notifications), `everyone`, `custom` (specific people via `subscriptions`), or omit to notify nobody.
 * `subscriptions` - an array of people IDs to notify. Only used when `notify` is `custom`.
 
 This endpoint will return `201 Created` with the JSON representation of the needle if the creation was a success. See the [Get a gauge needle](#get-a-gauge-needle) endpoint for more info on the payload.

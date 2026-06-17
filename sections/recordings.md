@@ -1,7 +1,7 @@
 Recordings
 ==========
 
-Most of the data structures in the Basecamp 4 API are represented as "Recordings", with generic actions available to be performed.
+Most of the data structures in the Basecamp 5 API are represented as "Recordings", with generic actions available to be performed.
 
 Endpoints:
 

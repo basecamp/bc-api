@@ -1,7 +1,7 @@
 Subscriptions
 =============
 
-Many of the resources in Basecamp 4 that can be commented on have _subscribers_, that is, people that will get notified when a new comment is added. To know if it's possible to modify the subscriptions for a recording, check its JSON response for the `subscription_url` attribute. This attribute contains the URL to hit to get information about current subscribers and to add/remove subscribers.
+Many of the resources in Basecamp 5 that can be commented on have _subscribers_, that is, people that will get notified when a new comment is added. To know if it's possible to modify the subscriptions for a recording, check its JSON response for the `subscription_url` attribute. This attribute contains the URL to hit to get information about current subscribers and to add/remove subscribers.
 
 Endpoints:
 

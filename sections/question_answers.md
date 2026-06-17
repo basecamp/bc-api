@@ -200,9 +200,8 @@ Create a question answer
 
 * `POST /questions/2/answers.json` creates an answer to the question with ID `2`.
 
-**Required parameters**: `content` containing the answer text. See our [Rich text guide][rich_text] for what HTML tags are allowed.
-
-_Optional parameters_:
+**Required parameters**:
+* `content` containing the answer text. See our [Rich text guide][rich_text] for what HTML tags are allowed.
 * `group_on` - a date (ISO 8601) to group this answer with others from the same day.
 
 This endpoint will return `201 Created` with the current JSON representation of the answer if the creation was a success. See the [Get a question answer](#get-a-question-answer) endpoint for more info on the payload.
@@ -232,14 +231,21 @@ Update a question answer
 
 * `PUT /question_answers/2.json` allows changing the answer with an ID of `2`.
 
-This endpoint will return `204 No Content` if the update was a success.
+**Required parameters**:
+* `content` containing the updated answer text.
+* `group_on` - a date (ISO 8601) to group this answer with others from the same day.
+
+Send both fields when updating an answer, even if you're only changing one of them.
+
+This endpoint will return `200 OK` and the updated question answer in the response body if the update was a success.
 
 ###### Example JSON Request
 
 ```json
 {
   "question_answer": {
-    "content": "<div>Updated: Today I finished the API documentation.</div>"
+    "content": "<div>Updated: Today I finished the API documentation.</div>",
+    "group_on": "2024-01-22"
   }
 }
 ```
@@ -248,7 +254,7 @@ This endpoint will return `204 No Content` if the update was a success.
 
 ```shell
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
-  -d '{"question_answer":{"content":"<div>Updated: Today I finished the API documentation.</div>"}}' -X PUT \
+  -d '{"question_answer":{"content":"<div>Updated: Today I finished the API documentation.</div>","group_on":"2024-01-22"}}' -X PUT \
   https://3.basecampapi.com/$ACCOUNT_ID/question_answers/2.json
 ```
 

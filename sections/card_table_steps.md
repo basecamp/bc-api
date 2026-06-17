@@ -24,8 +24,8 @@ Create a step
 _Optional parameters_:
 
 * `due_on` - due date (ISO 8601) of the step.
-* `assignee_ids` - an array of people IDs that will be assigned to this step. Please see the [Get people][people] endpoints to retrieve them.
-* `assignees` - a comma separated list of people IDs (legacy format, prefer `assignee_ids`).
+* `assignee_ids` - an array of people ids that will be assigned to this step. Please see the [Get people][people] endpoints to retrieve them.
+* `assignees` - a comma separated list of people ids (legacy format, prefer `assignee_ids`).
 
 This endpoint will return `201 Created` with the current JSON representation of the step if the creation was a success. See the step property of the [Get a card][card] endpoint for more info on the payload.
 
@@ -56,8 +56,8 @@ _Optional parameters_:
 
 * `title` - of the card.
 * `due_on` - due date (ISO 8601) of the step.
-* `assignee_ids` - an array of people IDs that will be assigned to this step. Please see the [Get people][people] endpoints to retrieve them.
-* `assignees` - a comma separated list of people IDs (legacy format, prefer `assignee_ids`).
+* `assignee_ids` - an array of people ids that will be assigned to this step. Please see the [Get people][people] endpoints to retrieve them.
+* `assignees` - a comma separated list of people ids (legacy format, prefer `assignee_ids`).
 
 This endpoint will return `200 OK` with the current JSON representation of the step if the update was a success. See the step property of the [Get a card][card] endpoint for more info on the payload.
 

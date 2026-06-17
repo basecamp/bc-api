@@ -29,7 +29,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -A 'MyApp (yourname@example.com
   "recording_search_types": [
     {
       "key": null,
-      "value": "Search Everything"
+      "value": "Everything"
     },
     {
       "key": "Kanban::Card",
@@ -106,11 +106,11 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -A 'MyApp (yourname@example.com
       "value": "PDFs"
     }
   ],
-  "default_creator_label": "by Anyone",
-  "default_bucket_label": "Everywhere",
-  "default_circle_label": "with Anyone",
+  "default_creator_label": "Anyone",
+  "default_bucket_label": "All projects",
+  "default_circle_label": "All pings",
   "default_file_type_label": "All files",
-  "default_type_label": "Search Everything"
+  "default_type_label": "Everything"
 }
 ```
 <!-- END GET /searches/metadata.json -->

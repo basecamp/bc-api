@@ -1,7 +1,7 @@
 Client visibility
 =================
 
-The client visibility refers to [the newer way to work with clients in Basecamp 4][1], and not to the _Clientside_, which is covered in its own sections: [approvals][2], [correspondences][3] and [replies][4].
+The client visibility refers to [the newer way to work with clients in Basecamp 5][1], and not to the _Clientside_, which is covered in its own sections: [approvals][2], [correspondences][3] and [replies][4].
 
 Endpoints:
 
