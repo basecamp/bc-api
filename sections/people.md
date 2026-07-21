@@ -322,6 +322,10 @@ Get my preferences
 
 * `GET /my/preferences.json` will return the current user's preferences.
 
+`time_zone_name` is returned as it was stored — either a Rails-style name
+(`Central Time (US & Canada)`) or an IANA identifier (`America/Chicago`).
+Both forms are accepted on update.
+
 ###### Example JSON Response
 <!-- START GET /my/preferences.json -->
 ```json
