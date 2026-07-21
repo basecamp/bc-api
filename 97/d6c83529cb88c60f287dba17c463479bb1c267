@@ -1,0 +1,19 @@
+AGENTS.md
+  s_e37d527c139712::t_435301b9b09215 1,3-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "97d6c83529cb88c60f287dba17c463479bb1c267",
+  "prompts": {},
+  "sessions": {
+    "s_e37d527c139712": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8ee5ec15-e744-4f7e-ae12-2394917bad65",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Jeremy Daer <jeremy@37signals.com>"
+    }
+  }
+}
