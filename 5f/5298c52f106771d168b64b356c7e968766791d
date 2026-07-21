@@ -1,0 +1,29 @@
+README.md
+  s_e37d527c139712::t_70b910c33c2743 316
+sections/calendars.md
+  s_e37d527c139712::t_67039b2b02507e 43-48,75-82
+sections/cloud_files.md
+  s_e37d527c139712::t_a83282dd8ce0bf 104-109,228-235,338-345
+sections/everything.md
+  s_e37d527c139712::t_6dfc3433b1665a 4008-4013,7668-7673,8815-8820,12770-12775,13161-13166,13282-13287,13663-13668,13838-13843,13929-13934,14347-14352,14564-14569,14708-14713,14876-14881,15017-15022,15159-15164,15329-15334,15527-15532
+sections/google_documents.md
+  s_e37d527c139712::t_592b98fe421035 94-99,210-217,312-319
+sections/my_notes.md
+  s_e37d527c139712::t_8e2c1ae05230ae 1,39-44,70-77
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "5f5298c52f106771d168b64b356c7e968766791d",
+  "prompts": {},
+  "sessions": {
+    "s_e37d527c139712": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8ee5ec15-e744-4f7e-ae12-2394917bad65",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Jeremy Daer <jeremy@37signals.com>"
+    }
+  }
+}
