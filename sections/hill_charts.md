@@ -22,16 +22,16 @@ Get hill chart
 {
   "enabled": true,
   "stale": false,
-  "updated_at": "2026-03-11T06:38:12.167Z",
-  "app_update_url": "https://3.basecamp.com/195539477/buckets/2085958504/todosets/1069479393/hill/edit",
+  "updated_at": "2026-07-21T00:01:19.857Z",
+  "app_update_url": "https://3.basecamp.com/195539477/buckets/2085958505/todosets/1069479829/hill/edit",
   "dots": [
     {
-      "id": 1069479424,
+      "id": 1069479863,
       "label": "Background and research",
       "color": "blue",
       "position": 0,
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/todolists/1069479424.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/todolists/1069479424"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069479863.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todolists/1069479863"
     }
   ]
 }

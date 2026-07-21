@@ -24,21 +24,21 @@ Get a tool
 <!-- START GET /dock/tools/2.json -->
 ```json
 {
-  "id": 1069479395,
+  "id": 1069479832,
   "status": "active",
   "visible_to_clients": false,
-  "created_at": "2026-02-12T06:09:34.667Z",
-  "updated_at": "2026-02-12T06:13:57.731Z",
+  "created_at": "2026-05-28T17:23:17.384Z",
+  "updated_at": "2026-07-21T00:01:05.529Z",
   "title": "Chat",
   "inherits_status": true,
   "type": "Chat::Transcript",
-  "url": "https://3.basecampapi.com/195539477/buckets/2085958504/chats/1069479395.json",
-  "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/chats/1069479395",
-  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTM5NT9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--8737d118a3b0bb00e4fc9ddfea9e3a421b2b8bf5.json",
-  "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479395/subscription.json",
-  "position": 4,
+  "url": "https://3.basecampapi.com/195539477/buckets/2085958505/chats/1069479832.json",
+  "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/chats/1069479832",
+  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTgzMj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--7e5f099cbaea13ac831cef8c56f500ab58170a86.json",
+  "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479832/subscription.json",
+  "position": 5,
   "bucket": {
-    "id": 2085958504,
+    "id": 2085958505,
     "name": "The Leto Laptop",
     "type": "Project"
   },
@@ -46,19 +46,20 @@ Get a tool
     "id": 1049715913,
     "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
     "name": "Victor Cooper",
-    "email_address": "victor@honchodesign.com",
     "personable_type": "User",
     "title": "Chief Strategist",
-    "bio": "Don’t let your dreams be dreams",
+    "tagline": "Don't let your dreams be dreams",
     "location": "Chicago, IL",
-    "created_at": "2026-02-12T06:08:49.342Z",
-    "updated_at": "2026-02-12T06:08:50.871Z",
+    "created_at": "2026-05-28T17:22:22.069Z",
+    "updated_at": "2026-07-21T01:06:02.483Z",
+    "email_address": "victor@honchodesign.com",
+    "bio": "Don't let your dreams be dreams",
     "admin": true,
     "owner": true,
     "client": false,
     "employee": true,
     "time_zone": "America/Chicago",
-    "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBMlkkT4=--5fe7b70fbee7a7f0e2e1e19df7579e5d880c753d/avatar?v=1",
+    "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBMlkkT4=--5fe7b70fbee7a7f0e2e1e19df7579e5d880c753d/avatar",
     "company": {
       "id": 1033447817,
       "name": "Honcho Design"
@@ -66,7 +67,7 @@ Get a tool
     "can_ping": true,
     "can_manage_projects": true,
     "can_manage_people": true,
-    "can_access_timesheet": false,
+    "can_access_timesheet": true,
     "can_access_hill_charts": true
   }
 }

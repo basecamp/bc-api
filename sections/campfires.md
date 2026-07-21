@@ -22,19 +22,19 @@ Get Campfires
 ```json
 [
   {
-    "id": 1069478985,
+    "id": 1069478958,
     "status": "active",
     "visible_to_clients": false,
-    "created_at": "2026-03-23T22:12:38.539Z",
-    "updated_at": "2026-03-23T22:12:44.024Z",
+    "created_at": "2026-05-28T17:22:34.182Z",
+    "updated_at": "2026-07-21T00:06:30.556Z",
     "title": "Chat",
     "inherits_status": true,
     "type": "Chat::Transcript",
-    "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478985.json",
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478985",
-    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3ODk4NT9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--f745f0a5dc8108b7f361e578d47b72ff974ed50e.json",
-    "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958502/recordings/1069478985/subscription.json",
-    "position": 4,
+    "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958.json",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478958",
+    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3ODk1OD9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--46b0cba4fd8326b694d7c6965987aa2f3cd68e8e.json",
+    "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958502/recordings/1069478958/subscription.json",
+    "position": 5,
     "bucket": {
       "id": 2085958502,
       "name": "Honcho Design Newsroom",
@@ -44,13 +44,14 @@ Get Campfires
       "id": 1049715913,
       "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
       "name": "Victor Cooper",
-      "email_address": "victor@honchodesign.com",
       "personable_type": "User",
       "title": "Chief Strategist",
-      "bio": "Don’t let your dreams be dreams",
+      "tagline": "Don't let your dreams be dreams",
       "location": "Chicago, IL",
-      "created_at": "2026-03-23T22:12:24.947Z",
-      "updated_at": "2026-03-23T22:12:26.266Z",
+      "created_at": "2026-05-28T17:22:22.069Z",
+      "updated_at": "2026-07-21T01:06:02.483Z",
+      "email_address": "victor@honchodesign.com",
+      "bio": "Don't let your dreams be dreams",
       "admin": true,
       "owner": true,
       "client": false,
@@ -68,8 +69,8 @@ Get Campfires
       "can_access_hill_charts": true
     },
     "topic": "Chat",
-    "lines_url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478985/lines.json",
-    "files_url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478985/uploads.json"
+    "lines_url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958/lines.json",
+    "files_url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958/uploads.json"
   }
 ]
 ```
@@ -89,19 +90,19 @@ Get a Campfire
 <!-- START GET /chats/2.json -->
 ```json
 {
-  "id": 1069478985,
+  "id": 1069478958,
   "status": "active",
   "visible_to_clients": false,
-  "created_at": "2026-03-23T22:12:38.539Z",
-  "updated_at": "2026-03-23T22:12:44.024Z",
+  "created_at": "2026-05-28T17:22:34.182Z",
+  "updated_at": "2026-07-21T00:06:30.556Z",
   "title": "Chat",
   "inherits_status": true,
   "type": "Chat::Transcript",
-  "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478985.json",
-  "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478985",
-  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3ODk4NT9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--f745f0a5dc8108b7f361e578d47b72ff974ed50e.json",
-  "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958502/recordings/1069478985/subscription.json",
-  "position": 4,
+  "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958.json",
+  "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478958",
+  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3ODk1OD9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--46b0cba4fd8326b694d7c6965987aa2f3cd68e8e.json",
+  "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958502/recordings/1069478958/subscription.json",
+  "position": 5,
   "bucket": {
     "id": 2085958502,
     "name": "Honcho Design Newsroom",
@@ -111,13 +112,14 @@ Get a Campfire
     "id": 1049715913,
     "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
     "name": "Victor Cooper",
-    "email_address": "victor@honchodesign.com",
     "personable_type": "User",
     "title": "Chief Strategist",
-    "bio": "Don’t let your dreams be dreams",
+    "tagline": "Don't let your dreams be dreams",
     "location": "Chicago, IL",
-    "created_at": "2026-03-23T22:12:24.947Z",
-    "updated_at": "2026-03-23T22:12:26.266Z",
+    "created_at": "2026-05-28T17:22:22.069Z",
+    "updated_at": "2026-07-21T01:06:02.483Z",
+    "email_address": "victor@honchodesign.com",
+    "bio": "Don't let your dreams be dreams",
     "admin": true,
     "owner": true,
     "client": false,
@@ -135,8 +137,8 @@ Get a Campfire
     "can_access_hill_charts": true
   },
   "topic": "Chat",
-  "lines_url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478985/lines.json",
-  "files_url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478985/uploads.json"
+  "lines_url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958/lines.json",
+  "files_url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958/uploads.json"
 }
 ```
 <!-- END GET /chats/2.json -->
@@ -156,25 +158,25 @@ Get Campfire lines
 ```json
 [
   {
-    "id": 1069479068,
+    "id": 1069479442,
     "status": "active",
     "visible_to_clients": false,
-    "created_at": "2025-12-28T04:45:00.000Z",
-    "updated_at": "2025-12-28T04:45:00.000Z",
-    "title": "I'm hungry",
+    "created_at": "2026-03-12T16:43:00.000Z",
+    "updated_at": "2026-03-12T16:43:00.000Z",
+    "title": "Words to live by",
     "inherits_status": true,
     "type": "Chat::Lines::RichText",
-    "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478985/lines/1069479068.json",
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478985@1069479068",
-    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTA2OD9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--ed75de023587361ebed66cce122997d56faeaa2e.json",
+    "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958/lines/1069479442.json",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478958@1069479442",
+    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTQ0Mj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--7c9b636ccce44a15856664e701b0f8b4b4215dcf.json",
     "boosts_count": 0,
-    "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958502/recordings/1069479068/boosts.json",
+    "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958502/recordings/1069479442/boosts.json",
     "parent": {
-      "id": 1069478985,
+      "id": 1069478958,
       "title": "Chat",
       "type": "Chat::Transcript",
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478985.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478985"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478958"
     },
     "bucket": {
       "id": 2085958502,
@@ -182,29 +184,30 @@ Get Campfire lines
       "type": "Project"
     },
     "creator": {
-      "id": 1049715929,
-      "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkyOT9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--d79103e78a10cd9f8ecda7470ea315674ac8a79a",
-      "name": "Matt Donahue",
-      "email_address": "matt@honchodesign.com",
+      "id": 1049715923,
+      "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkyMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--cd47d2c8e0331392dba60ca41aec78611b6f2f2e",
+      "name": "Jerry Gibson",
       "personable_type": "User",
-      "title": "Global Data Strategist",
-      "bio": null,
+      "title": "Principal Configuration Planner",
+      "tagline": null,
       "location": null,
-      "created_at": "2026-03-23T22:12:31.453Z",
-      "updated_at": "2026-03-23T22:12:31.453Z",
+      "created_at": "2026-05-28T17:22:25.855Z",
+      "updated_at": "2026-05-28T17:22:25.855Z",
+      "email_address": "jerry@honchodesign.com",
+      "bio": null,
       "admin": false,
       "owner": false,
       "client": false,
       "employee": false,
       "time_zone": "America/Chicago",
-      "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBNlkkT4=--0f3c77d8c13069d514fd3f0ad694a67e426bad0f/avatar",
+      "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBNNkkT4=--e3c2676dde30e7c13f87642e3a3dd46ad657f731/avatar",
       "can_ping": true,
       "can_manage_projects": true,
       "can_manage_people": true,
       "can_access_timesheet": true,
       "can_access_hill_charts": true
     },
-    "content": "I'm hungry"
+    "content": "Words to live by"
   }
 ]
 ```
@@ -224,25 +227,25 @@ Get a Campfire line
 <!-- START GET /chats/2/lines/3.json -->
 ```json
 {
-  "id": 1069479054,
+  "id": 1069479428,
   "status": "active",
   "visible_to_clients": false,
-  "created_at": "2025-12-27T21:34:00.000Z",
-  "updated_at": "2025-12-27T21:34:00.000Z",
-  "title": "👏 🎉",
+  "created_at": "2026-03-12T06:49:00.000Z",
+  "updated_at": "2026-03-12T06:49:00.000Z",
+  "title": "Hey quick heads up: CI is running slow today",
   "inherits_status": true,
   "type": "Chat::Lines::RichText",
-  "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478985/lines/1069479054.json",
-  "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478985@1069479054",
-  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTA1ND9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--bf7b55e226a9c3111e0a8639faa1012b4db18bb1.json",
+  "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958/lines/1069479428.json",
+  "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478958@1069479428",
+  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTQyOD9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--678075872f6cdf26d765ca03f9d314b7986d90ba.json",
   "boosts_count": 0,
-  "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958502/recordings/1069479054/boosts.json",
+  "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958502/recordings/1069479428/boosts.json",
   "parent": {
-    "id": 1069478985,
+    "id": 1069478958,
     "title": "Chat",
     "type": "Chat::Transcript",
-    "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478985.json",
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478985"
+    "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958.json",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478958"
   },
   "bucket": {
     "id": 2085958502,
@@ -250,29 +253,34 @@ Get a Campfire line
     "type": "Project"
   },
   "creator": {
-    "id": 1049715915,
-    "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxNT9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--56bb1f99675fd8fe08f93a706a5d2ddaa8412625",
-    "name": "Amy Rivera",
-    "email_address": "amy@honchodesign.com",
+    "id": 1049715940,
+    "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTk0MD9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--8a036dc6e0dee6b7db74851189b981fe69f4172d",
+    "name": "Jared Davis",
     "personable_type": "User",
-    "title": "Central Web Coordinator",
-    "bio": "I never said most of the things I said",
+    "title": "International Tactics Facilitator",
+    "tagline": "Oh, so they have internet on computers now!",
     "location": null,
-    "created_at": "2026-03-23T22:12:26.589Z",
-    "updated_at": "2026-03-23T22:12:26.589Z",
+    "created_at": "2026-05-28T17:22:29.827Z",
+    "updated_at": "2026-05-28T17:22:29.827Z",
+    "email_address": "jared@honchodesign.com",
+    "bio": "Oh, so they have internet on computers now!",
     "admin": false,
     "owner": false,
     "client": false,
-    "employee": false,
+    "employee": true,
     "time_zone": "America/Chicago",
-    "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBMtkkT4=--9927c47a4cbee30a7f9aea667882496aba799149/avatar",
+    "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBORkkT4=--2667d9ced3ec021946197cbb6c3083f0f95f3b6a/avatar",
+    "company": {
+      "id": 1033447817,
+      "name": "Honcho Design"
+    },
     "can_ping": true,
     "can_manage_projects": true,
     "can_manage_people": true,
     "can_access_timesheet": true,
     "can_access_hill_charts": true
   },
-  "content": "👏 🎉"
+  "content": "Hey quick heads up: CI is running slow today"
 }
 ```
 <!-- END GET /chats/2/lines/3.json -->
@@ -316,25 +324,25 @@ This endpoint will return `201 Created` with the current JSON representation of 
 <!-- START POST /buckets/1/chats/2/lines.json -->
 ```json
 {
-  "id": 1069479921,
+  "id": 1069480439,
   "status": "active",
   "visible_to_clients": false,
-  "created_at": "2026-03-23T22:24:02.130Z",
-  "updated_at": "2026-03-23T22:24:02.130Z",
+  "created_at": "2026-07-21T01:06:27.525Z",
+  "updated_at": "2026-07-21T01:06:27.525Z",
   "title": "Good morning",
   "inherits_status": true,
   "type": "Chat::Lines::Text",
-  "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478985/lines/1069479921.json",
-  "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478985@1069479921",
-  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTkyMT9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--6ade20edbced6251605aa6d0c71c19fac57013e8.json",
+  "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958/lines/1069480439.json",
+  "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478958@1069480439",
+  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ4MDQzOT9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--f588fd67e33dc0c260197317a9e06a456b3c4d26.json",
   "boosts_count": 0,
-  "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958502/recordings/1069479921/boosts.json",
+  "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958502/recordings/1069480439/boosts.json",
   "parent": {
-    "id": 1069478985,
+    "id": 1069478958,
     "title": "Chat",
     "type": "Chat::Transcript",
-    "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478985.json",
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478985"
+    "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958.json",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478958"
   },
   "bucket": {
     "id": 2085958502,
@@ -345,13 +353,14 @@ This endpoint will return `201 Created` with the current JSON representation of 
     "id": 1049715913,
     "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
     "name": "Victor Cooper",
-    "email_address": "victor@honchodesign.com",
     "personable_type": "User",
     "title": "Chief Strategist",
-    "bio": "Don’t let your dreams be dreams",
+    "tagline": "Don't let your dreams be dreams",
     "location": "Chicago, IL",
-    "created_at": "2026-03-23T22:12:24.947Z",
-    "updated_at": "2026-03-23T22:12:26.266Z",
+    "created_at": "2026-05-28T17:22:22.069Z",
+    "updated_at": "2026-07-21T01:06:02.483Z",
+    "email_address": "victor@honchodesign.com",
+    "bio": "Don't let your dreams be dreams",
     "admin": true,
     "owner": true,
     "client": false,
@@ -377,25 +386,25 @@ This endpoint will return `201 Created` with the current JSON representation of 
 <!-- START POST /buckets/1/chats/2/lines.json (rich text) -->
 ```json
 {
-  "id": 1069479922,
+  "id": 1069480440,
   "status": "active",
   "visible_to_clients": false,
-  "created_at": "2026-03-23T22:24:02.742Z",
-  "updated_at": "2026-03-23T22:24:02.742Z",
+  "created_at": "2026-07-21T01:06:28.175Z",
+  "updated_at": "2026-07-21T01:06:28.175Z",
   "title": "Hello from the API",
   "inherits_status": true,
   "type": "Chat::Lines::RichText",
-  "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478985/lines/1069479922.json",
-  "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478985@1069479922",
-  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTkyMj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--2f79012f8bcea232dbe72d1e81c267a5600198da.json",
+  "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958/lines/1069480440.json",
+  "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478958@1069480440",
+  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ4MDQ0MD9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--b8623294d1d1f9b7f24d9d6d6639f2725b4c7200.json",
   "boosts_count": 0,
-  "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958502/recordings/1069479922/boosts.json",
+  "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958502/recordings/1069480440/boosts.json",
   "parent": {
-    "id": 1069478985,
+    "id": 1069478958,
     "title": "Chat",
     "type": "Chat::Transcript",
-    "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478985.json",
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478985"
+    "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958.json",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478958"
   },
   "bucket": {
     "id": 2085958502,
@@ -406,13 +415,14 @@ This endpoint will return `201 Created` with the current JSON representation of 
     "id": 1049715913,
     "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
     "name": "Victor Cooper",
-    "email_address": "victor@honchodesign.com",
     "personable_type": "User",
     "title": "Chief Strategist",
-    "bio": "Don’t let your dreams be dreams",
+    "tagline": "Don't let your dreams be dreams",
     "location": "Chicago, IL",
-    "created_at": "2026-03-23T22:12:24.947Z",
-    "updated_at": "2026-03-23T22:12:26.266Z",
+    "created_at": "2026-05-28T17:22:22.069Z",
+    "updated_at": "2026-07-20T20:06:02.483-05:00",
+    "email_address": "victor@honchodesign.com",
+    "bio": "Don't let your dreams be dreams",
     "admin": true,
     "owner": true,
     "client": false,
@@ -452,25 +462,25 @@ Get Campfire uploads
 ```json
 [
   {
-    "id": 1069479923,
+    "id": 1069480441,
     "status": "active",
     "visible_to_clients": false,
-    "created_at": "2026-03-23T22:24:03.474Z",
-    "updated_at": "2026-03-23T22:24:03.508Z",
+    "created_at": "2026-07-21T01:06:29.159Z",
+    "updated_at": "2026-07-21T01:06:29.228Z",
     "title": "company-logo.png",
     "inherits_status": true,
     "type": "Chat::Lines::Upload",
-    "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478985/lines/1069479923.json",
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478985@1069479923",
-    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTkyMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--26d3e497fe5ffd348020059b27de003e83af600b.json",
+    "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958/lines/1069480441.json",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478958@1069480441",
+    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ4MDQ0MT9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--d5c8bfc9c08196e1475b641e6444f2cb95d00ef3.json",
     "boosts_count": 0,
-    "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958502/recordings/1069479923/boosts.json",
+    "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958502/recordings/1069480441/boosts.json",
     "parent": {
-      "id": 1069478985,
+      "id": 1069478958,
       "title": "Chat",
       "type": "Chat::Transcript",
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478985.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478985"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478958"
     },
     "bucket": {
       "id": 2085958502,
@@ -481,13 +491,14 @@ Get Campfire uploads
       "id": 1049715913,
       "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
       "name": "Victor Cooper",
-      "email_address": "victor@honchodesign.com",
       "personable_type": "User",
       "title": "Chief Strategist",
-      "bio": "Don’t let your dreams be dreams",
+      "tagline": "Don't let your dreams be dreams",
       "location": "Chicago, IL",
-      "created_at": "2026-03-23T22:12:24.947Z",
-      "updated_at": "2026-03-23T22:12:26.266Z",
+      "created_at": "2026-05-28T17:22:22.069Z",
+      "updated_at": "2026-07-20T20:06:02.483-05:00",
+      "email_address": "victor@honchodesign.com",
+      "bio": "Don't let your dreams be dreams",
       "admin": true,
       "owner": true,
       "client": false,
@@ -507,11 +518,11 @@ Get Campfire uploads
     "attachments": [
       {
         "title": "company-logo.png",
-        "url": "https://3.basecampapi.com/195539477/blobs/79bd8420c4583af1392fa6e11775cabbf0dfcc82/previews/full",
+        "url": "https://3.basecampapi.com/195539477/blobs/b092e1a5f8192edc092f7acc644142725ce5e65c/previews/full",
         "filename": "company-logo.png",
         "content_type": "image/png",
         "byte_size": 1281,
-        "download_url": "https://storage.3.basecamp.com/195539477/blobs/79bd8420c4583af1392fa6e11775cabbf0dfcc82/download/company-logo.png"
+        "download_url": "https://storage.3.basecamp.com/195539477/blobs/b092e1a5f8192edc092f7acc644142725ce5e65c/download/company-logo.png"
       }
     ]
   }
@@ -541,25 +552,25 @@ This endpoint will return `201 Created` with the current JSON representation of 
 <!-- START POST /chats/2/uploads.json -->
 ```json
 {
-  "id": 1069479923,
+  "id": 1069480441,
   "status": "active",
   "visible_to_clients": false,
-  "created_at": "2026-03-23T22:24:03.474Z",
-  "updated_at": "2026-03-23T22:24:03.508Z",
+  "created_at": "2026-07-21T01:06:29.159Z",
+  "updated_at": "2026-07-21T01:06:29.228Z",
   "title": "company-logo.png",
   "inherits_status": true,
   "type": "Chat::Lines::Upload",
-  "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478985/lines/1069479923.json",
-  "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478985@1069479923",
-  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTkyMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--26d3e497fe5ffd348020059b27de003e83af600b.json",
+  "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958/lines/1069480441.json",
+  "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478958@1069480441",
+  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ4MDQ0MT9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--d5c8bfc9c08196e1475b641e6444f2cb95d00ef3.json",
   "boosts_count": 0,
-  "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958502/recordings/1069479923/boosts.json",
+  "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958502/recordings/1069480441/boosts.json",
   "parent": {
-    "id": 1069478985,
+    "id": 1069478958,
     "title": "Chat",
     "type": "Chat::Transcript",
-    "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478985.json",
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478985"
+    "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958.json",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478958"
   },
   "bucket": {
     "id": 2085958502,
@@ -570,13 +581,14 @@ This endpoint will return `201 Created` with the current JSON representation of 
     "id": 1049715913,
     "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
     "name": "Victor Cooper",
-    "email_address": "victor@honchodesign.com",
     "personable_type": "User",
     "title": "Chief Strategist",
-    "bio": "Don’t let your dreams be dreams",
+    "tagline": "Don't let your dreams be dreams",
     "location": "Chicago, IL",
-    "created_at": "2026-03-23T22:12:24.947Z",
-    "updated_at": "2026-03-23T22:12:26.266Z",
+    "created_at": "2026-05-28T17:22:22.069Z",
+    "updated_at": "2026-07-20T20:06:02.483-05:00",
+    "email_address": "victor@honchodesign.com",
+    "bio": "Don't let your dreams be dreams",
     "admin": true,
     "owner": true,
     "client": false,
@@ -596,11 +608,11 @@ This endpoint will return `201 Created` with the current JSON representation of 
   "attachments": [
     {
       "title": "company-logo.png",
-      "url": "https://3.basecampapi.com/195539477/blobs/79bd8420c4583af1392fa6e11775cabbf0dfcc82/previews/full",
+      "url": "https://3.basecampapi.com/195539477/blobs/b092e1a5f8192edc092f7acc644142725ce5e65c/previews/full",
       "filename": "company-logo.png",
       "content_type": "image/png",
       "byte_size": 1281,
-      "download_url": "https://storage.3.basecamp.com/195539477/blobs/79bd8420c4583af1392fa6e11775cabbf0dfcc82/download/company-logo.png"
+      "download_url": "https://storage.3.basecamp.com/195539477/blobs/b092e1a5f8192edc092f7acc644142725ce5e65c/download/company-logo.png"
     }
   ]
 }

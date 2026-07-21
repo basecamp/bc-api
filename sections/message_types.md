@@ -19,18 +19,18 @@ Get message types
 ```json
 [
   {
-    "id": 823758568,
+    "id": 823758563,
     "name": "Announcement",
     "icon": "📢",
-    "created_at": "2026-02-12T06:09:34.617Z",
-    "updated_at": "2026-02-12T06:09:34.617Z"
+    "created_at": "2026-05-28T17:23:17.319Z",
+    "updated_at": "2026-05-28T17:23:17.319Z"
   },
   {
-    "id": 823758569,
+    "id": 823758564,
     "name": "FYI",
     "icon": "✨",
-    "created_at": "2026-02-12T06:09:34.619Z",
-    "updated_at": "2026-02-12T06:09:34.619Z"
+    "created_at": "2026-05-28T17:23:17.322Z",
+    "updated_at": "2026-05-28T17:23:17.322Z"
   }
 ]
 ```
@@ -51,11 +51,11 @@ Get a message type
 <!-- START GET /buckets/1/categories/2.json -->
 ```json
 {
-  "id": 823758568,
+  "id": 823758563,
   "name": "Announcement",
   "icon": "📢",
-  "created_at": "2026-02-12T06:09:34.617Z",
-  "updated_at": "2026-02-12T06:09:34.617Z"
+  "created_at": "2026-05-28T17:23:17.319Z",
+  "updated_at": "2026-05-28T17:23:17.319Z"
 }
 ```
 <!-- END GET /buckets/1/categories/2.json -->

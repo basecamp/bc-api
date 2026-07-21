@@ -19,17 +19,17 @@ To get the inbox ID for a project, see the [Get a project][1] endpoint's `dock` 
 <!-- START GET /inboxes/2.json -->
 ```json
 {
-  "id": 1069478988,
+  "id": 1069478966,
   "status": "active",
   "visible_to_clients": false,
-  "created_at": "2026-02-12T06:09:02.464Z",
-  "updated_at": "2026-02-12T06:09:09.085Z",
+  "created_at": "2026-05-28T17:22:34.295Z",
+  "updated_at": "2026-05-28T17:22:56.262Z",
   "title": "Email Forwards",
   "inherits_status": true,
   "type": "Inbox",
-  "url": "https://3.basecampapi.com/195539477/buckets/2085958502/inboxes/1069478988.json",
-  "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/inboxes/1069478988",
-  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3ODk4OD9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--c30a3b3a7389e33d17a5e10f6c82070ad9efa4e8.json",
+  "url": "https://3.basecampapi.com/195539477/buckets/2085958502/inboxes/1069478966.json",
+  "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/inboxes/1069478966",
+  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3ODk2Nj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--5c22a86af1a210cb58ac7b1ab5083132f97dd415.json",
   "position": 6,
   "bucket": {
     "id": 2085958502,
@@ -40,13 +40,14 @@ To get the inbox ID for a project, see the [Get a project][1] endpoint's `dock` 
     "id": 1049715913,
     "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
     "name": "Victor Cooper",
-    "email_address": "victor@honchodesign.com",
     "personable_type": "User",
     "title": "Chief Strategist",
-    "bio": "Don’t let your dreams be dreams",
+    "tagline": "Don't let your dreams be dreams",
     "location": "Chicago, IL",
-    "created_at": "2026-02-12T06:08:49.342Z",
-    "updated_at": "2026-02-12T06:08:50.871Z",
+    "created_at": "2026-05-28T17:22:22.069Z",
+    "updated_at": "2026-07-21T01:06:02.483Z",
+    "email_address": "victor@honchodesign.com",
+    "bio": "Don't let your dreams be dreams",
     "admin": true,
     "owner": true,
     "client": false,
@@ -64,7 +65,7 @@ To get the inbox ID for a project, see the [Get a project][1] endpoint's `dock` 
     "can_access_hill_charts": true
   },
   "forwards_count": 2,
-  "forwards_url": "https://3.basecampapi.com/195539477/buckets/2085958502/inboxes/1069478988/forwards.json"
+  "forwards_url": "https://3.basecampapi.com/195539477/buckets/2085958502/inboxes/1069478966/forwards.json"
 }
 ```
 <!-- END GET /inboxes/2.json -->

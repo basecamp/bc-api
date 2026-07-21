@@ -1,7 +1,7 @@
 My notifications
 =================
 
-The notifications endpoint returns the current user's notification inbox — the same data that powers the sidebar notifications in Basecamp. Notifications are grouped into three categories: unread items, recently read items, and memorized items.
+The notifications endpoint returns the current user's notification inbox — the same data that powers the sidebar notifications in Basecamp. Notifications are grouped into unread items, recently read items, bubble-ups, and scheduled bubble-ups.
 
 Each notification represents activity on a recording (message, to-do, comment, etc.) that the current user has been notified about. Notifications track unread state, unread counts, and timestamps for when items were read or received.
 
@@ -19,6 +19,8 @@ Get notifications
 
 Reads are a [paginated list][pagination] with 50 items per page. Unreads are not paginated but are capped at 100 items. Bubble-ups are not paginated here but are capped according to `limit_bubble_ups`. The response includes `bubble_ups_count` and `scheduled_bubble_ups_count` for notification UI counts. Use the [bubble-ups endpoint](#get-bubble-ups) to paginate through all current and scheduled bubble-ups.
 
+`bubble_ups` and `scheduled_bubble_ups` are available since Basecamp 5 and replace the Basecamp 4 `memories` list, which remains in the payload as an always-empty placeholder. Note that unlike the unbounded `memories` list, `bubble_ups` returns at most the 50 most recently read items, and items scheduled to bubble up later appear under `scheduled_bubble_ups` rather than here.
+
 _Optional parameters_:
 
 * `page` - page number for paginating through read items. Defaults to `1`.
@@ -29,7 +31,7 @@ Each notification in the response includes:
 * `id` - the notification ID.
 * `created_at` - when the notification was first created.
 * `updated_at` - when the notification was last updated.
-* `section` - the category: `inbox`, `chats`, `pings`, `remembered`, `mentions`, or `bubbles`.
+* `section` - the category: `inbox`, `chats`, `pings`, `bubbles`, or `mentions`.
 * `unread_count` - the number of unread updates on this item.
 * `unread_at` - timestamp when the item was last marked unread, or `null` if read.
 * `read_at` - timestamp when the item was last read, or `null` if unread.
@@ -67,13 +69,13 @@ Pings additionally include:
   "scheduled_bubble_ups_count": 1,
   "bubble_ups": [
     {
-      "id": 20,
-      "created_at": "2026-06-10T13:04:06.779Z",
-      "updated_at": "2026-06-10T13:04:06.785Z",
+      "id": 2,
+      "created_at": "2026-07-21T00:01:43.009Z",
+      "updated_at": "2026-07-21T00:01:43.031Z",
       "section": "bubbles",
       "unread_count": 0,
       "unread_at": null,
-      "read_at": "2026-06-10T13:04:06.785Z",
+      "read_at": "2026-07-21T00:01:43.031Z",
       "readable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTg0Mj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--1708f8c9adb5dd70ebcc6837a0c054bacaf792fe",
       "readable_identifier": "Z2lkOi8vYmMzL1JlY29yZGluZy8xMDY5NDc5ODQy",
       "title": "We won Leto!",
@@ -84,13 +86,13 @@ Pings additionally include:
         "id": 1049715913,
         "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
         "name": "Victor Cooper",
-        "email_address": "victor@honchodesign.com",
         "personable_type": "User",
         "title": "Chief Strategist",
         "tagline": "Don't let your dreams be dreams",
         "location": "Chicago, IL",
-        "created_at": "2026-06-05T13:28:13.806Z",
-        "updated_at": "2026-06-10T13:03:50.424Z",
+        "created_at": "2026-05-28T17:22:22.069Z",
+        "updated_at": "2026-07-21T01:06:02.483Z",
+        "email_address": "victor@honchodesign.com",
         "bio": "Don't let your dreams be dreams",
         "admin": true,
         "owner": true,
@@ -109,26 +111,26 @@ Pings additionally include:
         "can_access_hill_charts": true
       },
       "content_excerpt": "Hey guys,\n\nWe won the Leto account! This is huge for us, it really marks a turning point for the company.\n\nAs you know we've been pursuing bigger clients in the consumer space, but we've done so carefully. We've never been about getting the biggest clients - those are easy to get. We've been tryi...",
-      "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479842/subscription.json",
+      "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479842/subscription.json",
       "attachments_sample": [],
       "previewable_attachments": [],
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/messages/1069479842",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/messages/1069479842",
       "unread_url": "https://3.basecampapi.com/195539477/my/unreads/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTg0Mj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--1708f8c9adb5dd70ebcc6837a0c054bacaf792fe.json",
       "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTg0Mj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--1708f8c9adb5dd70ebcc6837a0c054bacaf792fe.json",
-      "memory_url": "https://3.basecampapi.com/195539477/my/readings/20/memory.json",
-      "bubble_up_url": "https://3.basecampapi.com/195539477/my/readings/20/bubble_up.json",
-      "subscribed": true
+      "memory_url": "https://3.basecampapi.com/195539477/my/readings/2/memory.json",
+      "bubble_up_url": "https://3.basecampapi.com/195539477/my/readings/2/bubble_up.json",
+      "subscribed": false
     }
   ],
   "scheduled_bubble_ups": [
     {
-      "id": 23,
-      "created_at": "2026-06-10T13:07:28.573Z",
-      "updated_at": "2026-06-10T13:07:28.580Z",
+      "id": 3,
+      "created_at": "2026-07-21T00:01:43.081Z",
+      "updated_at": "2026-07-21T00:01:43.125Z",
       "section": "bubbles",
       "unread_count": 0,
       "unread_at": null,
-      "read_at": "2026-06-10T13:07:28.580Z",
+      "read_at": "2026-07-21T00:01:43.125Z",
       "readable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTg2Mj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--929b3637d6257a5132a133447583416ac5fa7db4",
       "readable_identifier": "Z2lkOi8vYmMzL1JlY29yZGluZy8xMDY5NDc5ODYy",
       "title": "Kickoff: The Leto Microsite!",
@@ -139,13 +141,13 @@ Pings additionally include:
         "id": 1049715938,
         "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkzOD9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--4ccc567a0a3b10e354bca909b704637b601f0b16",
         "name": "Annie Bryan",
-        "email_address": "annie@honchodesign.com",
         "personable_type": "User",
         "title": "Central Markets Manager",
         "tagline": "To open a store is easy, to keep it open is an art",
         "location": null,
-        "created_at": "2026-06-05T13:28:17.050Z",
-        "updated_at": "2026-06-05T13:28:17.050Z",
+        "created_at": "2026-05-28T17:22:29.167Z",
+        "updated_at": "2026-05-28T17:22:29.167Z",
+        "email_address": "annie@honchodesign.com",
         "bio": "To open a store is easy, to keep it open is an art",
         "admin": false,
         "owner": false,
@@ -164,15 +166,15 @@ Pings additionally include:
         "can_access_hill_charts": true
       },
       "content_excerpt": "Hey guys,\n\nWelcome to the project, excited to get going! I'll be managing this, the first project, with Jay as the lead on the account overall.\n\nThere are a lot of components to the account overall, and this is just the first of many. This microsite will serve as a teaser to Leto's newest product...",
-      "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479862/subscription.json",
+      "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479862/subscription.json",
       "attachments_sample": [],
       "previewable_attachments": [],
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/messages/1069479862",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/messages/1069479862",
       "unread_url": "https://3.basecampapi.com/195539477/my/unreads/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTg2Mj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--929b3637d6257a5132a133447583416ac5fa7db4.json",
       "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTg2Mj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--929b3637d6257a5132a133447583416ac5fa7db4.json",
-      "memory_url": "https://3.basecampapi.com/195539477/my/readings/23/memory.json",
-      "bubble_up_url": "https://3.basecampapi.com/195539477/my/readings/23/bubble_up.json",
-      "bubble_up_at": "2026-06-15T13:00:00.000Z",
+      "memory_url": "https://3.basecampapi.com/195539477/my/readings/3/memory.json",
+      "bubble_up_url": "https://3.basecampapi.com/195539477/my/readings/3/bubble_up.json",
+      "bubble_up_at": "2026-07-27T13:00:00.000Z",
       "subscribed": false
     }
   ]
@@ -207,13 +209,13 @@ Each item uses the same notification object shape as `GET /my/readings.json`.
 ```json
 [
   {
-    "id": 20,
-    "created_at": "2026-06-10T13:04:06.779Z",
-    "updated_at": "2026-06-10T13:04:06.785Z",
+    "id": 2,
+    "created_at": "2026-07-21T00:01:43.009Z",
+    "updated_at": "2026-07-21T00:01:43.031Z",
     "section": "bubbles",
     "unread_count": 0,
     "unread_at": null,
-    "read_at": "2026-06-10T13:04:06.785Z",
+    "read_at": "2026-07-21T00:01:43.031Z",
     "readable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTg0Mj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--1708f8c9adb5dd70ebcc6837a0c054bacaf792fe",
     "readable_identifier": "Z2lkOi8vYmMzL1JlY29yZGluZy8xMDY5NDc5ODQy",
     "title": "We won Leto!",
@@ -224,13 +226,13 @@ Each item uses the same notification object shape as `GET /my/readings.json`.
       "id": 1049715913,
       "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
       "name": "Victor Cooper",
-      "email_address": "victor@honchodesign.com",
       "personable_type": "User",
       "title": "Chief Strategist",
       "tagline": "Don't let your dreams be dreams",
       "location": "Chicago, IL",
-      "created_at": "2026-06-05T13:28:13.806Z",
-      "updated_at": "2026-06-10T13:03:50.424Z",
+      "created_at": "2026-05-28T17:22:22.069Z",
+      "updated_at": "2026-07-21T01:06:02.483Z",
+      "email_address": "victor@honchodesign.com",
       "bio": "Don't let your dreams be dreams",
       "admin": true,
       "owner": true,
@@ -249,24 +251,24 @@ Each item uses the same notification object shape as `GET /my/readings.json`.
       "can_access_hill_charts": true
     },
     "content_excerpt": "Hey guys,\n\nWe won the Leto account! This is huge for us, it really marks a turning point for the company.\n\nAs you know we've been pursuing bigger clients in the consumer space, but we've done so carefully. We've never been about getting the biggest clients - those are easy to get. We've been tryi...",
-    "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479842/subscription.json",
+    "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479842/subscription.json",
     "attachments_sample": [],
     "previewable_attachments": [],
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/messages/1069479842",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/messages/1069479842",
     "unread_url": "https://3.basecampapi.com/195539477/my/unreads/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTg0Mj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--1708f8c9adb5dd70ebcc6837a0c054bacaf792fe.json",
     "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTg0Mj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--1708f8c9adb5dd70ebcc6837a0c054bacaf792fe.json",
-    "memory_url": "https://3.basecampapi.com/195539477/my/readings/20/memory.json",
-    "bubble_up_url": "https://3.basecampapi.com/195539477/my/readings/20/bubble_up.json",
-    "subscribed": true
+    "memory_url": "https://3.basecampapi.com/195539477/my/readings/2/memory.json",
+    "bubble_up_url": "https://3.basecampapi.com/195539477/my/readings/2/bubble_up.json",
+    "subscribed": false
   },
   {
-    "id": 23,
-    "created_at": "2026-06-10T13:07:28.573Z",
-    "updated_at": "2026-06-10T13:07:28.580Z",
+    "id": 3,
+    "created_at": "2026-07-21T00:01:43.081Z",
+    "updated_at": "2026-07-21T00:01:43.125Z",
     "section": "bubbles",
     "unread_count": 0,
     "unread_at": null,
-    "read_at": "2026-06-10T13:07:28.580Z",
+    "read_at": "2026-07-21T00:01:43.125Z",
     "readable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTg2Mj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--929b3637d6257a5132a133447583416ac5fa7db4",
     "readable_identifier": "Z2lkOi8vYmMzL1JlY29yZGluZy8xMDY5NDc5ODYy",
     "title": "Kickoff: The Leto Microsite!",
@@ -277,13 +279,13 @@ Each item uses the same notification object shape as `GET /my/readings.json`.
       "id": 1049715938,
       "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkzOD9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--4ccc567a0a3b10e354bca909b704637b601f0b16",
       "name": "Annie Bryan",
-      "email_address": "annie@honchodesign.com",
       "personable_type": "User",
       "title": "Central Markets Manager",
       "tagline": "To open a store is easy, to keep it open is an art",
       "location": null,
-      "created_at": "2026-06-05T13:28:17.050Z",
-      "updated_at": "2026-06-05T13:28:17.050Z",
+      "created_at": "2026-05-28T17:22:29.167Z",
+      "updated_at": "2026-05-28T17:22:29.167Z",
+      "email_address": "annie@honchodesign.com",
       "bio": "To open a store is easy, to keep it open is an art",
       "admin": false,
       "owner": false,
@@ -302,15 +304,15 @@ Each item uses the same notification object shape as `GET /my/readings.json`.
       "can_access_hill_charts": true
     },
     "content_excerpt": "Hey guys,\n\nWelcome to the project, excited to get going! I'll be managing this, the first project, with Jay as the lead on the account overall.\n\nThere are a lot of components to the account overall, and this is just the first of many. This microsite will serve as a teaser to Leto's newest product...",
-    "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479862/subscription.json",
+    "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479862/subscription.json",
     "attachments_sample": [],
     "previewable_attachments": [],
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/messages/1069479862",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/messages/1069479862",
     "unread_url": "https://3.basecampapi.com/195539477/my/unreads/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTg2Mj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--929b3637d6257a5132a133447583416ac5fa7db4.json",
     "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTg2Mj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--929b3637d6257a5132a133447583416ac5fa7db4.json",
-    "memory_url": "https://3.basecampapi.com/195539477/my/readings/23/memory.json",
-    "bubble_up_url": "https://3.basecampapi.com/195539477/my/readings/23/bubble_up.json",
-    "bubble_up_at": "2026-06-15T13:00:00.000Z",
+    "memory_url": "https://3.basecampapi.com/195539477/my/readings/3/memory.json",
+    "bubble_up_url": "https://3.basecampapi.com/195539477/my/readings/3/bubble_up.json",
+    "bubble_up_at": "2026-07-27T13:00:00.000Z",
     "subscribed": false
   }
 ]

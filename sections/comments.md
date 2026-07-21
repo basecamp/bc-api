@@ -21,28 +21,28 @@ Get comments
 ```json
 [
   {
-    "id": 1069479407,
+    "id": 1069479843,
     "status": "active",
     "visible_to_clients": false,
-    "created_at": "2025-12-30T19:39:00.000Z",
-    "updated_at": "2025-12-30T19:39:00.000Z",
+    "created_at": "2026-04-14T21:24:00.000Z",
+    "updated_at": "2026-04-14T21:24:00.000Z",
     "title": "Re: We won Leto!",
     "inherits_status": true,
     "type": "Comment",
-    "url": "https://3.basecampapi.com/195539477/buckets/2085958504/comments/1069479407.json",
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/messages/1069479406#__recording_1069479407",
-    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTQwNz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--2d87c12332eb478cb125670282e0540a56500c87.json",
+    "url": "https://3.basecampapi.com/195539477/buckets/2085958505/comments/1069479843.json",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/messages/1069479842#__recording_1069479843",
+    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTg0Mz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--9f3559acc7461447eef3e63c725cbaf42f909e88.json",
     "boosts_count": 0,
-    "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479407/boosts.json",
+    "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479843/boosts.json",
     "parent": {
-      "id": 1069479406,
+      "id": 1069479842,
       "title": "We won Leto!",
       "type": "Message",
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/messages/1069479406.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/messages/1069479406"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/messages/1069479842.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/messages/1069479842"
     },
     "bucket": {
-      "id": 2085958504,
+      "id": 2085958505,
       "name": "The Leto Laptop",
       "type": "Project"
     },
@@ -50,13 +50,14 @@ Get comments
       "id": 1049715916,
       "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxNj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--6414c77c0a206bc7d45987b8335318b768e8651f",
       "name": "Andrew Wong",
-      "email_address": "andrew@honchodesign.com",
       "personable_type": "User",
       "title": "Senior Branding Strategist",
-      "bio": null,
+      "tagline": null,
       "location": null,
-      "created_at": "2026-02-12T06:08:51.481Z",
-      "updated_at": "2026-02-12T06:08:51.481Z",
+      "created_at": "2026-05-28T17:22:23.572Z",
+      "updated_at": "2026-05-28T17:22:23.572Z",
+      "email_address": "andrew@honchodesign.com",
+      "bio": null,
       "admin": false,
       "owner": false,
       "client": false,
@@ -69,7 +70,8 @@ Get comments
       "can_access_timesheet": true,
       "can_access_hill_charts": true
     },
-    "content": "Yeah! Great job everyone! Super excited to get going!"
+    "content": "Yeah! Great job everyone! Super excited to get going!",
+    "content_attachments": []
   }
 ]
 ```
@@ -90,28 +92,28 @@ Get a comment
 <!-- START GET /comments/2.json -->
 ```json
 {
-  "id": 1069479416,
+  "id": 1069479852,
   "status": "active",
   "visible_to_clients": false,
-  "created_at": "2025-12-31T01:20:00.000Z",
-  "updated_at": "2025-12-31T01:20:00.000Z",
+  "created_at": "2026-04-15T01:18:00.000Z",
+  "updated_at": "2026-04-15T01:18:00.000Z",
   "title": "Re: We won Leto!",
   "inherits_status": true,
   "type": "Comment",
-  "url": "https://3.basecampapi.com/195539477/buckets/2085958504/comments/1069479416.json",
-  "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/messages/1069479406#__recording_1069479416",
-  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTQxNj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--cdd017a73b856e57fbc03bcaf209b104e458a3c9.json",
+  "url": "https://3.basecampapi.com/195539477/buckets/2085958505/comments/1069479852.json",
+  "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/messages/1069479842#__recording_1069479852",
+  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTg1Mj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--94ecf8956b99a44c68d14588fb31b3b3439d70a4.json",
   "boosts_count": 0,
-  "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479416/boosts.json",
+  "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479852/boosts.json",
   "parent": {
-    "id": 1069479406,
+    "id": 1069479842,
     "title": "We won Leto!",
     "type": "Message",
-    "url": "https://3.basecampapi.com/195539477/buckets/2085958504/messages/1069479406.json",
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/messages/1069479406"
+    "url": "https://3.basecampapi.com/195539477/buckets/2085958505/messages/1069479842.json",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/messages/1069479842"
   },
   "bucket": {
-    "id": 2085958504,
+    "id": 2085958505,
     "name": "The Leto Laptop",
     "type": "Project"
   },
@@ -119,13 +121,14 @@ Get a comment
     "id": 1049715938,
     "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkzOD9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--4ccc567a0a3b10e354bca909b704637b601f0b16",
     "name": "Annie Bryan",
-    "email_address": "annie@honchodesign.com",
     "personable_type": "User",
     "title": "Central Markets Manager",
-    "bio": "To open a store is easy, to keep it open is an art",
+    "tagline": "To open a store is easy, to keep it open is an art",
     "location": null,
-    "created_at": "2026-02-12T06:08:57.340Z",
-    "updated_at": "2026-02-12T06:08:57.340Z",
+    "created_at": "2026-05-28T17:22:29.167Z",
+    "updated_at": "2026-05-28T17:22:29.167Z",
+    "email_address": "annie@honchodesign.com",
+    "bio": "To open a store is easy, to keep it open is an art",
     "admin": false,
     "owner": false,
     "client": false,
@@ -142,7 +145,8 @@ Get a comment
     "can_access_timesheet": true,
     "can_access_hill_charts": true
   },
-  "content": "I just want to echo what just about everyone already said. This is a big one for us, and I can't wait to get going. I'll be spinning up the project shortly!"
+  "content": "I just want to echo what just about everyone already said. This is a big one for us, and I can't wait to get going. I'll be spinning up the project shortly!",
+  "content_attachments": []
 }
 ```
 <!-- END GET /comments/2.json -->

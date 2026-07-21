@@ -20,24 +20,24 @@ Get vaults
 ```json
 [
   {
-    "id": 1069479146,
+    "id": 1069479520,
     "status": "active",
     "visible_to_clients": false,
-    "created_at": "2026-01-04T04:22:00.000Z",
-    "updated_at": "2026-02-12T06:09:14.204Z",
+    "created_at": "2026-04-19T05:47:00.000Z",
+    "updated_at": "2026-05-28T17:23:52.985Z",
     "title": "HR Stuff",
     "inherits_status": true,
     "type": "Vault",
-    "url": "https://3.basecampapi.com/195539477/buckets/2085958502/vaults/1069479146.json",
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/vaults/1069479146",
-    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTE0Nj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--941dcb6e999d60ec335f682604c92689a0e87d3d.json",
+    "url": "https://3.basecampapi.com/195539477/buckets/2085958502/vaults/1069479520.json",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/vaults/1069479520",
+    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTUyMD9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--e8c5bbfbf4a3dc5c7efb75b2ff00336c19f36b71.json",
     "position": 1,
     "parent": {
-      "id": 1069478984,
+      "id": 1069478956,
       "title": "Docs & Files",
       "type": "Vault",
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958502/vaults/1069478984.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/vaults/1069478984"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958502/vaults/1069478956.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/vaults/1069478956"
     },
     "bucket": {
       "id": 2085958502,
@@ -48,13 +48,14 @@ Get vaults
       "id": 1049715913,
       "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
       "name": "Victor Cooper",
-      "email_address": "victor@honchodesign.com",
       "personable_type": "User",
       "title": "Chief Strategist",
-      "bio": "Don’t let your dreams be dreams",
+      "tagline": "Don't let your dreams be dreams",
       "location": "Chicago, IL",
-      "created_at": "2026-02-12T06:08:49.342Z",
-      "updated_at": "2026-02-12T06:08:50.871Z",
+      "created_at": "2026-05-28T17:22:22.069Z",
+      "updated_at": "2026-07-21T01:06:02.483Z",
+      "email_address": "victor@honchodesign.com",
+      "bio": "Don't let your dreams be dreams",
       "admin": true,
       "owner": true,
       "client": false,
@@ -72,11 +73,11 @@ Get vaults
       "can_access_hill_charts": true
     },
     "documents_count": 1,
-    "documents_url": "https://3.basecampapi.com/195539477/vaults/1069479146/documents.json",
+    "documents_url": "https://3.basecampapi.com/195539477/vaults/1069479520/documents.json",
     "uploads_count": 0,
-    "uploads_url": "https://3.basecampapi.com/195539477/vaults/1069479146/uploads.json",
+    "uploads_url": "https://3.basecampapi.com/195539477/vaults/1069479520/uploads.json",
     "vaults_count": 0,
-    "vaults_url": "https://3.basecampapi.com/195539477/vaults/1069479146/vaults.json"
+    "vaults_url": "https://3.basecampapi.com/195539477/vaults/1069479520/vaults.json"
   }
 ]
 ```
@@ -96,17 +97,17 @@ Get a vault
 <!-- START GET /vaults/2.json -->
 ```json
 {
-  "id": 1069478984,
+  "id": 1069478956,
   "status": "active",
   "visible_to_clients": false,
-  "created_at": "2026-02-12T06:09:02.382Z",
-  "updated_at": "2026-02-12T06:09:14.205Z",
+  "created_at": "2026-05-28T17:22:34.164Z",
+  "updated_at": "2026-05-28T17:23:52.987Z",
   "title": "Docs & Files",
   "inherits_status": true,
   "type": "Vault",
-  "url": "https://3.basecampapi.com/195539477/buckets/2085958502/vaults/1069478984.json",
-  "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/vaults/1069478984",
-  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3ODk4ND9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--80168f167479a9067841aa2e6ffd2928c2e9ece1.json",
+  "url": "https://3.basecampapi.com/195539477/buckets/2085958502/vaults/1069478956.json",
+  "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/vaults/1069478956",
+  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3ODk1Nj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--14def74c095e51fe2700e07de1e192bee0317a98.json",
   "position": 3,
   "bucket": {
     "id": 2085958502,
@@ -117,13 +118,14 @@ Get a vault
     "id": 1049715913,
     "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
     "name": "Victor Cooper",
-    "email_address": "victor@honchodesign.com",
     "personable_type": "User",
     "title": "Chief Strategist",
-    "bio": "Don’t let your dreams be dreams",
+    "tagline": "Don't let your dreams be dreams",
     "location": "Chicago, IL",
-    "created_at": "2026-02-12T06:08:49.342Z",
-    "updated_at": "2026-02-12T06:08:50.871Z",
+    "created_at": "2026-05-28T17:22:22.069Z",
+    "updated_at": "2026-07-21T01:06:02.483Z",
+    "email_address": "victor@honchodesign.com",
+    "bio": "Don't let your dreams be dreams",
     "admin": true,
     "owner": true,
     "client": false,
@@ -141,11 +143,11 @@ Get a vault
     "can_access_hill_charts": true
   },
   "documents_count": 0,
-  "documents_url": "https://3.basecampapi.com/195539477/vaults/1069478984/documents.json",
+  "documents_url": "https://3.basecampapi.com/195539477/vaults/1069478956/documents.json",
   "uploads_count": 0,
-  "uploads_url": "https://3.basecampapi.com/195539477/vaults/1069478984/uploads.json",
+  "uploads_url": "https://3.basecampapi.com/195539477/vaults/1069478956/uploads.json",
   "vaults_count": 1,
-  "vaults_url": "https://3.basecampapi.com/195539477/vaults/1069478984/vaults.json"
+  "vaults_url": "https://3.basecampapi.com/195539477/vaults/1069478956/vaults.json"
 }
 ```
 <!-- END GET /vaults/2.json -->

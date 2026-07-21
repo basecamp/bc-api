@@ -25,18 +25,19 @@ Get boosts
   {
     "id": 971636438,
     "content": "Yay!",
-    "created_at": "2026-02-12T06:09:35.050Z",
+    "created_at": "2026-05-28T17:23:17.690Z",
     "booster": {
       "id": 1049715916,
       "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxNj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--6414c77c0a206bc7d45987b8335318b768e8651f",
       "name": "Andrew Wong",
-      "email_address": "andrew@honchodesign.com",
       "personable_type": "User",
       "title": "Senior Branding Strategist",
-      "bio": null,
+      "tagline": null,
       "location": null,
-      "created_at": "2026-02-12T06:08:51.481Z",
-      "updated_at": "2026-02-12T06:08:51.481Z",
+      "created_at": "2026-05-28T17:22:23.572Z",
+      "updated_at": "2026-05-28T17:22:23.572Z",
+      "email_address": "andrew@honchodesign.com",
+      "bio": null,
       "admin": false,
       "owner": false,
       "client": false,
@@ -62,7 +63,41 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCO
 ###### Example JSON Response (event boosts)
 <!-- START GET /recordings/2/events/3/boosts.json -->
 ```json
-[]
+[
+  {
+    "id": 971636472,
+    "content": "Way to go! 🚀",
+    "created_at": "2026-07-20T04:30:39.680Z",
+    "booster": {
+      "id": 1049715913,
+      "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
+      "name": "Victor Cooper",
+      "personable_type": "User",
+      "title": "Chief Strategist",
+      "tagline": "Don't let your dreams be dreams",
+      "location": "Chicago, IL",
+      "created_at": "2026-05-28T17:22:22.069Z",
+      "updated_at": "2026-07-21T01:06:02.483Z",
+      "email_address": "victor@honchodesign.com",
+      "bio": "Don't let your dreams be dreams",
+      "admin": true,
+      "owner": true,
+      "client": false,
+      "employee": true,
+      "time_zone": "America/Chicago",
+      "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBMlkkT4=--5fe7b70fbee7a7f0e2e1e19df7579e5d880c753d/avatar",
+      "company": {
+        "id": 1033447817,
+        "name": "Honcho Design"
+      },
+      "can_ping": true,
+      "can_manage_projects": true,
+      "can_manage_people": true,
+      "can_access_timesheet": true,
+      "can_access_hill_charts": true
+    }
+  }
+]
 ```
 <!-- END GET /recordings/2/events/3/boosts.json -->
 
@@ -77,18 +112,19 @@ Get a boost
 {
   "id": 971636442,
   "content": "Congrats!",
-  "created_at": "2026-02-12T06:09:35.160Z",
+  "created_at": "2026-05-28T17:23:17.774Z",
   "booster": {
     "id": 1049715923,
     "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkyMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--cd47d2c8e0331392dba60ca41aec78611b6f2f2e",
     "name": "Jerry Gibson",
-    "email_address": "jerry@honchodesign.com",
     "personable_type": "User",
     "title": "Principal Configuration Planner",
-    "bio": null,
+    "tagline": null,
     "location": null,
-    "created_at": "2026-02-12T06:08:53.796Z",
-    "updated_at": "2026-02-12T06:08:53.796Z",
+    "created_at": "2026-05-28T17:22:25.855Z",
+    "updated_at": "2026-05-28T17:22:25.855Z",
+    "email_address": "jerry@honchodesign.com",
+    "bio": null,
     "admin": false,
     "owner": false,
     "client": false,
@@ -102,11 +138,11 @@ Get a boost
     "can_access_hill_charts": true
   },
   "recording": {
-    "id": 1069479406,
+    "id": 1069479842,
     "title": "We won Leto!",
     "type": "Message",
-    "url": "https://3.basecampapi.com/195539477/buckets/2085958504/messages/1069479406.json",
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/messages/1069479406"
+    "url": "https://3.basecampapi.com/195539477/buckets/2085958505/messages/1069479842.json",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/messages/1069479842"
   }
 }
 ```

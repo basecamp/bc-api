@@ -20,11 +20,11 @@ This endpoint will return `200 OK` with a JSON array of markers.
 ```json
 [
   {
-    "id": 1,
-    "name": "Anniversary",
-    "date": "2021-01-01",
-    "created_at": "2020-12-15T10:30:00.000Z",
-    "updated_at": "2020-12-15T10:30:00.000Z"
+    "id": 6750828,
+    "created_at": "2026-07-21T00:21:46.309Z",
+    "date": "2026-04-06",
+    "name": "Spring kickoff",
+    "updated_at": "2026-07-21T00:21:46.309Z"
   }
 ]
 ```

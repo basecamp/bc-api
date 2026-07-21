@@ -13,7 +13,7 @@ Get search metadata
 
 * `GET /searches/metadata.json` returns valid filter options for search.
 
-Use this endpoint to discover valid values for the `type` and `file_type` parameters before searching. The available types may vary, so always fetch this endpoint rather than hardcoding values.
+Use this endpoint to discover valid values for the `type_names[]` and `file_type` parameters before searching. The available types may vary, so always fetch this endpoint rather than hardcoding values.
 
 ###### Copy as cURL
 
@@ -115,7 +115,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -A 'MyApp (yourname@example.com
 ```
 <!-- END GET /searches/metadata.json -->
 
-Entries with `"key": null` represent the default "search everything" option. Omit the `type` or `file_type` parameter entirely to search without filtering.
+Entries with `"key": null` represent the default "search everything" option. Omit the `type_names[]` or `file_type` parameter entirely to search without filtering.
 
 Search recordings
 -----------------
@@ -126,15 +126,23 @@ Search recordings
 
 _Optional parameters_:
 
-* `type` - Filter by recording type. Use `key` values from the `recording_search_types` array returned by [Get search metadata](#get-search-metadata).
-* `bucket_id` - Filter by [project][2] ID. Note: this differs from the [recordings][4] endpoint which uses `bucket`.
-* `creator_id` - Filter by creator [person][3] ID.
+* `type_names[]` - Array of recording types to include. Use `key` values from the `recording_search_types` array returned by [Get search metadata](#get-search-metadata). Available since Basecamp 5.
+* `bucket_ids[]` - Array of [project][2] IDs to filter by. Note: this differs from the [recordings][4] endpoint which uses `bucket`. Available since Basecamp 5.
+* `creator_ids[]` - Array of creator [person][3] IDs to filter by. Available since Basecamp 5.
 * `file_type` - Filter attachments by type. Use `key` values from the `file_search_types` array returned by [Get search metadata](#get-search-metadata).
 * `exclude_chat` - Set to `1` to exclude chat results.
+* `since` - Time-range filter. One of `last_7_days`, `last_30_days`, `last_90_days`, `last_12_months`, or `forever` (the default — search across all time). Unrecognized values are normalized to `forever`. Available since Basecamp 5.
+* `sort` - Sort order. `best_match` (the default, also used when blank) ranks by relevance with a recency boost; `recency` orders strictly by recency, newest first. Unrecognized values fall back to recency ordering.
 * `page` - Page number for pagination (default: 1).
 * `per_page` - Number of results per page (default: 50).
 
-Results are ordered by relevance with a recency boost.
+_Deprecated parameters_ (kept for backwards compatibility with older clients; prefer the plural array forms above):
+
+* `type` - Single recording type. Prefer `type_names[]`.
+* `bucket_id` - Single [project][2] ID. Prefer `bucket_ids[]`.
+* `creator_id` - Single creator [person][3] ID. Prefer `creator_ids[]`.
+
+By default results are ordered by relevance with a recency boost. Pass `sort=recency` to order strictly by recency, newest first.
 
 ###### Copy as cURL
 
@@ -148,70 +156,67 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -A 'MyApp (yourname@example.com
 ```json
 [
   {
-    "id": 1069479869,
+    "id": 1069479842,
     "status": "active",
     "visible_to_clients": false,
-    "created_at": "2026-02-26T23:44:00.000Z",
-    "updated_at": "2026-02-26T23:44:00.000Z",
-    "title": "The next level",
+    "created_at": "2026-04-14T21:02:00.000Z",
+    "updated_at": "2026-07-21T01:05:34.577Z",
+    "title": "We won Leto!",
     "inherits_status": true,
-    "type": "Todolist",
-    "url": "https://3.basecampapi.com/195539477/buckets/2085958508/todolists/1069479869.json",
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958508/todolists/1069479869",
-    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTg2OT9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--e15973c9b4ad72088d0ace9758d892dd0b8714b8.json",
-    "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958508/recordings/1069479869/subscription.json",
-    "comments_count": 0,
-    "comments_url": "https://3.basecampapi.com/195539477/buckets/2085958508/recordings/1069479869/comments.json",
-    "boosts_count": 0,
-    "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958508/recordings/1069479869/boosts.json",
-    "position": 2,
+    "type": "Message",
+    "url": "https://3.basecampapi.com/195539477/buckets/2085958505/messages/1069479842.json",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/messages/1069479842",
+    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTg0Mj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--1708f8c9adb5dd70ebcc6837a0c054bacaf792fe.json",
+    "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479842/subscription.json",
+    "comments_count": 10,
+    "comments_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479842/comments.json",
+    "boosts_count": 5,
+    "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479842/boosts.json",
     "parent": {
-      "id": 1069479852,
-      "title": "Learn the basics",
-      "type": "Todoset",
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958508/todosets/1069479852.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958508/todosets/1069479852"
+      "id": 1069479828,
+      "title": "Message Board",
+      "type": "Message::Board",
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/message_boards/1069479828.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/message_boards/1069479828"
     },
     "bucket": {
-      "id": 2085958508,
-      "name": "Getting Started",
+      "id": 2085958505,
+      "name": "The Leto Laptop",
       "type": "Project"
     },
     "creator": {
-      "id": 1049715954,
-      "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTk1ND9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e48c27affa15a3d45cdcc14242ca165eedf36473",
-      "name": "Basecamp",
-      "email_address": null,
-      "personable_type": "DummyUser",
-      "title": null,
-      "bio": null,
-      "location": null,
-      "created_at": "2026-02-26T16:46:16.078Z",
-      "updated_at": "2026-02-26T16:46:16.078Z",
-      "admin": false,
-      "owner": false,
+      "id": 1049715913,
+      "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
+      "name": "Victor Cooper",
+      "personable_type": "User",
+      "title": "Chief Strategist",
+      "tagline": "Don't let your dreams be dreams",
+      "location": "Chicago, IL",
+      "created_at": "2026-05-28T17:22:22.069Z",
+      "updated_at": "2026-07-21T00:05:55.167Z",
+      "email_address": "victor@honchodesign.com",
+      "bio": "Don't let your dreams be dreams",
+      "admin": true,
+      "owner": true,
       "client": false,
-      "employee": false,
+      "employee": true,
       "time_zone": "America/Chicago",
-      "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBPJkkT4=--85467e2e70c9f4d94081b731e836ab4929c511d7/avatar",
+      "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBMlkkT4=--5fe7b70fbee7a7f0e2e1e19df7579e5d880c753d/avatar",
+      "company": {
+        "id": 1033447817,
+        "name": "Honcho Design"
+      },
       "can_ping": true,
-      "can_manage_projects": false,
-      "can_manage_people": false,
-      "can_access_timesheet": false,
-      "can_access_hill_charts": false
+      "can_manage_projects": true,
+      "can_manage_people": true,
+      "can_access_timesheet": true,
+      "can_access_hill_charts": true
     },
-    "description": null,
-    "completed": false,
-    "completed_ratio": "0/10",
-    "name": "The next level",
-    "color": null,
-    "groups_url": "https://3.basecampapi.com/195539477/buckets/2085958508/todolists/1069479869/groups.json",
-    "todos_url": "https://3.basecampapi.com/195539477/buckets/2085958508/todolists/1069479869/todos.json",
-    "app_todos_url": "https://3.basecamp.com/195539477/buckets/2085958508/todolists/1069479869/todos",
-    "comments_app_url": "https://3.basecamp.com/195539477/buckets/2085958508/recordings/1069479869/comments",
     "content": null,
-    "plain_text_content": "Ready for more? Become a Basecamp expert!",
-    "plain_text_description": "Ready for more? Become a Basecamp expert!"
+    "content_attachments": [],
+    "subject": "We won Leto!",
+    "description": null,
+    "plain_text_content": "Hey guys, We won the Leto account! This is huge for us, it really marks a turning point for the company. As you know we've been pursuing bigger clients in the consumer space, but we've done so carefully. We've never been about getting the biggest clients - those are easy to get. We've been trying …"
   }
 ]
 ```

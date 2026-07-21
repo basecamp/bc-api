@@ -19,20 +19,20 @@ To get the message board ID for a project, see the [Get a project][1] endpoint's
 <!-- START GET /message_boards/2.json -->
 ```json
 {
-  "id": 1069479392,
+  "id": 1069479828,
   "status": "active",
   "visible_to_clients": false,
-  "created_at": "2026-02-12T00:09:34.613-06:00",
-  "updated_at": "2026-02-26T10:41:51.038-06:00",
+  "created_at": "2026-05-28T17:23:17.306Z",
+  "updated_at": "2026-07-21T01:05:57.487Z",
   "title": "Message Board",
   "inherits_status": true,
   "type": "Message::Board",
-  "url": "https://3.basecampapi.com/195539477/buckets/2085958504/message_boards/1069479392.json",
-  "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/message_boards/1069479392",
-  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTM5Mj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--5b36411ed69f8efd9f978730efb236662fbb4bf0.json",
+  "url": "https://3.basecampapi.com/195539477/buckets/2085958505/message_boards/1069479828.json",
+  "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/message_boards/1069479828",
+  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTgyOD9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--e9ad500b82827907ba0071a983b037a83c60b289.json",
   "position": 1,
   "bucket": {
-    "id": 2085958504,
+    "id": 2085958505,
     "name": "The Leto Laptop",
     "type": "Project"
   },
@@ -40,13 +40,14 @@ To get the message board ID for a project, see the [Get a project][1] endpoint's
     "id": 1049715913,
     "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
     "name": "Victor Cooper",
-    "email_address": "victor@honchodesign.com",
     "personable_type": "User",
     "title": "Chief Strategist",
-    "bio": "Don’t let your dreams be dreams",
+    "tagline": "Don't let your dreams be dreams",
     "location": "Chicago, IL",
-    "created_at": "2026-02-12T00:08:49.342-06:00",
-    "updated_at": "2026-02-12T00:08:50.871-06:00",
+    "created_at": "2026-05-28T17:22:22.069Z",
+    "updated_at": "2026-07-21T00:05:55.167Z",
+    "email_address": "victor@honchodesign.com",
+    "bio": "Don't let your dreams be dreams",
     "admin": true,
     "owner": true,
     "client": false,
@@ -64,8 +65,8 @@ To get the message board ID for a project, see the [Get a project][1] endpoint's
     "can_access_hill_charts": true
   },
   "messages_count": 9,
-  "messages_url": "https://3.basecampapi.com/195539477/buckets/2085958504/message_boards/1069479392/messages.json",
-  "app_messages_url": "https://3.basecamp.com/195539477/buckets/2085958504/message_boards/1069479392/messages"
+  "messages_url": "https://3.basecampapi.com/195539477/buckets/2085958505/message_boards/1069479828/messages.json",
+  "app_messages_url": "https://3.basecamp.com/195539477/buckets/2085958505/message_boards/1069479828/messages"
 }
 ```
 <!-- END GET /message_boards/2.json -->

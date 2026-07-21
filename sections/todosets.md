@@ -19,20 +19,21 @@ To get the to-do set ID for a project, see the [Get a project][1] endpoint's `do
 <!-- START GET /todosets/2.json -->
 ```json
 {
-  "id": 1069479393,
+  "id": 1069479829,
   "status": "active",
   "visible_to_clients": false,
-  "created_at": "2026-02-12T06:09:34.637Z",
-  "updated_at": "2026-02-12T06:14:05.539Z",
+  "created_at": "2026-05-28T17:23:17.344Z",
+  "updated_at": "2026-07-21T01:05:29.885Z",
   "title": "To-dos",
   "inherits_status": true,
   "type": "Todoset",
-  "url": "https://3.basecampapi.com/195539477/buckets/2085958504/todosets/1069479393.json",
-  "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/todosets/1069479393",
-  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTM5Mz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--99dc372e88c87df258903c62952b178106a4152e.json",
+  "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todosets/1069479829.json",
+  "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todosets/1069479829",
+  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTgyOT9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--983f8d107659f0cc1eb08dd65723367af62ad8e1.json",
+  "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479829/subscription.json",
   "position": 2,
   "bucket": {
-    "id": 2085958504,
+    "id": 2085958505,
     "name": "The Leto Laptop",
     "type": "Project"
   },
@@ -40,13 +41,14 @@ To get the to-do set ID for a project, see the [Get a project][1] endpoint's `do
     "id": 1049715913,
     "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
     "name": "Victor Cooper",
-    "email_address": "victor@honchodesign.com",
     "personable_type": "User",
     "title": "Chief Strategist",
-    "bio": "Don’t let your dreams be dreams",
+    "tagline": "Don't let your dreams be dreams",
     "location": "Chicago, IL",
-    "created_at": "2026-02-12T06:08:49.342Z",
-    "updated_at": "2026-02-12T06:08:50.871Z",
+    "created_at": "2026-05-28T17:22:22.069Z",
+    "updated_at": "2026-07-21T00:05:55.167Z",
+    "email_address": "victor@honchodesign.com",
+    "bio": "Don't let your dreams be dreams",
     "admin": true,
     "owner": true,
     "client": false,
@@ -64,103 +66,108 @@ To get the to-do set ID for a project, see the [Get a project][1] endpoint's `do
     "can_access_hill_charts": true
   },
   "completed": false,
-  "completed_ratio": "14/60",
+  "completed_ratio": "16/64",
   "name": "To-dos",
+  "todos_count": 2,
   "todolists_count": 10,
+  "completed_loose_todos_count": 1,
   "todolists": [
     {
-      "id": 1069479573,
+      "id": 1069480012,
       "title": "Strategy ideas",
       "description": null,
       "completed": false,
       "completed_ratio": "2/5",
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/todolists/1069479573.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/todolists/1069479573"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069480012.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todolists/1069480012"
     },
     {
-      "id": 1069479511,
+      "id": 1069479950,
       "title": "Social stuff",
       "description": null,
       "completed": false,
       "completed_ratio": "8/17",
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/todolists/1069479511.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/todolists/1069479511"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069479950.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todolists/1069479950"
     },
     {
-      "id": 1069479496,
+      "id": 1069479935,
       "title": "Chowder",
       "description": null,
       "completed": false,
       "completed_ratio": "0/3",
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/todolists/1069479496.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/todolists/1069479496"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069479935.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todolists/1069479935"
     },
     {
-      "id": 1069479487,
+      "id": 1069479926,
       "title": "Android app",
       "description": null,
       "completed": false,
       "completed_ratio": "1/5",
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/todolists/1069479487.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/todolists/1069479487"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069479926.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todolists/1069479926"
     },
     {
-      "id": 1069479480,
+      "id": 1069479919,
       "title": "iOS app",
       "description": null,
       "completed": false,
       "completed_ratio": "1/6",
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/todolists/1069479480.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/todolists/1069479480"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069479919.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todolists/1069479919"
     },
     {
-      "id": 1069479475,
+      "id": 1069479914,
       "title": "Product page on company site",
       "description": null,
       "completed": false,
       "completed_ratio": "1/4",
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/todolists/1069479475.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/todolists/1069479475"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069479914.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todolists/1069479914"
     },
     {
-      "id": 1069479465,
+      "id": 1069479904,
       "title": "Landing page + Microsite",
       "description": null,
       "completed": false,
       "completed_ratio": "0/5",
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/todolists/1069479465.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/todolists/1069479465"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069479904.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todolists/1069479904"
     },
     {
-      "id": 1069479458,
+      "id": 1069479897,
       "title": "Promo video",
       "description": null,
       "completed": false,
       "completed_ratio": "1/6",
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/todolists/1069479458.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/todolists/1069479458"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069479897.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todolists/1069479897"
     },
     {
-      "id": 1069479436,
+      "id": 1069479875,
       "title": "Product shots",
       "description": null,
       "completed": false,
       "completed_ratio": "0/5",
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/todolists/1069479436.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/todolists/1069479436"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069479875.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todolists/1069479875"
     },
     {
-      "id": 1069479424,
+      "id": 1069479863,
       "title": "Background and research",
       "description": null,
       "completed": false,
-      "completed_ratio": "0/4",
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/todolists/1069479424.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/todolists/1069479424"
+      "completed_ratio": "1/5",
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069479863.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todolists/1069479863"
     }
   ],
-  "todolists_url": "https://3.basecampapi.com/195539477/buckets/2085958504/todosets/1069479393/todolists.json",
-  "app_todoslists_url": "https://3.basecamp.com/195539477/buckets/2085958504/todosets/1069479393/todolists"
+  "todos_url": "https://3.basecampapi.com/195539477/buckets/2085958505/todosets/1069479829/todos.json",
+  "app_todos_url": "https://3.basecamp.com/195539477/buckets/2085958505/todosets/1069479829/todos",
+  "hill_chart_url": "https://3.basecampapi.com/195539477/buckets/2085958505/todosets/1069479829/hill.json",
+  "todolists_url": "https://3.basecampapi.com/195539477/buckets/2085958505/todosets/1069479829/todolists.json",
+  "app_todoslists_url": "https://3.basecamp.com/195539477/buckets/2085958505/todosets/1069479829/todolists"
 }
 ```
 <!-- END GET /todosets/2.json -->
