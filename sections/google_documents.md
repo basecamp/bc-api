@@ -211,7 +211,7 @@ A successful create returns `201 Created` with the new Google document's JSON sh
 
 ```shell
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
-  -d '{"google_document":{"title":"Roadmap","url":"https://docs.google.com/document/d/abcd1234/edit","document_type":"doc"}}' \
+  -d '{"google_document":{"title":"Roadmap","description":"<div>Quarterly roadmap document</div>","url":"https://docs.google.com/document/d/abcd1234/edit","document_type":"doc"}}' \
   https://3.basecampapi.com/$ACCOUNT_ID/buckets/1/vaults/3/google_documents.json
 ```
 
@@ -314,6 +314,6 @@ Returns `200 OK` with the updated Google document's JSON shape:
 
 ```shell
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
-  -d '{"google_document":{"title":"Roadmap (revised)","url":"https://docs.google.com/document/d/abcd1234/edit","document_type":"doc"}}' -X PUT \
+  -d '{"google_document":{"title":"Roadmap (revised)","description":"<div>Quarterly roadmap with revised scope</div>","url":"https://docs.google.com/document/d/abcd1234/edit","document_type":"doc"}}' -X PUT \
   https://3.basecampapi.com/$ACCOUNT_ID/google_documents/2.json
 ```
