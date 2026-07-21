@@ -13,7 +13,8 @@ Get out of office
 
 * `GET /people/2/out_of_office.json` will return the out of office status for the person with the given ID.
 
-When out of office is not enabled, `start_date` and `end_date` will be `null`.
+When out of office is not enabled, `enabled` will be `false` and `start_date`,
+`end_date`, and `back_on_date` are omitted.
 
 ###### Example JSON Response
 <!-- START GET /people/2/out_of_office.json -->
