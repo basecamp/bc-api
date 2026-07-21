@@ -1,6 +1,21 @@
-# Basecamp 4 API Documentation Repo
+# Basecamp API Documentation Repo
 
-Docs-only repo — no code, no build system. `README.md` is the main guide (auth, pagination, domain model, endpoint index). `sections/` has one `.md` per API resource (~47 files).
+Docs-only repo — no code, no build system. `README.md` is the main guide (auth, pagination, domain model, endpoint index). `sections/` has one `.md` per API resource (~60 files).
+
+## Sync target only — do not edit docs here
+
+This repo is a read-only mirror of the authoritative docs in the private
+`basecamp/bc3` repo at `doc/api/`. `README.md`, `CONDUCT.md`, and everything
+under `sections/` is copied verbatim by bc3's `script/api/sync_to_bc3_api` —
+any change made directly here will be overwritten by the next sync and will
+silently diverge from the source in the meantime.
+
+To change doc content: land the change in bc3's `doc/api/`, then run the sync
+script from a bc3 checkout and commit the result here. Review feedback on doc
+content should be redirected to bc3.
+
+Only repo-local files that the sync does not copy (this file, GitHub metadata)
+may be edited directly.
 
 ## Section file format
 
