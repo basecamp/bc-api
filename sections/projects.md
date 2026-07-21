@@ -23,197 +23,292 @@ _Optional parameters_:
 ```json
 [
   {
-    "id": 2085958504,
+    "id": 2085958505,
     "status": "active",
-    "created_at": "2025-12-29T18:52:00.000Z",
-    "updated_at": "2026-02-26T16:42:05.843Z",
+    "created_at": "2026-04-13T20:24:00.000Z",
+    "updated_at": "2026-07-21T01:05:29.829Z",
     "name": "The Leto Laptop",
     "description": "Laptop product launch.",
     "purpose": "topic",
     "clients_enabled": false,
     "timesheet_enabled": true,
     "color": null,
-    "last_needle_color": "green",
-    "last_needle_position": null,
+    "last_needle_color": "yellow",
+    "last_needle_position": 42,
     "previous_needle_position": null,
-    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9CdWNrZXQvMjA4NTk1ODUwND9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--63c6529d88eaffe640cc1ca84888819d8d327108.json",
-    "url": "https://3.basecampapi.com/195539477/projects/2085958504.json",
-    "app_url": "https://3.basecamp.com/195539477/projects/2085958504",
+    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9CdWNrZXQvMjA4NTk1ODUwNT9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--427e605de283e100f75da40006030176fd863024.json",
+    "star_url": "https://3.basecampapi.com/195539477/buckets/2085958505/stars.json",
+    "url": "https://3.basecampapi.com/195539477/projects/2085958505.json",
+    "app_url": "https://3.basecamp.com/195539477/projects/2085958505",
     "dock": [
       {
-        "id": 1069479392,
+        "id": 1069479828,
         "title": "Message Board",
         "name": "message_board",
         "enabled": true,
         "position": 1,
-        "url": "https://3.basecampapi.com/195539477/buckets/2085958504/message_boards/1069479392.json",
-        "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/message_boards/1069479392"
+        "url": "https://3.basecampapi.com/195539477/buckets/2085958505/message_boards/1069479828.json",
+        "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/message_boards/1069479828"
       },
       {
-        "id": 1069479393,
+        "id": 1069479829,
         "title": "To-dos",
         "name": "todoset",
         "enabled": true,
         "position": 2,
-        "url": "https://3.basecampapi.com/195539477/buckets/2085958504/todosets/1069479393.json",
-        "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/todosets/1069479393"
+        "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todosets/1069479829.json",
+        "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todosets/1069479829"
       },
       {
-        "id": 1069479394,
+        "id": 1069479830,
         "title": "Docs & Files",
         "name": "vault",
         "enabled": true,
         "position": 3,
-        "url": "https://3.basecampapi.com/195539477/buckets/2085958504/vaults/1069479394.json",
-        "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/vaults/1069479394"
+        "url": "https://3.basecampapi.com/195539477/buckets/2085958505/vaults/1069479830.json",
+        "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/vaults/1069479830"
       },
       {
-        "id": 1069479395,
+        "id": 1069479831,
+        "title": "Calendar",
+        "name": "schedule",
+        "enabled": true,
+        "position": 4,
+        "url": "https://3.basecampapi.com/195539477/buckets/2085958505/schedules/1069479831.json",
+        "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/schedules/1069479831"
+      },
+      {
+        "id": 1069479832,
         "title": "Chat",
         "name": "chat",
         "enabled": true,
-        "position": 4,
-        "url": "https://3.basecampapi.com/195539477/buckets/2085958504/chats/1069479395.json",
-        "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/chats/1069479395"
-      },
-      {
-        "id": 1069479396,
-        "title": "Schedule",
-        "name": "schedule",
-        "enabled": true,
         "position": 5,
-        "url": "https://3.basecampapi.com/195539477/buckets/2085958504/schedules/1069479396.json",
-        "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/schedules/1069479396"
+        "url": "https://3.basecampapi.com/195539477/buckets/2085958505/chats/1069479832.json",
+        "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/chats/1069479832"
       },
       {
-        "id": 1069479397,
+        "id": 1069479833,
+        "title": "Card Table",
+        "name": "kanban_board",
+        "enabled": true,
+        "position": 7,
+        "url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/1069479833.json",
+        "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/card_tables/1069479833"
+      },
+      {
+        "id": 1069479839,
         "title": "Automatic Check-ins",
         "name": "questionnaire",
-        "enabled": false,
-        "position": null,
-        "url": "https://3.basecampapi.com/195539477/buckets/2085958504/questionnaires/1069479397.json",
-        "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/questionnaires/1069479397"
+        "enabled": true,
+        "position": 6,
+        "url": "https://3.basecampapi.com/195539477/buckets/2085958505/questionnaires/1069479839.json",
+        "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/questionnaires/1069479839"
       },
       {
-        "id": 1069479398,
+        "id": 1069479840,
         "title": "Email Forwards",
         "name": "inbox",
         "enabled": false,
         "position": null,
-        "url": "https://3.basecampapi.com/195539477/buckets/2085958504/inboxes/1069479398.json",
-        "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/inboxes/1069479398"
-      },
-      {
-        "id": 1069479399,
-        "title": "Card Table",
-        "name": "kanban_board",
-        "enabled": false,
-        "position": null,
-        "url": "https://3.basecampapi.com/195539477/buckets/2085958504/card_tables/1069479399.json",
-        "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/card_tables/1069479399"
+        "url": "https://3.basecampapi.com/195539477/buckets/2085958505/inboxes/1069479840.json",
+        "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/inboxes/1069479840"
       }
     ],
+    "people": {
+      "team": {
+        "count": 8,
+        "sample": [
+          {
+            "id": 1049715938,
+            "name": "Annie Bryan",
+            "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBOJkkT4=--732a71fbd28ec10d9bf4466abd3588a8bea40bdb/avatar"
+          },
+          {
+            "id": 1049715939,
+            "name": "Cheryl Walters",
+            "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBONkkT4=--b57b5a44335d4c3ba1a2585abd6e5c7e4c85fdd6/avatar"
+          },
+          {
+            "id": 1049715940,
+            "name": "Jared Davis",
+            "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBORkkT4=--2667d9ced3ec021946197cbb6c3083f0f95f3b6a/avatar"
+          },
+          {
+            "id": 1049715941,
+            "name": "Jennifer Hemmersmith Young",
+            "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBOVkkT4=--33e3fc268c87411378691c71b6f13658e0b40967/avatar"
+          },
+          {
+            "id": 1049715942,
+            "name": "Josh Fiske",
+            "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBOZkkT4=--b8553b154990a1112ab6275b749296c4a3b56334/avatar"
+          },
+          {
+            "id": 1049715943,
+            "name": "Nicole Katz",
+            "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBOdkkT4=--1d2b80e583133f93afe008f88166b674fc0287a4/avatar"
+          },
+          {
+            "id": 1049715944,
+            "name": "Steve Marsh",
+            "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBOhkkT4=--b169e35b345bcc26eca6964b7ef7de2c16b6f238/avatar"
+          },
+          {
+            "id": 1049715913,
+            "name": "Victor Cooper",
+            "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBMlkkT4=--5fe7b70fbee7a7f0e2e1e19df7579e5d880c753d/avatar"
+          }
+        ]
+      }
+    },
+    "all_access": false,
     "bookmarked": false
   },
   {
-    "id": 2085958505,
+    "id": 2085958506,
     "status": "active",
-    "created_at": "2025-12-29T18:09:00.000Z",
-    "updated_at": "2026-02-26T16:29:39.623Z",
+    "created_at": "2026-04-13T15:45:00.000Z",
+    "updated_at": "2026-07-20T04:05:52.507Z",
     "name": "The Leto Locator",
     "description": "New software and hardware built for locating and securing Leto products.",
     "purpose": "topic",
     "clients_enabled": false,
     "timesheet_enabled": false,
     "color": null,
-    "last_needle_color": "green",
-    "last_needle_position": null,
-    "previous_needle_position": null,
-    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9CdWNrZXQvMjA4NTk1ODUwNT9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--427e605de283e100f75da40006030176fd863024.json",
-    "url": "https://3.basecampapi.com/195539477/projects/2085958505.json",
-    "app_url": "https://3.basecamp.com/195539477/projects/2085958505",
+    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9CdWNrZXQvMjA4NTk1ODUwNj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--c1f4e47bbc088a5055d422c816957a763ed42aec.json",
+    "star_url": "https://3.basecampapi.com/195539477/buckets/2085958506/stars.json",
+    "url": "https://3.basecampapi.com/195539477/projects/2085958506.json",
+    "app_url": "https://3.basecamp.com/195539477/projects/2085958506",
     "client_company": {
       "id": 1033447818,
       "name": "Leto Brand"
     },
     "clientside": {
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/client/board.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/client/board"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958506/client/board.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958506/client/board"
     },
     "dock": [
       {
-        "id": 1069479606,
+        "id": 1069480045,
         "title": "Message Board",
         "name": "message_board",
         "enabled": true,
         "position": 1,
-        "url": "https://3.basecampapi.com/195539477/buckets/2085958505/message_boards/1069479606.json",
-        "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/message_boards/1069479606"
+        "url": "https://3.basecampapi.com/195539477/buckets/2085958506/message_boards/1069480045.json",
+        "app_url": "https://3.basecamp.com/195539477/buckets/2085958506/message_boards/1069480045"
       },
       {
-        "id": 1069479607,
+        "id": 1069480046,
         "title": "To-dos",
         "name": "todoset",
         "enabled": true,
         "position": 2,
-        "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todosets/1069479607.json",
-        "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todosets/1069479607"
+        "url": "https://3.basecampapi.com/195539477/buckets/2085958506/todosets/1069480046.json",
+        "app_url": "https://3.basecamp.com/195539477/buckets/2085958506/todosets/1069480046"
       },
       {
-        "id": 1069479608,
+        "id": 1069480047,
         "title": "Docs & Files",
         "name": "vault",
         "enabled": true,
         "position": 3,
-        "url": "https://3.basecampapi.com/195539477/buckets/2085958505/vaults/1069479608.json",
-        "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/vaults/1069479608"
+        "url": "https://3.basecampapi.com/195539477/buckets/2085958506/vaults/1069480047.json",
+        "app_url": "https://3.basecamp.com/195539477/buckets/2085958506/vaults/1069480047"
       },
       {
-        "id": 1069479609,
+        "id": 1069480048,
+        "title": "Calendar",
+        "name": "schedule",
+        "enabled": true,
+        "position": 4,
+        "url": "https://3.basecampapi.com/195539477/buckets/2085958506/schedules/1069480048.json",
+        "app_url": "https://3.basecamp.com/195539477/buckets/2085958506/schedules/1069480048"
+      },
+      {
+        "id": 1069480049,
         "title": "Chat",
         "name": "chat",
         "enabled": true,
-        "position": 4,
-        "url": "https://3.basecampapi.com/195539477/buckets/2085958505/chats/1069479609.json",
-        "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/chats/1069479609"
-      },
-      {
-        "id": 1069479610,
-        "title": "Schedule",
-        "name": "schedule",
-        "enabled": true,
         "position": 5,
-        "url": "https://3.basecampapi.com/195539477/buckets/2085958505/schedules/1069479610.json",
-        "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/schedules/1069479610"
+        "url": "https://3.basecampapi.com/195539477/buckets/2085958506/chats/1069480049.json",
+        "app_url": "https://3.basecamp.com/195539477/buckets/2085958506/chats/1069480049"
       },
       {
-        "id": 1069479611,
-        "title": "Automatic Check-ins",
-        "name": "questionnaire",
-        "enabled": false,
-        "position": null,
-        "url": "https://3.basecampapi.com/195539477/buckets/2085958505/questionnaires/1069479611.json",
-        "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/questionnaires/1069479611"
-      },
-      {
-        "id": 1069479612,
-        "title": "Email Forwards",
-        "name": "inbox",
-        "enabled": false,
-        "position": null,
-        "url": "https://3.basecampapi.com/195539477/buckets/2085958505/inboxes/1069479612.json",
-        "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/inboxes/1069479612"
-      },
-      {
-        "id": 1069479613,
+        "id": 1069480050,
         "title": "Card Table",
         "name": "kanban_board",
         "enabled": false,
         "position": null,
-        "url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/1069479613.json",
-        "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/card_tables/1069479613"
+        "url": "https://3.basecampapi.com/195539477/buckets/2085958506/card_tables/1069480050.json",
+        "app_url": "https://3.basecamp.com/195539477/buckets/2085958506/card_tables/1069480050"
+      },
+      {
+        "id": 1069480056,
+        "title": "Automatic Check-ins",
+        "name": "questionnaire",
+        "enabled": false,
+        "position": null,
+        "url": "https://3.basecampapi.com/195539477/buckets/2085958506/questionnaires/1069480056.json",
+        "app_url": "https://3.basecamp.com/195539477/buckets/2085958506/questionnaires/1069480056"
+      },
+      {
+        "id": 1069480057,
+        "title": "Email Forwards",
+        "name": "inbox",
+        "enabled": false,
+        "position": null,
+        "url": "https://3.basecampapi.com/195539477/buckets/2085958506/inboxes/1069480057.json",
+        "app_url": "https://3.basecamp.com/195539477/buckets/2085958506/inboxes/1069480057"
       }
     ],
+    "people": {
+      "team": {
+        "count": 8,
+        "sample": [
+          {
+            "id": 1049715938,
+            "name": "Annie Bryan",
+            "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBOJkkT4=--732a71fbd28ec10d9bf4466abd3588a8bea40bdb/avatar"
+          },
+          {
+            "id": 1049715939,
+            "name": "Cheryl Walters",
+            "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBONkkT4=--b57b5a44335d4c3ba1a2585abd6e5c7e4c85fdd6/avatar"
+          },
+          {
+            "id": 1049715940,
+            "name": "Jared Davis",
+            "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBORkkT4=--2667d9ced3ec021946197cbb6c3083f0f95f3b6a/avatar"
+          },
+          {
+            "id": 1049715941,
+            "name": "Jennifer Hemmersmith Young",
+            "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBOVkkT4=--33e3fc268c87411378691c71b6f13658e0b40967/avatar"
+          },
+          {
+            "id": 1049715942,
+            "name": "Josh Fiske",
+            "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBOZkkT4=--b8553b154990a1112ab6275b749296c4a3b56334/avatar"
+          },
+          {
+            "id": 1049715943,
+            "name": "Nicole Katz",
+            "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBOdkkT4=--1d2b80e583133f93afe008f88166b674fc0287a4/avatar"
+          },
+          {
+            "id": 1049715944,
+            "name": "Steve Marsh",
+            "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBOhkkT4=--b169e35b345bcc26eca6964b7ef7de2c16b6f238/avatar"
+          },
+          {
+            "id": 1049715913,
+            "name": "Victor Cooper",
+            "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBMlkkT4=--5fe7b70fbee7a7f0e2e1e19df7579e5d880c753d/avatar"
+          }
+        ]
+      }
+    },
+    "all_access": false,
     "bookmarked": false
   }
 ]
@@ -237,96 +332,145 @@ The `dock` key contains an array of the current tools for this project. The `ena
 <!-- START GET /projects/1.json -->
 ```json
 {
-  "id": 2085958504,
+  "id": 2085958505,
   "status": "active",
-  "created_at": "2025-12-29T18:52:00.000Z",
-  "updated_at": "2026-02-26T16:42:09.611Z",
+  "created_at": "2026-04-13T20:24:00.000Z",
+  "updated_at": "2026-07-21T01:05:29.829Z",
   "name": "The Leto Laptop",
   "description": "Laptop product launch.",
   "purpose": "topic",
   "clients_enabled": false,
   "timesheet_enabled": true,
   "color": null,
-  "last_needle_color": "green",
-  "last_needle_position": null,
+  "last_needle_color": "yellow",
+  "last_needle_position": 42,
   "previous_needle_position": null,
-  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9CdWNrZXQvMjA4NTk1ODUwND9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--63c6529d88eaffe640cc1ca84888819d8d327108.json",
-  "url": "https://3.basecampapi.com/195539477/projects/2085958504.json",
-  "app_url": "https://3.basecamp.com/195539477/projects/2085958504",
+  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9CdWNrZXQvMjA4NTk1ODUwNT9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--427e605de283e100f75da40006030176fd863024.json",
+  "star_url": "https://3.basecampapi.com/195539477/buckets/2085958505/stars.json",
+  "url": "https://3.basecampapi.com/195539477/projects/2085958505.json",
+  "app_url": "https://3.basecamp.com/195539477/projects/2085958505",
   "dock": [
     {
-      "id": 1069479392,
+      "id": 1069479828,
       "title": "Message Board",
       "name": "message_board",
       "enabled": true,
       "position": 1,
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/message_boards/1069479392.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/message_boards/1069479392"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/message_boards/1069479828.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/message_boards/1069479828"
     },
     {
-      "id": 1069479393,
+      "id": 1069479829,
       "title": "To-dos",
       "name": "todoset",
       "enabled": true,
       "position": 2,
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/todosets/1069479393.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/todosets/1069479393"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todosets/1069479829.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todosets/1069479829"
     },
     {
-      "id": 1069479394,
+      "id": 1069479830,
       "title": "Docs & Files",
       "name": "vault",
       "enabled": true,
       "position": 3,
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/vaults/1069479394.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/vaults/1069479394"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/vaults/1069479830.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/vaults/1069479830"
     },
     {
-      "id": 1069479395,
+      "id": 1069479831,
+      "title": "Calendar",
+      "name": "schedule",
+      "enabled": true,
+      "position": 4,
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/schedules/1069479831.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/schedules/1069479831"
+    },
+    {
+      "id": 1069479832,
       "title": "Chat",
       "name": "chat",
       "enabled": true,
-      "position": 4,
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/chats/1069479395.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/chats/1069479395"
-    },
-    {
-      "id": 1069479396,
-      "title": "Schedule",
-      "name": "schedule",
-      "enabled": true,
       "position": 5,
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/schedules/1069479396.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/schedules/1069479396"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/chats/1069479832.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/chats/1069479832"
     },
     {
-      "id": 1069479397,
+      "id": 1069479833,
+      "title": "Card Table",
+      "name": "kanban_board",
+      "enabled": true,
+      "position": 7,
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/1069479833.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/card_tables/1069479833"
+    },
+    {
+      "id": 1069479839,
       "title": "Automatic Check-ins",
       "name": "questionnaire",
-      "enabled": false,
-      "position": null,
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/questionnaires/1069479397.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/questionnaires/1069479397"
+      "enabled": true,
+      "position": 6,
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/questionnaires/1069479839.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/questionnaires/1069479839"
     },
     {
-      "id": 1069479398,
+      "id": 1069479840,
       "title": "Email Forwards",
       "name": "inbox",
       "enabled": false,
       "position": null,
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/inboxes/1069479398.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/inboxes/1069479398"
-    },
-    {
-      "id": 1069479399,
-      "title": "Card Table",
-      "name": "kanban_board",
-      "enabled": false,
-      "position": null,
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/card_tables/1069479399.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/card_tables/1069479399"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/inboxes/1069479840.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/inboxes/1069479840"
     }
-  ]
+  ],
+  "people": {
+    "team": {
+      "count": 8,
+      "sample": [
+        {
+          "id": 1049715938,
+          "name": "Annie Bryan",
+          "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBOJkkT4=--732a71fbd28ec10d9bf4466abd3588a8bea40bdb/avatar"
+        },
+        {
+          "id": 1049715939,
+          "name": "Cheryl Walters",
+          "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBONkkT4=--b57b5a44335d4c3ba1a2585abd6e5c7e4c85fdd6/avatar"
+        },
+        {
+          "id": 1049715940,
+          "name": "Jared Davis",
+          "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBORkkT4=--2667d9ced3ec021946197cbb6c3083f0f95f3b6a/avatar"
+        },
+        {
+          "id": 1049715941,
+          "name": "Jennifer Hemmersmith Young",
+          "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBOVkkT4=--33e3fc268c87411378691c71b6f13658e0b40967/avatar"
+        },
+        {
+          "id": 1049715942,
+          "name": "Josh Fiske",
+          "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBOZkkT4=--b8553b154990a1112ab6275b749296c4a3b56334/avatar"
+        },
+        {
+          "id": 1049715943,
+          "name": "Nicole Katz",
+          "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBOdkkT4=--1d2b80e583133f93afe008f88166b674fc0287a4/avatar"
+        },
+        {
+          "id": 1049715944,
+          "name": "Steve Marsh",
+          "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBOhkkT4=--b169e35b345bcc26eca6964b7ef7de2c16b6f238/avatar"
+        },
+        {
+          "id": 1049715913,
+          "name": "Victor Cooper",
+          "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBMlkkT4=--5fe7b70fbee7a7f0e2e1e19df7579e5d880c753d/avatar"
+        }
+      ]
+    }
+  },
+  "all_access": false
 }
 ```
 <!-- END GET /projects/1.json -->

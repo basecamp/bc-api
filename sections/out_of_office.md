@@ -13,20 +13,23 @@ Get out of office
 
 * `GET /people/2/out_of_office.json` will return the out of office status for the person with the given ID.
 
-When out of office is not enabled, `start_date` and `end_date` will be `null`.
+When out of office is not enabled, `enabled` will be `false` and `start_date`,
+`end_date`, and `back_on_date` are omitted.
 
 ###### Example JSON Response
 <!-- START GET /people/2/out_of_office.json -->
 ```json
 {
   "person": {
-    "id": 1049715914,
-    "name": "David Heinemeier Hansson"
+    "id": 1049715913,
+    "name": "Victor Cooper",
+    "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBMlkkT4=--5fe7b70fbee7a7f0e2e1e19df7579e5d880c753d/avatar"
   },
   "enabled": true,
   "ongoing": true,
-  "start_date": "2026-03-10",
-  "end_date": "2026-03-17"
+  "start_date": "2026-07-20",
+  "end_date": "2026-07-26",
+  "back_on_date": "2026-07-27"
 }
 ```
 <!-- END GET /people/2/out_of_office.json -->
@@ -67,13 +70,15 @@ This endpoint will return `200 OK` with the current JSON representation of the o
 ```json
 {
   "person": {
-    "id": 1049715914,
-    "name": "David Heinemeier Hansson"
+    "id": 1049715913,
+    "name": "Victor Cooper",
+    "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBMlkkT4=--5fe7b70fbee7a7f0e2e1e19df7579e5d880c753d/avatar"
   },
   "enabled": true,
   "ongoing": true,
-  "start_date": "2026-03-10",
-  "end_date": "2026-03-17"
+  "start_date": "2026-07-20",
+  "end_date": "2026-07-26",
+  "back_on_date": "2026-07-27"
 }
 ```
 <!-- END POST /people/2/out_of_office.json -->

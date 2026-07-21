@@ -25,32 +25,32 @@ _Optional query parameters_:
 ```json
 [
   {
-    "id": 1069479573,
+    "id": 1069480012,
     "status": "active",
     "visible_to_clients": false,
-    "created_at": "2026-01-27T05:02:00.000Z",
-    "updated_at": "2026-02-12T06:14:05.527Z",
+    "created_at": "2026-05-12T04:27:00.000Z",
+    "updated_at": "2026-07-21T00:06:16.451Z",
     "title": "Strategy ideas",
     "inherits_status": true,
     "type": "Todolist",
-    "url": "https://3.basecampapi.com/195539477/buckets/2085958504/todolists/1069479573.json",
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/todolists/1069479573",
-    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTU3Mz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--3edc00987d9016d2ac5115dabef3d1f0f1dacb64.json",
-    "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479573/subscription.json",
+    "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069480012.json",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todolists/1069480012",
+    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ4MDAxMj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--cfb66070fa4900acb4d47211d84e218c14831c7a.json",
+    "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069480012/subscription.json",
     "comments_count": 0,
-    "comments_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479573/comments.json",
+    "comments_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069480012/comments.json",
     "boosts_count": 0,
-    "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479573/boosts.json",
-    "position": 1,
+    "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069480012/boosts.json",
+    "position": 3,
     "parent": {
-      "id": 1069479393,
+      "id": 1069479829,
       "title": "To-dos",
       "type": "Todoset",
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/todosets/1069479393.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/todosets/1069479393"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todosets/1069479829.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todosets/1069479829"
     },
     "bucket": {
-      "id": 2085958504,
+      "id": 2085958505,
       "name": "The Leto Laptop",
       "type": "Project"
     },
@@ -58,13 +58,14 @@ _Optional query parameters_:
       "id": 1049715913,
       "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
       "name": "Victor Cooper",
-      "email_address": "victor@honchodesign.com",
       "personable_type": "User",
       "title": "Chief Strategist",
-      "bio": "Don’t let your dreams be dreams",
+      "tagline": "Don't let your dreams be dreams",
       "location": "Chicago, IL",
-      "created_at": "2026-02-12T06:08:49.342Z",
-      "updated_at": "2026-02-12T06:08:50.871Z",
+      "created_at": "2026-05-28T17:22:22.069Z",
+      "updated_at": "2026-07-21T00:05:55.167Z",
+      "email_address": "victor@honchodesign.com",
+      "bio": "Don't let your dreams be dreams",
       "admin": true,
       "owner": true,
       "client": false,
@@ -82,14 +83,15 @@ _Optional query parameters_:
       "can_access_hill_charts": true
     },
     "description": "",
+    "description_attachments": [],
     "completed": false,
     "completed_ratio": "2/5",
     "name": "Strategy ideas",
     "color": null,
-    "groups_url": "https://3.basecampapi.com/195539477/buckets/2085958504/todolists/1069479573/groups.json",
-    "todos_url": "https://3.basecampapi.com/195539477/buckets/2085958504/todolists/1069479573/todos.json",
-    "app_todos_url": "https://3.basecamp.com/195539477/buckets/2085958504/todolists/1069479573/todos",
-    "comments_app_url": "https://3.basecamp.com/195539477/buckets/2085958504/recordings/1069479573/comments"
+    "groups_url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069480012/groups.json",
+    "todos_url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069480012/todos.json",
+    "app_todos_url": "https://3.basecamp.com/195539477/buckets/2085958505/todolists/1069480012/todos",
+    "comments_app_url": "https://3.basecamp.com/195539477/buckets/2085958505/recordings/1069480012/comments"
   }
 ]
 ```
@@ -110,32 +112,32 @@ Get a to-do list
 <!-- START GET /todolists/2.json -->
 ```json
 {
-  "id": 1069479424,
+  "id": 1069479863,
   "status": "active",
   "visible_to_clients": false,
-  "created_at": "2026-01-01T16:50:00.000Z",
-  "updated_at": "2026-02-12T06:09:36.862Z",
+  "created_at": "2026-04-16T23:22:00.000Z",
+  "updated_at": "2026-07-21T01:05:29.822Z",
   "title": "Background and research",
   "inherits_status": true,
   "type": "Todolist",
-  "url": "https://3.basecampapi.com/195539477/buckets/2085958504/todolists/1069479424.json",
-  "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/todolists/1069479424",
-  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTQyND9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--4fe2ce4602873b2bea4e9189685d5fa0ebf1c8da.json",
-  "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479424/subscription.json",
+  "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069479863.json",
+  "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todolists/1069479863",
+  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTg2Mz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--d86bbb914defcac2db83950d3e617035efd1f679.json",
+  "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479863/subscription.json",
   "comments_count": 0,
-  "comments_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479424/comments.json",
+  "comments_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479863/comments.json",
   "boosts_count": 0,
-  "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479424/boosts.json",
-  "position": 10,
+  "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479863/boosts.json",
+  "position": 12,
   "parent": {
-    "id": 1069479393,
+    "id": 1069479829,
     "title": "To-dos",
     "type": "Todoset",
-    "url": "https://3.basecampapi.com/195539477/buckets/2085958504/todosets/1069479393.json",
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/todosets/1069479393"
+    "url": "https://3.basecampapi.com/195539477/buckets/2085958505/todosets/1069479829.json",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/todosets/1069479829"
   },
   "bucket": {
-    "id": 2085958504,
+    "id": 2085958505,
     "name": "The Leto Laptop",
     "type": "Project"
   },
@@ -143,13 +145,14 @@ Get a to-do list
     "id": 1049715913,
     "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
     "name": "Victor Cooper",
-    "email_address": "victor@honchodesign.com",
     "personable_type": "User",
     "title": "Chief Strategist",
-    "bio": "Don’t let your dreams be dreams",
+    "tagline": "Don't let your dreams be dreams",
     "location": "Chicago, IL",
-    "created_at": "2026-02-12T06:08:49.342Z",
-    "updated_at": "2026-02-12T06:08:50.871Z",
+    "created_at": "2026-05-28T17:22:22.069Z",
+    "updated_at": "2026-07-21T00:05:55.167Z",
+    "email_address": "victor@honchodesign.com",
+    "bio": "Don't let your dreams be dreams",
     "admin": true,
     "owner": true,
     "client": false,
@@ -167,14 +170,15 @@ Get a to-do list
     "can_access_hill_charts": true
   },
   "description": "",
+  "description_attachments": [],
   "completed": false,
-  "completed_ratio": "0/4",
+  "completed_ratio": "1/5",
   "name": "Background and research",
-  "color": null,
-  "groups_url": "https://3.basecampapi.com/195539477/buckets/2085958504/todolists/1069479424/groups.json",
-  "todos_url": "https://3.basecampapi.com/195539477/buckets/2085958504/todolists/1069479424/todos.json",
-  "app_todos_url": "https://3.basecamp.com/195539477/buckets/2085958504/todolists/1069479424/todos",
-  "comments_app_url": "https://3.basecamp.com/195539477/buckets/2085958504/recordings/1069479424/comments"
+  "color": "blue",
+  "groups_url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069479863/groups.json",
+  "todos_url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069479863/todos.json",
+  "app_todos_url": "https://3.basecamp.com/195539477/buckets/2085958505/todolists/1069479863/todos",
+  "comments_app_url": "https://3.basecamp.com/195539477/buckets/2085958505/recordings/1069479863/comments"
 }
 ```
 <!-- END GET /todolists/2.json -->

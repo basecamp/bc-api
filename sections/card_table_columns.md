@@ -20,27 +20,27 @@ Get a column
 <!-- START GET /card_tables/columns/2.json -->
 ```json
 {
-  "id": 1069479400,
+  "id": 1069479834,
   "status": "active",
   "visible_to_clients": false,
-  "created_at": "2026-01-31T08:32:04.760Z",
-  "updated_at": "2026-01-31T08:33:00.710Z",
+  "created_at": "2026-05-28T17:23:17.411Z",
+  "updated_at": "2026-05-28T17:23:29.745Z",
   "title": "Triage",
   "inherits_status": true,
   "type": "Kanban::Triage",
-  "url": "https://3.basecampapi.com/195539477/buckets/2085958504/card_tables/columns/1069479400.json",
-  "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/card_tables/columns/1069479400",
-  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTQwMD9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--76b2dfcd8a8eea46097d4f1ce80acf09d339e6d2.json",
-  "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479400/subscription.json",
+  "url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/columns/1069479834.json",
+  "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/card_tables/columns/1069479834",
+  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTgzND9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--44239f0fef95aba53d92f958278965ef8e9959c5.json",
+  "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479834/subscription.json",
   "parent": {
-    "id": 1069479399,
+    "id": 1069479833,
     "title": "Card Table",
     "type": "Kanban::Board",
-    "url": "https://3.basecampapi.com/195539477/buckets/2085958504/card_tables/1069479399.json",
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/card_tables/1069479399"
+    "url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/1069479833.json",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/card_tables/1069479833"
   },
   "bucket": {
-    "id": 2085958504,
+    "id": 2085958505,
     "name": "The Leto Laptop",
     "type": "Project"
   },
@@ -48,19 +48,20 @@ Get a column
     "id": 1049715913,
     "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
     "name": "Victor Cooper",
-    "email_address": "victor@honchodesign.com",
     "personable_type": "User",
     "title": "Chief Strategist",
-    "bio": "Don't let your dreams be dreams",
+    "tagline": "Don't let your dreams be dreams",
     "location": "Chicago, IL",
-    "created_at": "2026-01-31T08:29:28.365Z",
-    "updated_at": "2026-01-31T08:29:32.599Z",
+    "created_at": "2026-05-28T17:22:22.069Z",
+    "updated_at": "2026-07-21T01:06:02.483Z",
+    "email_address": "victor@honchodesign.com",
+    "bio": "Don't let your dreams be dreams",
     "admin": true,
     "owner": true,
     "client": false,
     "employee": true,
     "time_zone": "America/Chicago",
-    "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBMlkkT4=--5fe7b70fbee7a7f0e2e1e19df7579e5d880c753d/avatar?v=1",
+    "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBMlkkT4=--5fe7b70fbee7a7f0e2e1e19df7579e5d880c753d/avatar",
     "company": {
       "id": 1033447817,
       "name": "Honcho Design"
@@ -77,19 +78,20 @@ Get a column
       "id": 1049715913,
       "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
       "name": "Victor Cooper",
-      "email_address": "victor@honchodesign.com",
       "personable_type": "User",
       "title": "Chief Strategist",
-      "bio": "Don't let your dreams be dreams",
+      "tagline": "Don't let your dreams be dreams",
       "location": "Chicago, IL",
-      "created_at": "2026-01-31T08:29:28.365Z",
-      "updated_at": "2026-01-31T08:29:32.599Z",
+      "created_at": "2026-05-28T17:22:22.069Z",
+      "updated_at": "2026-07-21T01:06:02.483Z",
+      "email_address": "victor@honchodesign.com",
+      "bio": "Don't let your dreams be dreams",
       "admin": true,
       "owner": true,
       "client": false,
       "employee": true,
       "time_zone": "America/Chicago",
-      "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBMlkkT4=--5fe7b70fbee7a7f0e2e1e19df7579e5d880c753d/avatar?v=1",
+      "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBMlkkT4=--5fe7b70fbee7a7f0e2e1e19df7579e5d880c753d/avatar",
       "company": {
         "id": 1033447817,
         "name": "Honcho Design"
@@ -104,7 +106,7 @@ Get a column
   "color": null,
   "cards_count": 1,
   "comment_count": 0,
-  "cards_url": "https://3.basecampapi.com/195539477/buckets/2085958504/card_tables/lists/1069479400/cards.json"
+  "cards_url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/lists/1069479834/cards.json"
 }
 ```
 <!-- END GET /card_tables/columns/2.json -->

@@ -26,31 +26,31 @@ _Optional query parameters_:
 ```json
 [
   {
-    "id": 1069479545,
+    "id": 1069479984,
     "status": "active",
     "visible_to_clients": false,
-    "created_at": "2026-02-08T00:07:00.000Z",
-    "updated_at": "2026-02-08T00:07:00.000Z",
+    "created_at": "2026-05-23T21:20:00.000Z",
+    "updated_at": "2026-05-23T21:20:00.000Z",
     "title": "Answer to “What did you work on today?”",
     "inherits_status": true,
     "type": "Question::Answer",
-    "url": "https://3.basecampapi.com/195539477/buckets/2085958504/question_answers/1069479545.json",
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/question_answers/1069479545",
-    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTU0NT9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--4ecc639365c1b1091bba2cebaad8b5d8bd1be402.json",
-    "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479545/subscription.json",
+    "url": "https://3.basecampapi.com/195539477/buckets/2085958505/question_answers/1069479984.json",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/question_answers/1069479984",
+    "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTk4ND9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--9b0659ad5522fb41be7c9bbfe41d316f9eb5faf7.json",
+    "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479984/subscription.json",
     "comments_count": 0,
-    "comments_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479545/comments.json",
+    "comments_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479984/comments.json",
     "boosts_count": 0,
-    "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479545/boosts.json",
+    "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479984/boosts.json",
     "parent": {
-      "id": 1069479417,
+      "id": 1069479853,
       "title": "What did you work on today?",
       "type": "Question",
-      "url": "https://3.basecampapi.com/195539477/buckets/2085958504/questions/1069479417.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/questions/1069479417"
+      "url": "https://3.basecampapi.com/195539477/buckets/2085958505/questions/1069479853.json",
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/questions/1069479853"
     },
     "bucket": {
-      "id": 2085958504,
+      "id": 2085958505,
       "name": "The Leto Laptop",
       "type": "Project"
     },
@@ -58,13 +58,14 @@ _Optional query parameters_:
       "id": 1049715940,
       "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTk0MD9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--8a036dc6e0dee6b7db74851189b981fe69f4172d",
       "name": "Jared Davis",
-      "email_address": "jared@honchodesign.com",
       "personable_type": "User",
       "title": "International Tactics Facilitator",
-      "bio": "Oh, so they have internet on computers now!",
+      "tagline": "Oh, so they have internet on computers now!",
       "location": null,
-      "created_at": "2026-02-12T06:08:58.046Z",
-      "updated_at": "2026-02-12T06:08:58.046Z",
+      "created_at": "2026-05-28T17:22:29.827Z",
+      "updated_at": "2026-05-28T17:22:29.827Z",
+      "email_address": "jared@honchodesign.com",
+      "bio": "Oh, so they have internet on computers now!",
       "admin": false,
       "owner": false,
       "client": false,
@@ -82,7 +83,8 @@ _Optional query parameters_:
       "can_access_hill_charts": true
     },
     "content": "Prototype is done, components in really good shape. I think we're going to split for now and come back when design is more settled.",
-    "group_on": "2026-02-07"
+    "content_attachments": [],
+    "group_on": "2026-05-23"
   }
 ]
 ```
@@ -128,31 +130,31 @@ Get a question answer
 <!-- START GET /question_answers/2.json -->
 ```json
 {
-  "id": 1069479545,
+  "id": 1069479984,
   "status": "active",
   "visible_to_clients": false,
-  "created_at": "2026-02-08T00:07:00.000Z",
-  "updated_at": "2026-02-08T00:07:00.000Z",
+  "created_at": "2026-05-23T21:20:00.000Z",
+  "updated_at": "2026-05-23T21:20:00.000Z",
   "title": "Answer to “What did you work on today?”",
   "inherits_status": true,
   "type": "Question::Answer",
-  "url": "https://3.basecampapi.com/195539477/buckets/2085958504/question_answers/1069479545.json",
-  "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/question_answers/1069479545",
-  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTU0NT9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--4ecc639365c1b1091bba2cebaad8b5d8bd1be402.json",
-  "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479545/subscription.json",
+  "url": "https://3.basecampapi.com/195539477/buckets/2085958505/question_answers/1069479984.json",
+  "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/question_answers/1069479984",
+  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTk4ND9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--9b0659ad5522fb41be7c9bbfe41d316f9eb5faf7.json",
+  "subscription_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479984/subscription.json",
   "comments_count": 0,
-  "comments_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479545/comments.json",
+  "comments_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479984/comments.json",
   "boosts_count": 0,
-  "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958504/recordings/1069479545/boosts.json",
+  "boosts_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479984/boosts.json",
   "parent": {
-    "id": 1069479417,
+    "id": 1069479853,
     "title": "What did you work on today?",
     "type": "Question",
-    "url": "https://3.basecampapi.com/195539477/buckets/2085958504/questions/1069479417.json",
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/questions/1069479417"
+    "url": "https://3.basecampapi.com/195539477/buckets/2085958505/questions/1069479853.json",
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/questions/1069479853"
   },
   "bucket": {
-    "id": 2085958504,
+    "id": 2085958505,
     "name": "The Leto Laptop",
     "type": "Project"
   },
@@ -160,13 +162,14 @@ Get a question answer
     "id": 1049715940,
     "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTk0MD9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--8a036dc6e0dee6b7db74851189b981fe69f4172d",
     "name": "Jared Davis",
-    "email_address": "jared@honchodesign.com",
     "personable_type": "User",
     "title": "International Tactics Facilitator",
-    "bio": "Oh, so they have internet on computers now!",
+    "tagline": "Oh, so they have internet on computers now!",
     "location": null,
-    "created_at": "2026-02-12T06:08:58.046Z",
-    "updated_at": "2026-02-12T06:08:58.046Z",
+    "created_at": "2026-05-28T17:22:29.827Z",
+    "updated_at": "2026-05-28T17:22:29.827Z",
+    "email_address": "jared@honchodesign.com",
+    "bio": "Oh, so they have internet on computers now!",
     "admin": false,
     "owner": false,
     "client": false,
@@ -184,7 +187,8 @@ Get a question answer
     "can_access_hill_charts": true
   },
   "content": "Prototype is done, components in really good shape. I think we're going to split for now and come back when design is more settled.",
-  "group_on": "2026-02-07"
+  "content_attachments": [],
+  "group_on": "2026-05-23"
 }
 ```
 <!-- END GET /question_answers/2.json -->

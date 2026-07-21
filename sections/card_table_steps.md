@@ -1,6 +1,13 @@
 Card table steps
 ================
 
+Available since Basecamp 5: steps are now also reachable via flat top-level paths
+(`/card_tables/steps/:id.json`, `/card_tables/cards/:card_id/steps.json`, …) in addition to the
+historical bucket-scoped paths shown below. Both paths return the same JSON shape and accept the
+same parameters; the flat paths are the canonical form and are preferred for new clients. The
+legacy bucket-scoped `/buckets/:bucket_id/card_tables/...` paths continue to work for
+backwards compatibility and are listed under "Legacy project-scoped routes" below.
+
 Endpoints:
 
 - [Get steps in a card](#get-steps-in-a-card)

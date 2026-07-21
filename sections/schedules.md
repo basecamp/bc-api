@@ -20,20 +20,20 @@ To get the schedule ID for a project, see the [Get a project][1] endpoint's `doc
 <!-- START GET /schedules/2.json -->
 ```json
 {
-  "id": 1069479396,
+  "id": 1069479831,
   "status": "active",
   "visible_to_clients": false,
-  "created_at": "2026-02-12T06:09:34.690Z",
-  "updated_at": "2026-02-12T06:10:28.425Z",
-  "title": "Schedule",
+  "created_at": "2026-05-28T17:23:17.372Z",
+  "updated_at": "2026-05-28T17:29:04.984Z",
+  "title": "Calendar",
   "inherits_status": true,
   "type": "Schedule",
-  "url": "https://3.basecampapi.com/195539477/buckets/2085958504/schedules/1069479396.json",
-  "app_url": "https://3.basecamp.com/195539477/buckets/2085958504/schedules/1069479396",
-  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTM5Nj9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--a2a4e60ee2fe1403e8c2a043368cfaf36434bfd0.json",
-  "position": 5,
+  "url": "https://3.basecampapi.com/195539477/buckets/2085958505/schedules/1069479831.json",
+  "app_url": "https://3.basecamp.com/195539477/buckets/2085958505/schedules/1069479831",
+  "bookmark_url": "https://3.basecampapi.com/195539477/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiLmdpZDovL2JjMy9SZWNvcmRpbmcvMTA2OTQ3OTgzMT9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg1yZWFkYWJsZQY7AFQ=--302d13a0f9b5c82985735c0c42f03db1467440f1.json",
+  "position": 4,
   "bucket": {
-    "id": 2085958504,
+    "id": 2085958505,
     "name": "The Leto Laptop",
     "type": "Project"
   },
@@ -41,13 +41,14 @@ To get the schedule ID for a project, see the [Get a project][1] endpoint's `doc
     "id": 1049715913,
     "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiK2dpZDovL2JjMy9QZXJzb24vMTA0OTcxNTkxMz9leHBpcmVzX2luBjsAVEkiCHB1cgY7AFRJIg9hdHRhY2hhYmxlBjsAVA==--e627c45e6b34e08862da23906862412620e4d5d9",
     "name": "Victor Cooper",
-    "email_address": "victor@honchodesign.com",
     "personable_type": "User",
     "title": "Chief Strategist",
-    "bio": "Don’t let your dreams be dreams",
+    "tagline": "Don't let your dreams be dreams",
     "location": "Chicago, IL",
-    "created_at": "2026-02-12T06:08:49.342Z",
-    "updated_at": "2026-02-12T06:08:50.871Z",
+    "created_at": "2026-05-28T17:22:22.069Z",
+    "updated_at": "2026-07-21T01:06:02.483Z",
+    "email_address": "victor@honchodesign.com",
+    "bio": "Don't let your dreams be dreams",
     "admin": true,
     "owner": true,
     "client": false,
@@ -66,7 +67,7 @@ To get the schedule ID for a project, see the [Get a project][1] endpoint's `doc
   },
   "include_due_assignments": true,
   "entries_count": 1,
-  "entries_url": "https://3.basecampapi.com/195539477/schedules/1069479396/entries.json"
+  "entries_url": "https://3.basecampapi.com/195539477/schedules/1069479831/entries.json"
 }
 ```
 <!-- END GET /schedules/2.json -->
