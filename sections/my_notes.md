@@ -1,4 +1,4 @@
-My Notes
+My notes
 ========
 
 Available since Basecamp 5: a per-person notebook — a single rich-text note
@@ -36,6 +36,12 @@ Get the note
 ```
 <!-- END GET /my/notes.json -->
 
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/my/notes.json
+```
+
 Update the note
 ---------------
 
@@ -61,3 +67,11 @@ Update the note
 <!-- END PUT PAYLOAD /my/notes.json -->
 
 Returns `200 OK` with the updated note's JSON shape.
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
+  -d '{"note":{"content":"<div>Things to remember…</div>"}}' -X PUT \
+  https://3.basecampapi.com/$ACCOUNT_ID/my/notes.json
+```

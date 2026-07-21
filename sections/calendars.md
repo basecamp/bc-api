@@ -40,6 +40,12 @@ Get a calendar
 ```
 <!-- END GET /calendars/2.json -->
 
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/calendars/2.json
+```
+
 Update a calendar
 -----------------
 
@@ -66,3 +72,11 @@ Submitting an unknown color returns `422 Unprocessable Entity` with a JSON
 <!-- END PUT PAYLOAD /calendars/2.json -->
 
 Returns `200 OK` with the updated calendar's JSON shape.
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
+  -d '{"calendar":{"color":"blue"}}' -X PUT \
+  https://3.basecampapi.com/$ACCOUNT_ID/calendars/2.json
+```

@@ -91,6 +91,12 @@ Get a Google document
 ```
 <!-- END GET /google_documents/2.json -->
 
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/google_documents/2.json
+```
+
 Create a Google document
 ------------------------
 
@@ -201,6 +207,14 @@ A successful create returns `201 Created` with the new Google document's JSON sh
 ```
 <!-- END POST /buckets/1/vaults/3/google_documents.json -->
 
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
+  -d '{"google_document":{"title":"Roadmap","url":"https://docs.google.com/document/d/abcd1234/edit","document_type":"doc"}}' \
+  https://3.basecampapi.com/$ACCOUNT_ID/buckets/1/vaults/3/google_documents.json
+```
+
 Update a Google document
 ------------------------
 
@@ -295,3 +309,11 @@ Returns `200 OK` with the updated Google document's JSON shape:
 }
 ```
 <!-- END PUT /buckets/1/google_documents/2.json -->
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
+  -d '{"google_document":{"title":"Roadmap (revised)","url":"https://docs.google.com/document/d/abcd1234/edit","document_type":"doc"}}' -X PUT \
+  https://3.basecampapi.com/$ACCOUNT_ID/google_documents/2.json
+```

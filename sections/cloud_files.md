@@ -101,6 +101,12 @@ Get a cloud file
 ```
 <!-- END GET /cloud_files/2.json -->
 
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/cloud_files/2.json
+```
+
 Create a cloud file
 -------------------
 
@@ -219,6 +225,14 @@ A successful create returns `201 Created` with the new cloud file's JSON shape:
 ```
 <!-- END POST /buckets/1/vaults/3/cloud_files.json -->
 
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
+  -d '{"cloud_file":{"title":"Brand assets","url":"https://www.dropbox.com/s/abcd1234/brand.zip","service":"dropbox"}}' \
+  https://3.basecampapi.com/$ACCOUNT_ID/buckets/1/vaults/3/cloud_files.json
+```
+
 Update a cloud file
 -------------------
 
@@ -321,3 +335,11 @@ Returns `200 OK` with the updated cloud file's JSON shape:
 }
 ```
 <!-- END PUT /buckets/1/cloud_files/2.json -->
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
+  -d '{"cloud_file":{"title":"Brand assets v2","url":"https://www.dropbox.com/s/abcd1234/brand-v2.zip","service":"dropbox"}}' -X PUT \
+  https://3.basecampapi.com/$ACCOUNT_ID/cloud_files/2.json
+```

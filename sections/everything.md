@@ -4005,6 +4005,12 @@ Each response is an array of buckets with their matching to-do recordings:
 ```
 <!-- END GET /todos/open.json -->
 
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/todos/open.json
+```
+
 <!-- START GET /todos/completed.json -->
 ```json
 [
@@ -7659,6 +7665,12 @@ Each response is an array of buckets with their matching to-do recordings:
 ```
 <!-- END GET /todos/completed.json -->
 
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/todos/completed.json
+```
+
 <!-- START GET /todos/unassigned.json -->
 ```json
 [
@@ -8799,6 +8811,12 @@ Each response is an array of buckets with their matching to-do recordings:
 ]
 ```
 <!-- END GET /todos/unassigned.json -->
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/todos/unassigned.json
+```
 
 <!-- START GET /todos/no_due_date.json -->
 ```json
@@ -12749,6 +12767,12 @@ Each response is an array of buckets with their matching to-do recordings:
 ```
 <!-- END GET /todos/no_due_date.json -->
 
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/todos/no_due_date.json
+```
+
 Get cards by filter
 -------------------
 
@@ -13134,6 +13158,12 @@ Get cards by filter
 ```
 <!-- END GET /cards/open.json -->
 
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/cards/open.json
+```
+
 <!-- START GET /cards/completed.json -->
 ```json
 [
@@ -13248,6 +13278,12 @@ Get cards by filter
 ]
 ```
 <!-- END GET /cards/completed.json -->
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/cards/completed.json
+```
 
 <!-- START GET /cards/unassigned.json -->
 ```json
@@ -13624,6 +13660,12 @@ Get cards by filter
 ```
 <!-- END GET /cards/unassigned.json -->
 
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/cards/unassigned.json
+```
+
 <!-- START GET /cards/no_due_date.json -->
 ```json
 [
@@ -13793,6 +13835,12 @@ Get cards by filter
 ```
 <!-- END GET /cards/no_due_date.json -->
 
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/cards/no_due_date.json
+```
+
 <!-- START GET /cards/not_now.json -->
 ```json
 [
@@ -13877,6 +13925,12 @@ Get cards by filter
 ]
 ```
 <!-- END GET /cards/not_now.json -->
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/cards/not_now.json
+```
 
 
 Flat recording lists
@@ -14290,6 +14344,12 @@ Get overdue to-dos
 ```
 <!-- END GET /todos/overdue.json -->
 
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/todos/overdue.json
+```
+
 Get overdue cards
 -----------------
 
@@ -14501,6 +14561,12 @@ Get overdue cards
 ```
 <!-- END GET /cards/overdue.json -->
 
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/cards/overdue.json
+```
+
 [documents]: documents.md
 
 List messages
@@ -14638,6 +14704,12 @@ List messages
 ]
 ```
 <!-- END GET /messages.json -->
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/messages.json
+```
 
 [messages]: messages.md
 
@@ -14801,6 +14873,12 @@ List comments
 ```
 <!-- END GET /comments.json -->
 
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/comments.json
+```
+
 [comments]: comments.md
 
 List check-ins
@@ -14935,6 +15013,12 @@ List check-ins
 ]
 ```
 <!-- END GET /checkins.json -->
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/checkins.json
+```
 
 [question_answers]: question_answers.md
 
@@ -15071,6 +15155,12 @@ List forwards
 ]
 ```
 <!-- END GET /forwards.json -->
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/forwards.json
+```
 
 [forwards]: forwards.md
 
@@ -15235,6 +15325,12 @@ Two optional query parameters narrow the list:
 ]
 ```
 <!-- END GET /files.json -->
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/files.json
+```
 
 [uploads]: uploads.md
 [attachments]: attachments.md
@@ -15428,3 +15524,9 @@ Get boosts
 ]
 ```
 <!-- END GET /boosts.json -->
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/boosts.json
+```
