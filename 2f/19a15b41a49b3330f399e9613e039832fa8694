@@ -1,0 +1,23 @@
+sections/campfires.md
+  s_24bc9547162588::t_bd4835db0165ad 13,631-657,663-665,670-671,685,689
+sections/schedule_entries.md
+  s_24bc9547162588::t_8d018f2ee97814 278-286,300-311,326
+sections/todos.md
+  s_24bc9547162588::t_e87223750e9e80 276,432
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "2f19a15b41a49b3330f399e9613e039832fa8694",
+  "prompts": {},
+  "sessions": {
+    "s_24bc9547162588": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d6a674bd-9082-4492-afaf-5f0ff1dfb804",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Jeremy Daer <jeremy@37signals.com>"
+    }
+  }
+}
