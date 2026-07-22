@@ -83,19 +83,21 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCO
 Create a tool
 -------------
 
-* `POST /buckets/1/dock/tools.json` creates a new tool in the project with ID `1` by cloning an existing tool.
+* `POST /buckets/1/dock/tools.json` adds a tool of a given type to the dock of the project with ID `1`.
 
 **Required parameters**:
-* `source_recording_id` - the ID of an existing tool to clone. This determines the type of the new tool.
-* `title` - the name for the new tool.
+* `tool_type` - the kind of tool to add. One of `Message::Board`, `Todoset`, `Vault`, `Schedule`, `Chat::Transcript`, `Kanban::Board`, `Questionnaire`, or `Inbox`.
 
-This endpoint will return `201 Created` with the JSON representation of the new tool if successful.
+_Optional parameters_:
+* `title` - the name for the tool. When omitted, Basecamp chooses the title.
+
+This endpoint will return `201 Created` with the JSON representation of the tool if successful. The response body matches [Get a tool](#get-a-tool).
 
 ###### Example JSON Request
 
 ```json
 {
-  "source_recording_id": 1069479341,
+  "tool_type": "Chat::Transcript",
   "title": "Q&A Chat"
 }
 ```
@@ -104,7 +106,7 @@ This endpoint will return `201 Created` with the JSON representation of the new 
 
 ```shell
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
-  -d '{"source_recording_id":1069479341,"title":"Q&A Chat"}' \
+  -d '{"tool_type":"Chat::Transcript","title":"Q&A Chat"}' \
   https://3.basecampapi.com/$ACCOUNT_ID/buckets/1/dock/tools.json
 ```
 
