@@ -1,0 +1,35 @@
+sections/client_visibility.md
+  s_b6c6c524c3ffac::t_68c112095145e7 17
+sections/cloud_files.md
+  s_b6c6c524c3ffac::t_5faccf8d63996c 130
+sections/documents.md
+  s_b6c6c524c3ffac::t_7d824387b5dc92 172-175,235
+sections/google_documents.md
+  s_b6c6c524c3ffac::t_2cbeceb96e23e8 121
+sections/messages.md
+  s_b6c6c524c3ffac::t_cb7f8d41cf4e0d 426,512
+sections/questions.md
+  s_b6c6c524c3ffac::t_66cc59f8c51926 212-215,229-230,238,348
+sections/schedule_entries.md
+  s_b6c6c524c3ffac::t_3f134fa5e20aab 285,366
+sections/todolists.md
+  s_b6c6c524c3ffac::t_d799c3609dc846 199-202,271
+sections/uploads.md
+  s_b6c6c524c3ffac::t_286d1b76385582 247,309
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "5bc6e9dc0d847239199505ad7c3f643326463d65",
+  "prompts": {},
+  "sessions": {
+    "s_b6c6c524c3ffac": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3fcda514-1ae9-491c-96f6-9c677079bd14",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Jeremy Daer <jeremy@37signals.com>"
+    }
+  }
+}
