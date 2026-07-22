@@ -313,7 +313,7 @@ This endpoint will return `201 Created` with the current JSON representation of 
 
 ```shell
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
-  -d '{"summary":"Important Meeting","starts_at":"2015-06-04T00:00:00Z","ends_at":"2015-06-04T00:00:00Z"}' \
+  -d '{"summary":"Important Meeting","starts_at":"2015-06-04T00:00:00Z","ends_at":"2015-06-04T02:00:00Z"}' \
   https://3.basecampapi.com/$ACCOUNT_ID/schedules/3/entries.json
 ```
 
