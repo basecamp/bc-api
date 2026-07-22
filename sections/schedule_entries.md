@@ -275,6 +275,15 @@ _Optional parameters_:
 * `participant_ids` - an array of people IDs that will participate in this entry. Please see the [Get people][people] endpoints to retrieve them.
 * `all_day` - when set to `true`, the schedule entry will not have a specific start or end time, and instead will be held for the entire day or days denoted in `starts_at` and `ends_at`
 * `notify` - when set to `true`, will notify the participants about the entry
+* `recurrence_schedule` - makes the entry recurring. An object with:
+  * `frequency` - one of `every_day`, `every_weekday`, `every_week`, `every_other_week`, `every_month`, `every_day_of_month`, `every_year`, `custom_week`, or `custom_month`
+  * `days` - for `every_day`: which days of the week to recur on, as integers `0` (Sunday) through `6` (Saturday); omit to recur every day. For `custom_month` without a `week_instance`: which day of the month to recur on, `1` to `31`. Derived from `starts_at` for the other frequencies.
+  * `week_instance` - for `every_month` and `custom_month`: which week of the month, `1` to `4`, or `-1` for the last week
+  * `week_interval` - for `custom_week`: repeat every `2` to `12` weeks
+  * `month_interval` - for `custom_month`: repeat every `2` to `12` months
+* `recurs_until` - date (ISO 8601) the recurrence ends. Omit to recur indefinitely. Reflected as `recurrence_schedule.end_date` in the response.
+
+The remaining `recurrence_schedule` attributes shown in [Get a schedule entry](#get-a-schedule-entry) (`hour`, `minute`, `start_date`, `duration`, `end_date`) are derived from `starts_at`, `ends_at`, and `recurs_until` — they're ignored on input. An invalid `recurrence_schedule` is discarded on create: the entry is created without recurring.
 
 This endpoint will return `201 Created` with the current JSON representation of the schedule entry if the creation was a success. See the [Get a schedule entry](#get-a-schedule-entry) endpoint for more info on the payload.
 
@@ -285,6 +294,18 @@ This endpoint will return `201 Created` with the current JSON representation of 
   "summary": "Important Meeting",
   "starts_at": "2015-06-04T00:00:00Z",
   "ends_at": "2015-06-04T02:00:00Z"
+}
+```
+
+###### Example JSON Request (recurring)
+
+```json
+{
+  "summary": "Weekly sync",
+  "starts_at": "2015-06-04T15:00:00Z",
+  "ends_at": "2015-06-04T16:00:00Z",
+  "recurrence_schedule": { "frequency": "every_week" },
+  "recurs_until": "2015-12-18"
 }
 ```
 
@@ -302,7 +323,7 @@ Update a schedule entry
 
 * `PUT /schedule_entries/2.json` allows changing of the schedule entry with an ID of `2`.
 
-Clients may change any of the required or optional parameters as listed in the [Create a schedule entry](#create-a-schedule-entry) endpoint.
+Clients may change any of the required or optional parameters as listed in the [Create a schedule entry](#create-a-schedule-entry) endpoint. That includes adding a `recurrence_schedule` to make a non-recurring entry recur. An entry that already recurs can't be changed through this endpoint, though: it redirects to the entry's first occurrence, like [Get a schedule entry](#get-a-schedule-entry) does.
 
 This endpoint will return `200 OK` with the current JSON representation of the schedule entry if the update was a success. See the [Get a schedule entry](#get-a-schedule-entry) endpoint for more info on the payload.
 
