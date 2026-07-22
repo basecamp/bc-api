@@ -88,7 +88,7 @@ Create a tool
 **Required parameters**:
 * `tool_type` - the kind of tool to add. One of `Message::Board`, `Todoset`, `Vault`, `Schedule`, `Chat::Transcript`, `Kanban::Board`, `Questionnaire`, or `Inbox`.
 
-**Optional parameters**:
+_Optional parameters_:
 * `title` - the name for the tool. When omitted, Basecamp chooses the title.
 
 This endpoint will return `201 Created` with the JSON representation of the tool if successful. The response body matches [Get a tool](#get-a-tool).
