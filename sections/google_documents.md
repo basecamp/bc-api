@@ -118,7 +118,7 @@ Create a Google document
 | `description` | HTML    | Rich-text description. |
 | `status`      | String  | `active` to publish immediately, `drafted` to keep as a draft. Defaults to `drafted`. |
 | `subscriptions` | Array<Integer> | IDs of [people][people] to subscribe to comments and boosts. |
-| `visible_to_clients` | Boolean | When the project has a [client][client_visibility] enabled, whether the document is visible to them. Defaults to `false`. |
+| `visible_to_clients` | Boolean | A **top-level** field — a sibling of the `google_document` object, *not* inside it. When the project has clients enabled, whether the document is visible to them. Defaults to `false`; a **client** caller always creates client-visible records. Applies only when creating directly in the tool's vault; items created inside a folder inherit the folder's visibility. See [Client visibility][client_visibility]. |
 
 [projects]: projects.md
 [people]: people.md

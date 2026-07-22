@@ -209,6 +209,10 @@ Create a question
   * `time_of_day` - the time to ask, e.g. `"9:00am"`.
   * `days` - an array of day numbers (0=Sunday through 6=Saturday), e.g. `["1","2","3","4","5"]` for weekdays.
 
+_Optional parameters_:
+
+* `visible_to_clients` - a **top-level** boolean — a sibling of the `question` object, *not* inside it. When the project has clients enabled, whether the question is visible to them. Defaults to `false`; a **client** caller always creates client-visible records. See [Client visibility][client_visibility] to change it after creation.
+
 This endpoint will return `201 Created` with the current JSON representation of the question if the creation was a success. See the [Get a question](#get-a-question) endpoint for more info on the payload.
 
 ###### Example JSON Request
@@ -222,7 +226,8 @@ This endpoint will return `201 Created` with the current JSON representation of 
       "time_of_day": "5:00pm",
       "days": ["1", "2", "3", "4", "5"]
     }
-  }
+  },
+  "visible_to_clients": true
 }
 ```
 
@@ -230,7 +235,7 @@ This endpoint will return `201 Created` with the current JSON representation of 
 
 ```shell
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
-  -d '{"question":{"title":"What did you work on today?","schedule":{"frequency":"every_day","time_of_day":"5:00pm","days":["1","2","3","4","5"]}}}' \
+  -d '{"question":{"title":"What did you work on today?","schedule":{"frequency":"every_day","time_of_day":"5:00pm","days":["1","2","3","4","5"]}},"visible_to_clients":true}' \
   https://3.basecampapi.com/$ACCOUNT_ID/questionnaires/2/questions.json
 ```
 
@@ -340,3 +345,4 @@ The following project-scoped routes are still supported and will remain availabl
 
 [pagination]: ../README.md#pagination
 [trash]: recordings.md#trash-a-recording
+[client_visibility]: client_visibility.md

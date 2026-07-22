@@ -244,6 +244,7 @@ Create an upload
 _Optional parameters_:
 * `description` - containing information about the upload. See our [Rich text guide][rich] for what HTML tags are allowed.
 * `base_name` - a new file name for the upload. `base_name` should be a file name *without* an extension (e.g. `"pizza"` for `"pizza.png"`).
+* `visible_to_clients` - top-level boolean. When the project has clients enabled, whether the upload is visible to them. Defaults to `false` (team callers creating directly under the docked tool); a **client** caller always creates client-visible records. Applies only when creating directly in the tool's vault; items created inside a folder inherit the folder's visibility. See [Client visibility][client_visibility] to change it after creation.
 
 This endpoint will return `201 Created` with the current JSON representation of the upload if the creation was a success. See the [Get an upload](#get-an-upload) endpoint for more info on the payload.
 
@@ -305,3 +306,4 @@ The following project-scoped routes are still supported and will remain availabl
 [trash]: recordings.md#trash-a-recording
 [vaults]: vaults.md#vaults
 [rich]: rich_text.md
+[client_visibility]: client_visibility.md

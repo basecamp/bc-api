@@ -196,7 +196,10 @@ Create a to-do list
 
 **Required parameters**: `name` of the to-do list.
 
-_Optional parameters_: `description` containing information about the to-do list. See our [Rich text guide][rich] for what HTML tags are allowed.
+_Optional parameters_:
+
+* `description` containing information about the to-do list. See our [Rich text guide][rich] for what HTML tags are allowed.
+* `visible_to_clients` - top-level boolean. When the project has clients enabled, whether the to-do list is visible to them. Defaults to `false` (team callers creating directly under the docked tool); a **client** caller always creates client-visible records. See [Client visibility][client_visibility] to change it after creation.
 
 This endpoint will return `201 Created` with the current JSON representation of the to-do list if the creation was a success. See the [Get a to-do list](#get-a-to-do-list) endpoint for more info on the payload.
 
@@ -265,3 +268,4 @@ The following project-scoped routes are still supported and will remain availabl
 [todoset]: todosets.md#get-to-do-set
 [todos]: todos.md#to-dos
 [rich]: rich_text.md
+[client_visibility]: client_visibility.md
