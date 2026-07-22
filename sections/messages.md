@@ -423,6 +423,7 @@ _Optional parameters_:
 * `content` as the body of the message. See our [Rich text guide][4] for what HTML tags are allowed.
 * `category_id` to set a type for the message. To get a list of all the message types for a project, see the [Get message types][5] endpoint. 
 * `subscriptions` an array of people IDs to be notified of the new message when it's posted and subscribed to it. If not present, all people on the project will be notified and subscribed.
+* `visible_to_clients` - top-level boolean. When the project has clients enabled, whether the message is visible to them. Defaults to `false` (team callers creating directly under the docked tool); a **client** caller always creates client-visible records. See [Client visibility][client_visibility] to change it after creation.
 
 This endpoint will return `201 Created` with the current JSON representation of the message if the creation was a success. See the [Get a message](#get-a-message) endpoint for more info on the payload.
 
@@ -508,3 +509,4 @@ The following project-scoped routes are still supported and will remain availabl
 [3]: message_boards.md#message-boards
 [4]: rich_text.md
 [5]: message_types.md#get-message-types
+[client_visibility]: client_visibility.md

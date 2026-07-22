@@ -14,7 +14,7 @@ Toggle client visibility
 
 **Required parameter**: `visible_to_clients` with value `true` or `false`.
 
-This endpoint will return `200 OK` with the current JSON representation of the recording if the update was a success. Notice that not all recordings allow toggling client visibility, some inherit the visibility of their parent. For example, individual to-dos inherit the visibility of the to-do list they belong to. This endpoint will return `403 Forbidden` if the recording provided doesn't control its client visibility.
+This endpoint will return `200 OK` with the current JSON representation of the recording if the update was a success. Notice that not all recordings allow toggling client visibility, some inherit the visibility of their parent. For example, individual to-dos inherit the visibility of the to-do list they belong to, and individual cards inherit the visibility of their card table. This endpoint will return `403 Forbidden` if the recording provided doesn't control its client visibility.
 
 ###### Example JSON Request
 

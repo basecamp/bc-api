@@ -127,7 +127,7 @@ Create a cloud file
 | `title`       | String | The cloud file's title. Defaults to `Untitled` when omitted. |
 | `description` | HTML    | Rich-text description for the cloud file. |
 | `subscriptions` | Array<Integer> | IDs of [people][people] to subscribe to comments and boosts. |
-| `visible_to_clients` | Boolean | When the project has a [client][client_visibility] enabled, whether the cloud file is visible to them. Defaults to `false`. |
+| `visible_to_clients` | Boolean | A **top-level** field — a sibling of the `cloud_file` object, *not* inside it. When the project has clients enabled, whether the cloud file is visible to them. Defaults to `false`; a **client** caller always creates client-visible records. Applies only when creating directly in the tool's vault; items created inside a folder inherit the folder's visibility. See [Client visibility][client_visibility]. |
 
 [projects]: projects.md
 [people]: people.md

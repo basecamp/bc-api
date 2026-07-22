@@ -169,7 +169,10 @@ Create a document
 
 **Required parameters**: `title` as the title of the document, and `content` as the body of the document. See our [Rich text guide][rich] for what HTML tags are allowed.
 
-_Optional parameters_: . `status`, set to `active` to publish immediately.
+_Optional parameters_:
+
+* `status`, set to `active` to publish immediately.
+* `visible_to_clients` - top-level boolean. When the project has clients enabled, whether the document is visible to them. Defaults to `false` (team callers creating directly under the docked tool); a **client** caller always creates client-visible records. Applies only when creating directly in the tool's vault; items created inside a folder inherit the folder's visibility. See [Client visibility][client_visibility] to change it after creation.
 
 This endpoint will return `201 Created` with the current JSON representation of the document if the creation was a success. See the [Get a document](#get-a-document) endpoint for more info on the payload.
 
@@ -229,3 +232,4 @@ The following project-scoped routes are still supported and will remain availabl
 [trash]: recordings.md#trash-a-recording
 [vaults]: vaults.md#vaults
 [rich]: rich_text.md
+[client_visibility]: client_visibility.md
