@@ -15,7 +15,7 @@ Get recordings
 
 * `GET /projects/recordings.json` will return a [paginated list][1] of records for the given `type` of recording.
 
-**Required parameters**: `type`, which must be `Comment`, `Document`, `Kanban::Card`, `Kanban::Step`, `Message`, `Question::Answer`, `Schedule::Entry`, `Todo`, `Todolist`, `Upload`, or `Vault`.
+**Required parameters**: `type`, which must be `Comment`, `Document`, `Door`, `Kanban::Card`, `Kanban::Step`, `Message`, `Question::Answer`, `Schedule::Entry`, `Todo`, `Todolist`, `Upload`, or `Vault`.
 
 _Optional query parameters_:
 
