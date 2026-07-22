@@ -10,6 +10,7 @@ Endpoints:
 - [Create a Campfire line](#create-a-campfire-line)
 - [Get Campfire uploads](#get-campfire-uploads)
 - [Upload a file to a Campfire](#upload-a-file-to-a-campfire)
+- [Update a Campfire line](#update-a-campfire-line)
 - [Delete a Campfire line](#delete-a-campfire-line)
 
 Get Campfires
@@ -627,17 +628,47 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" \
   https://3.basecampapi.com/$ACCOUNT_ID/chats/2/uploads.json?name=logo.png
 ```
 
+Update a Campfire line
+----------------------
+
+* `PUT /chats/2/lines/3.json` updates the Campfire line with ID `3` in the Campfire with ID `2`.
+
+**Required parameters**: `content` as the new body for the Campfire line.
+
+Only text and rich text lines can be edited, and only by their creator. The new content is treated as rich text: the line becomes a rich text line even if it was originally plain text, and `content` may include the HTML tags covered in our [Rich text guide][rich].
+
+Returns `204 No Content` if successful, or `403 Forbidden` if the current user isn't allowed to edit the line.
+
+###### Example JSON Request
+
+```json
+{
+  "content": "Good morning, <strong>everyone</strong>!"
+}
+```
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
+  -d '{"content":"Good morning, <strong>everyone</strong>!"}' -X PUT \
+  https://3.basecampapi.com/$ACCOUNT_ID/chats/2/lines/3.json
+```
+
 Delete a Campfire line
 ----------------------
 
 * `DELETE /chats/2/lines/3.json` will delete the Campfire line with ID `3` in the Campfire with ID `2`.
 
-Returns `204 No Content` if successful.
+Lines can be deleted by their creator or by an admin.
+
+Returns `204 No Content` if successful, or `403 Forbidden` if the current user isn't allowed to delete the line.
 
 ###### Copy as cURL
 
 ```shell
-curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/chats/2/lines/3.json
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -X DELETE \
+  https://3.basecampapi.com/$ACCOUNT_ID/chats/2/lines/3.json
 ```
 
 Legacy project-scoped routes
@@ -651,6 +682,8 @@ The following project-scoped routes are still supported and will remain availabl
 * `POST /buckets/1/chats/2/lines.json` → [Create a Campfire line](#create-a-campfire-line)
 * `GET /buckets/1/chats/2/uploads.json` → [Get Campfire uploads](#get-campfire-uploads)
 * `POST /buckets/1/chats/2/uploads.json` → [Upload a file to a Campfire](#upload-a-file-to-a-campfire)
+* `PUT /buckets/1/chats/2/lines/3.json` → [Update a Campfire line](#update-a-campfire-line)
 * `DELETE /buckets/1/chats/2/lines/3.json` → [Delete a Campfire line](#delete-a-campfire-line)
 
 [pagination]: ../README.md#pagination
+[rich]: rich_text.md

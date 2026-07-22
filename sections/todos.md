@@ -273,6 +273,7 @@ Create a to-do
 --------------
 
 * `POST /todolists/3/todos.json` creates a to-do under the to-do list with an ID of `3`.
+* `POST /buckets/1/todosets/2/todos.json` creates a to-do directly under the to-do set with an ID of `2` in the project with ID `1`, outside of any to-do list. This form is only available project-scoped. See the [Get to-do set][todoset] endpoint to find a project's to-do set.
 
 **Required parameters**: `content` for what the to-do is for.
 
@@ -428,3 +429,4 @@ The following project-scoped routes are still supported and will remain availabl
 [2]: ../README.md#pagination
 [3]: rich_text.md
 [4]: people.md#get-all-people
+[todoset]: todosets.md#get-to-do-set
