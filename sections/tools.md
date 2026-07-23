@@ -90,6 +90,7 @@ Create a tool
 
 _Optional parameters_:
 * `title` - the name for the tool. When omitted, Basecamp chooses the title.
+* `visible_to_clients` - a top-level boolean controlling [client visibility][client_visibility]. It only takes effect for the tool types that manage their own visibility — `Chat::Transcript` and `Kanban::Board` — which otherwise start hidden from clients; pass `true` to create one already visible. All other tool types inherit the project's default and ignore this parameter. It applies only when a **new** tool is created; re-enabling an existing tool keeps its current visibility.
 
 This endpoint will return `201 Created` with the JSON representation of the tool if successful. The response body matches [Get a tool](#get-a-tool).
 
@@ -98,7 +99,8 @@ This endpoint will return `201 Created` with the JSON representation of the tool
 ```json
 {
   "tool_type": "Chat::Transcript",
-  "title": "Q&A Chat"
+  "title": "Q&A Chat",
+  "visible_to_clients": true
 }
 ```
 
@@ -106,7 +108,7 @@ This endpoint will return `201 Created` with the JSON representation of the tool
 
 ```shell
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
-  -d '{"tool_type":"Chat::Transcript","title":"Q&A Chat"}' \
+  -d '{"tool_type":"Chat::Transcript","title":"Q&A Chat","visible_to_clients":true}' \
   https://3.basecampapi.com/$ACCOUNT_ID/buckets/1/dock/tools.json
 ```
 
@@ -227,3 +229,4 @@ The following project-scoped routes are still supported and will remain availabl
 * `DELETE /buckets/1/dock/tools/2.json` → [Trash a tool](#trash-a-tool)
 
 [project]: projects.md#get-a-project
+[client_visibility]: client_visibility.md
