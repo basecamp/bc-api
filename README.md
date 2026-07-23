@@ -314,6 +314,7 @@ API endpoints
 - [Message Types](sections/message_types.md#message-types)
 - [Messages](sections/messages.md#messages)
 - [My assignments](sections/my_assignments.md#my-assignments)
+- [My folders](sections/my_folders.md#my-folders)
 - [My notes](sections/my_notes.md#my-notes)
 - [My notifications](sections/my_notifications.md#my-notifications)
 - [Out of office](sections/out_of_office.md#out-of-office)
