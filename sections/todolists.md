@@ -7,6 +7,7 @@ Endpoints:
 - [Get a to-do list](#get-a-to-do-list)
 - [Create a to-do list](#create-a-to-do-list)
 - [Update a to-do list](#update-a-to-do-list)
+- [Reposition a to-do list](#reposition-a-to-do-list)
 - [Trash a to-do list][trash]
 
 Get to-do lists
@@ -252,6 +253,35 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 
+Reposition a to-do list
+-----------------------
+
+* `PUT /todosets/todolists/2/position.json` repositions the to-do list with an ID of `2` within its to-do set.
+
+Use this flat to-do list route for integrations. It applies the to-do list ordering rules for the list's to-do set.
+
+This endpoint will return `204 No Content` if the repositioning was a success.
+
+**Required parameters**: `position` greater than or equal to one.
+
+The `position` counts only the to-do set's incomplete to-do lists; completed lists are not counted. A `position` of `1` moves the list above all other incomplete lists.
+
+###### Example JSON Request
+
+```json
+{
+  "position": 1
+}
+```
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
+  -d '{"position":1}' -X PUT \
+  https://3.basecampapi.com/$ACCOUNT_ID/todosets/todolists/2/position.json
+```
+
 
 Legacy project-scoped routes
 -----------------------------
@@ -262,6 +292,7 @@ The following project-scoped routes are still supported and will remain availabl
 * `GET /buckets/1/todolists/2.json` → [Get a to-do list](#get-a-to-do-list)
 * `POST /buckets/1/todosets/3/todolists.json` → [Create a to-do list](#create-a-to-do-list)
 * `PUT /buckets/1/todolists/2.json` → [Update a to-do list](#update-a-to-do-list)
+* `PUT /buckets/1/todosets/todolists/2/position.json` → [Reposition a to-do list](#reposition-a-to-do-list)
 
 [trash]: recordings.md#trash-a-recording
 [pagination]: ../README.md#pagination
