@@ -1,0 +1,21 @@
+README.md
+  s_97af9d700a5af5::t_58a1eb69945d5d 317
+sections/my_bookmarks.md
+  s_97af9d700a5af5::t_4b98d7e9e06a88 1-222
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "0af7fa7f8d1814fc90027c2091de791a94641a61",
+  "prompts": {},
+  "sessions": {
+    "s_97af9d700a5af5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cd618f5a-f2f6-46df-b665-4d7d17a5dad6",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Jeremy Daer <jeremy@37signals.com>"
+    }
+  }
+}
