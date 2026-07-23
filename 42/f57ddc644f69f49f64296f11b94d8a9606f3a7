@@ -1,0 +1,25 @@
+sections/client_approvals.md
+  s_8d9ba209b81c9a::t_c033676068d987 41,147
+sections/client_correspondences.md
+  s_8d9ba209b81c9a::t_6d504f0429ff26 41,117
+sections/drafts.md
+  s_8d9ba209b81c9a::t_35ef9571dd8c28 6,16,53-54
+sections/schedule_entries.md
+  s_8d9ba209b81c9a::t_b82dc9b330f1d5 286
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "42f57ddc644f69f49f64296f11b94d8a9606f3a7",
+  "prompts": {},
+  "sessions": {
+    "s_8d9ba209b81c9a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "24d3e68c-518b-40aa-b250-159bc07a26bd",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Jeremy Daer <jeremy@37signals.com>"
+    }
+  }
+}
