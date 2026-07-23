@@ -425,7 +425,14 @@ _Optional parameters_:
 
 This endpoint will return `204 No Content` if the move was a success. Returns `400 Bad Request` if `position` is zero, negative, or non-numeric.
 
-The `column_id` may also be the `id` of one of the board's [wormholes](card_tables.md#get-a-card-table). The card is then teleported to the wormhole's destination column on another card table. The teleport is processed asynchronously after the `204 No Content` response, and once it completes the card is filed away in the destination project — subsequent requests for the original card will return `404 Not Found`.
+Passing a [wormhole](card_table_wormholes.md)'s `id` as the `column_id` moves the card to **another card table**, including one in another project. A wormhole on the source card table points at a destination column on the other card table; create one with the [card table wormholes](card_table_wormholes.md) endpoints, or reuse a linked one already listed in the card table's `wormholes` array (see [Get a card table](card_tables.md#get-a-card-table)); the wormhole must be linked (`"linked": true`) and its destination reachable by the requester, so moving onto an unlinked or unreachable wormhole returns `404 Not Found`.
+
+So the recipe is:
+
+1. Create a wormhole on the source card table (id `2`) pointing at the destination column — `POST /buckets/1/card_tables/2/wormholes.json` with `{"destination_recording_id": <id of the destination column>}` — and capture the new wormhole's `id` from the `201 Created` response.
+2. Move the card (id `2`) onto that wormhole — `POST /card_tables/cards/2/moves.json` with `{"column_id": <the wormhole's id>}`, expecting `204 No Content`.
+
+The endpoint returns `204 No Content` once the teleport is queued. Completion is asynchronous; the response does not expose the destination card's new recording ID, and the original card ID returns `404 Not Found` after completion. `position` does not control a teleport's destination placement; if supplied, it must still be a positive integer. Placement is determined when the move completes.
 
 ###### Example JSON Request
 
