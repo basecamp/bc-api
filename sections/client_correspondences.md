@@ -38,7 +38,7 @@ _Optional query parameters_:
       "title": "The Clientside",
       "type": "Client::Board",
       "url": "https://3.basecampapi.com/195539477/buckets/2085958506/client/board.json",
-      "app_url": "https://3.basecamp.com/195539477/buckets/2085958506/client/board.1069480059"
+      "app_url": "https://3.basecamp.com/195539477/buckets/2085958506/client/board"
     },
     "bucket": {
       "id": 2085958506,
@@ -114,7 +114,7 @@ Get a client correspondence
     "title": "The Clientside",
     "type": "Client::Board",
     "url": "https://3.basecampapi.com/195539477/buckets/2085958506/client/board.json",
-    "app_url": "https://3.basecamp.com/195539477/buckets/2085958506/client/board.1069480059"
+    "app_url": "https://3.basecamp.com/195539477/buckets/2085958506/client/board"
   },
   "bucket": {
     "id": 2085958506,

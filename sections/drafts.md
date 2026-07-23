@@ -3,7 +3,7 @@ Drafts
 
 Endpoint for retrieving the current user's unpublished drafts across all of their active projects.
 
-A draft is a [message](messages.md), [document](documents.md), file [upload](uploads.md), or client [approval](client_approvals.md)/[correspondence](client_correspondences.md) that has been saved but not yet published. Message and document drafts can be created and published through the API — see the [messages](messages.md#create-a-message) and [documents](documents.md#create-a-document) sections. Uploads and client approvals/correspondences are authored elsewhere and have no documented API write path, but any of their drafts still appear here.
+A draft is a [message](messages.md), [document](documents.md), file [upload](uploads.md), or client [approval](client_approvals.md)/[correspondence](client_correspondences.md) that has been saved but not yet published. Messages and documents can be drafted and published through the API — see the [messages](messages.md#create-a-message) and [documents](documents.md#create-a-document) sections. Uploads have their own [create](uploads.md#create-an-upload) and [update](uploads.md#update-an-upload) endpoints, but no documented way to create or publish a *draft* upload; client approvals and correspondences are read-only over the API. Drafts of all of these types still appear here, however they were authored.
 
 Endpoints:
 
@@ -13,7 +13,7 @@ Endpoints:
 Get my drafts
 -------------
 
-* `GET /my/drafts.json` will return a [paginated list](../README.md#pagination) of the current user's drafts, most recently updated first. Drafts of every type — messages, documents, uploads, and client approvals/correspondences — are included, regardless of how they were created. Drafts whose project has been archived or trashed are excluded.
+* `GET /my/drafts.json` will return a [paginated list][pagination] of the current user's drafts, most recently updated first. Drafts of every type — messages, documents, uploads, and client approvals/correspondences — are included, regardless of how they were created. Drafts whose project has been archived or trashed are excluded.
 
 Each draft carries an `excerpt`: up to 300 characters of plain-text content, or an empty string when the draft has no body yet. `parent` is `null` for drafts filed directly under their bucket, and `scheduled_posting_at` is `null` unless the draft is scheduled to publish later.
 
@@ -50,3 +50,5 @@ Each draft carries an `excerpt`: up to 300 characters of plain-text content, or 
 ```shell
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/my/drafts.json
 ```
+
+[pagination]: ../README.md#pagination
