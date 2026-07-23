@@ -1,0 +1,19 @@
+sections/card_table_cards.md
+  s_6d671337f20512::t_d481b22c7d1ab5 428-435
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "3f1f59806f0425f6f171750922a92744a5b90100",
+  "prompts": {},
+  "sessions": {
+    "s_6d671337f20512": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4a8b1496-7c74-485d-a7df-e2900d913f66",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Jeremy Daer <jeremy@37signals.com>"
+    }
+  }
+}
