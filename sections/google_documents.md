@@ -133,7 +133,8 @@ Create a Google document
     "description": "<div>Quarterly roadmap document</div>",
     "url": "https://docs.google.com/document/d/abcd1234/edit",
     "document_type": "doc"
-  }
+  },
+  "visible_to_clients": true
 }
 ```
 <!-- END POST PAYLOAD /buckets/1/vaults/3/google_documents.json -->
@@ -146,7 +147,7 @@ A successful create returns `201 Created` with the new Google document's JSON sh
 {
   "id": 1069480443,
   "status": "drafted",
-  "visible_to_clients": false,
+  "visible_to_clients": true,
   "created_at": "2026-07-21T01:06:50.879Z",
   "updated_at": "2026-07-21T01:06:50.896Z",
   "title": "Roadmap",
@@ -249,7 +250,7 @@ Returns `200 OK` with the updated Google document's JSON shape:
 {
   "id": 1069480443,
   "status": "drafted",
-  "visible_to_clients": false,
+  "visible_to_clients": true,
   "created_at": "2026-07-21T01:06:50.879Z",
   "updated_at": "2026-07-21T01:06:51.456Z",
   "title": "Roadmap (revised)",

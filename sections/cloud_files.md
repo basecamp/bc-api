@@ -142,7 +142,8 @@ Create a cloud file
     "description": "<div>Logos and color tokens</div>",
     "url": "https://www.dropbox.com/s/abcd1234/brand.zip",
     "service": "dropbox"
-  }
+  },
+  "visible_to_clients": true
 }
 ```
 <!-- END POST PAYLOAD /buckets/1/vaults/3/cloud_files.json -->
@@ -155,7 +156,7 @@ A successful create returns `201 Created` with the new cloud file's JSON shape:
 {
   "id": 1069480436,
   "status": "active",
-  "visible_to_clients": false,
+  "visible_to_clients": true,
   "created_at": "2026-07-21T01:06:09.387Z",
   "updated_at": "2026-07-21T01:06:09.422Z",
   "title": "Brand assets",
@@ -266,7 +267,7 @@ Returns `200 OK` with the updated cloud file's JSON shape:
 {
   "id": 1069480436,
   "status": "active",
-  "visible_to_clients": false,
+  "visible_to_clients": true,
   "created_at": "2026-07-21T01:06:09.387Z",
   "updated_at": "2026-07-21T01:06:10.012Z",
   "title": "Brand assets v2",
