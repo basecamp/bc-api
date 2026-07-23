@@ -17,6 +17,22 @@ content should be redirected to bc3.
 Only repo-local files that the sync does not copy (this file, GitHub metadata)
 may be edited directly.
 
+### Sync PRs are expected — off-target edits are not
+
+A PR that changes `README.md`, `CONDUCT.md`, or a `sections/*.md` file **should be
+a sync PR** — the verbatim output of `script/api/sync_to_bc3_api`, which is the
+only sanctioned way this content changes. So a PR modifying those files is
+expected and correct — review the documentation on its merits; don't flag the sync
+itself as an unauthorized direct edit. A sync PR's description carries this footer:
+
+> Synced from bc3 `doc/api/` by `script/api/sync_to_bc3_api` — not a hand-edit.
+
+An **off-target edit** hand-changes that content on a branch, bypassing the sync:
+no footer, and it won't match bc3's `doc/api/`. Those are what to redirect to bc3;
+the next sync overwrites them regardless. A PR that touches only this file or
+GitHub metadata is the exception — the sync doesn't copy those, so they're edited
+here directly and carry no footer.
+
 ## Section file format
 
 Every `sections/*.md` follows this structure:
