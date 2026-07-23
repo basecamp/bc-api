@@ -230,7 +230,7 @@ A successful create returns `201 Created` with the new cloud file's JSON shape:
 
 ```shell
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
-  -d '{"cloud_file":{"title":"Brand assets","description":"<div>Logos and color tokens</div>","url":"https://www.dropbox.com/s/abcd1234/brand.zip","service":"dropbox"}}' \
+  -d '{"cloud_file":{"title":"Brand assets","description":"<div>Logos and color tokens</div>","url":"https://www.dropbox.com/s/abcd1234/brand.zip","service":"dropbox"},"visible_to_clients":true}' \
   https://3.basecampapi.com/$ACCOUNT_ID/buckets/1/vaults/3/cloud_files.json
 ```
 

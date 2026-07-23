@@ -212,7 +212,7 @@ A successful create returns `201 Created` with the new Google document's JSON sh
 
 ```shell
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
-  -d '{"google_document":{"title":"Roadmap","description":"<div>Quarterly roadmap document</div>","url":"https://docs.google.com/document/d/abcd1234/edit","document_type":"doc"}}' \
+  -d '{"google_document":{"title":"Roadmap","description":"<div>Quarterly roadmap document</div>","url":"https://docs.google.com/document/d/abcd1234/edit","document_type":"doc"},"visible_to_clients":true}' \
   https://3.basecampapi.com/$ACCOUNT_ID/buckets/1/vaults/3/google_documents.json
 ```
 
