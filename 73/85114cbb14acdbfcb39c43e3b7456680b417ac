@@ -1,0 +1,19 @@
+sections/todolists.md
+  s_70ea5a80b3efd3::t_d88603b18f6437 10,256-284,295
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "7385114cbb14acdbfcb39c43e3b7456680b417ac",
+  "prompts": {},
+  "sessions": {
+    "s_70ea5a80b3efd3": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f8c1d-a0af-7e91-a3a4-2bd35bdff875",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Jeremy Daer <jeremy@37signals.com>"
+    }
+  }
+}
