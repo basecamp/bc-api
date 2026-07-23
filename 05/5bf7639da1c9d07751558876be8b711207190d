@@ -1,0 +1,21 @@
+sections/cloud_files.md
+  s_faa07808fefbce::t_5bce685864e230 145-146,159,270
+sections/google_documents.md
+  s_faa07808fefbce::t_8a0666749348a8 136-137,150,253
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "055bf7639da1c9d07751558876be8b711207190d",
+  "prompts": {},
+  "sessions": {
+    "s_faa07808fefbce": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dcc2a863-c7ce-4f77-a74a-104e8ba0fca5",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Jeremy Daer <jeremy@37signals.com>"
+    }
+  }
+}
