@@ -12,6 +12,8 @@ Endpoints:
 - [Get assignments](#get-assignments)
 - [Get completed assignments](#get-completed-assignments)
 - [Get due assignments](#get-due-assignments)
+- [Act on assignments](#act-on-assignments)
+- [Prioritize assignments](#prioritize-assignments)
 
 
 Get assignments
@@ -635,3 +637,57 @@ Providing an invalid `scope` returns `400 Bad Request` with an error listing the
 ```shell
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/my/assignments/due.json?scope=overdue
 ```
+
+
+Act on assignments
+------------------
+
+Assignments are created and changed through the to-do, card, and card-table-step endpoints, not through `/my/assignments`. A card-table step is returned nested under its parent card as a `children` entry, and it's acted on through its own step endpoints, not the parent card's:
+
+* **Assign or unassign** — pass `assignee_ids` when updating a [to-do](todos.md#update-a-to-do) or a [card](card_table_cards.md#update-a-card); include `notify: true` to notify the people you add. A card-table step is assigned on the step itself via [Update a step](card_table_steps.md#update-a-step) (`PUT /card_tables/steps/:id.json`), not the parent card.
+* **Complete or reopen** — a to-do uses its [completion](todos.md#complete-a-to-do) endpoint (`POST`/`DELETE /todos/:id/completion.json`). A card-table step uses [Change step completion status](card_table_steps.md#change-step-completion-status) — `PUT /card_tables/steps/:step_id/completions.json` with `completion: "on"` to complete or `"off"` to reopen. A card has no completion endpoint: it's completed by moving it into a done column and reopened by moving it out, via [Move a card](card_table_cards.md#move-a-card) (`POST /card_tables/cards/:id/moves.json` with the destination `column_id`).
+* **Reschedule** — update a [to-do](todos.md#update-a-to-do) with `due_on` and, optionally, `starts_on`. A [card](card_table_cards.md#update-a-card) is rescheduled with `due_on` only — cards have no `starts_on` — and a card-table [step](card_table_steps.md#update-a-step) likewise takes `due_on`, on its own update endpoint.
+
+**Note:** these updates replace omitted fields. A to-do update and a card-table step update both clear any field you don't send — including `assignee_ids`, `due_on`, and (for steps) `title` — so resend the current values you want to keep. A card update is the one that preserves omitted `title` and `content`, but even there `due_on` is cleared unless you resend it. In short: to change only assignees or only the due date, echo the record's other current fields in the same request.
+
+
+Prioritize assignments
+----------------------
+
+"Up Next" is the current user's ordered list of prioritized assignments, returned as `priorities` in [Get assignments](#get-assignments). These endpoints add to, remove from, and reorder that list, and each responds `204 No Content` on success. (Reordering additionally validates its input — see the error responses below.)
+
+Identify the item by the **recording id** of the thing that carries the priority, not by the assignment id. For a plain to-do or card that's the item's `id`. For a card-table step shown normalized under its parent card, the item's `id` is the *card's* — use the item's `priority_recording_id` from [Get assignments](#get-assignments) instead, which points at the prioritized step.
+
+* `POST /my/priorities.json` with `{ "id": 1069479801 }` adds the recording to Up Next.
+* `DELETE /my/priorities/1069479801.json` removes it from Up Next.
+* `POST /my/priority_moves.json` with `{ "source_id": 1069479801, "position": 1 }` moves the recording to `position` within Up Next. Positions are 1-based.
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"id":1069479801}' \
+  https://3.basecampapi.com/$ACCOUNT_ID/my/priorities.json
+```
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" \
+  -X DELETE \
+  https://3.basecampapi.com/$ACCOUNT_ID/my/priorities/1069479801.json
+```
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"source_id":1069479801,"position":1}' \
+  https://3.basecampapi.com/$ACCOUNT_ID/my/priority_moves.json
+```
+
+Reordering validates `position` and, on failure, returns an error body of the form `{ "error": "..." }`:
+
+* Missing `position` → `400 Bad Request`, `{ "error": "Position is required." }`.
+* Non-integer `position` → `400 Bad Request`, `{ "error": "Position must be an integer." }`.
+* `position` outside the list → `422 Unprocessable Entity`, `{ "error": "Position must be between 1 and N." }`, where `N` is the number of prioritized assignments.
+* A recording that isn't prioritized → `422 Unprocessable Entity`, `{ "error": "Recording is not prioritized." }`.
+* A recording you can't access → `404 Not Found`.

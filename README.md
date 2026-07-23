@@ -300,6 +300,7 @@ API endpoints
 - [Cloud files](sections/cloud_files.md#cloud-files)
 - [Comments](sections/comments.md#comments)
 - [Documents](sections/documents.md#documents)
+- [Drafts](sections/drafts.md#drafts)
 - [Events](sections/events.md#events)
 - [Everything](sections/everything.md#everything)
 - [External links](sections/external_links.md#external-links)

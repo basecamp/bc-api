@@ -283,6 +283,7 @@ _Optional parameters_:
   * `month_interval` - for `custom_month`: repeat every `2` to `12` months
 * `recurs_until` - date (ISO 8601) the recurrence ends. Omit to recur indefinitely. Reflected as `recurrence_schedule.end_date` in the response.
 * `visible_to_clients` - top-level boolean. When the project has clients enabled, whether the schedule entry is visible to them. Defaults to `false` (team callers creating directly under the docked tool); a **client** caller always creates client-visible records. See [Client visibility][client_visibility] to change it after creation.
+* `status` - when omitted, a schedule entry created over the API is published (`active`) immediately. Passing `status: "drafted"` creates it as a draft instead. Note that, unlike messages and documents, schedule-entry drafts are **not** listed by [Get my drafts](drafts.md).
 
 The remaining `recurrence_schedule` attributes shown in [Get a schedule entry](#get-a-schedule-entry) (`hour`, `minute`, `start_date`, `duration`, `end_date`) are derived from `starts_at`, `ends_at`, and `recurs_until` — they're ignored on input. An invalid `recurrence_schedule` is discarded on create: the entry is created without recurring.
 
