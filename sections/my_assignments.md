@@ -644,13 +644,13 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCO
 Act on assignments
 ------------------
 
-Assignments are created and changed through the to-do, card, and card-table-step endpoints, not through `/my/assignments`. A card-table step is returned nested under its parent card as a `children` entry, and it's acted on through its own step endpoints, not the parent card's:
+Assignments are created and changed through the to-do, card, and card table step endpoints, not through `/my/assignments`. A card table step is returned nested under its parent card as a `children` entry, and it's acted on through its own step endpoints, not the parent card's:
 
-* **Assign or unassign** — pass `assignee_ids` when updating a [to-do](todos.md#update-a-to-do) or a [card](card_table_cards.md#update-a-card); include `notify: true` to notify the people you add. A card-table step is assigned on the step itself via [Update a step](card_table_steps.md#update-a-step) (`PUT /card_tables/steps/:id.json`), not the parent card.
-* **Complete or reopen** — a to-do uses its [completion](todos.md#complete-a-to-do) endpoint (`POST`/`DELETE /todos/:id/completion.json`). A card-table step uses [Change step completion status](card_table_steps.md#change-step-completion-status) — `PUT /card_tables/steps/:step_id/completions.json` with `completion: "on"` to complete or `"off"` to reopen. A card has no completion endpoint: it's completed by moving it into a done column and reopened by moving it out, via [Move a card](card_table_cards.md#move-a-card) (`POST /card_tables/cards/:id/moves.json` with the destination `column_id`).
-* **Reschedule** — update a [to-do](todos.md#update-a-to-do) with `due_on` and, optionally, `starts_on`. A [card](card_table_cards.md#update-a-card) is rescheduled with `due_on` only — cards have no `starts_on` — and a card-table [step](card_table_steps.md#update-a-step) likewise takes `due_on`, on its own update endpoint.
+* **Assign or unassign** — pass `assignee_ids` when updating a [to-do](todos.md#update-a-to-do) or a [card](card_table_cards.md#update-a-card); include `notify: true` to notify the people you add. A card table step is assigned on the step itself via [Update a step](card_table_steps.md#update-a-step) (`PUT /card_tables/steps/:id.json`), not the parent card.
+* **Complete or reopen** — a to-do uses its [completion](todos.md#complete-a-to-do) endpoint (`POST`/`DELETE /todos/:id/completion.json`). A card table step uses [Change step completion status](card_table_steps.md#change-step-completion-status) — `PUT /card_tables/steps/:step_id/completions.json` with `completion: "on"` to complete or `"off"` to reopen. A card has no completion endpoint: it's completed by moving it into a done column and reopened by moving it out, via [Move a card](card_table_cards.md#move-a-card) (`POST /card_tables/cards/:id/moves.json` with the destination `column_id`).
+* **Reschedule** — update a [to-do](todos.md#update-a-to-do) with `due_on` and, optionally, `starts_on`. A [card](card_table_cards.md#update-a-card) is rescheduled with `due_on` only — cards have no `starts_on` — and a card table [step](card_table_steps.md#update-a-step) likewise takes `due_on`, on its own update endpoint.
 
-**Note:** these updates replace omitted fields. A to-do update and a card-table step update both clear any field you don't send — including `assignee_ids`, `due_on`, and (for steps) `title` — so resend the current values you want to keep. A card update is the one that preserves omitted `title` and `content`, but even there `due_on` is cleared unless you resend it. In short: to change only assignees or only the due date, echo the record's other current fields in the same request.
+**Note:** these updates replace omitted fields. A to-do update and a card table step update both clear any field you don't send — including `assignee_ids`, `due_on`, and (for steps) `title` — so resend the current values you want to keep. A card update is the one that preserves omitted `title` and `content`, but even there `due_on` is cleared unless you resend it. In short: to change only assignees or only the due date, echo the record's other current fields in the same request.
 
 
 Prioritize an assignment
@@ -658,7 +658,11 @@ Prioritize an assignment
 
 * `POST /my/priorities.json` adds a recording to "Up Next" — the current user's ordered list of prioritized assignments, returned as `priorities` in [Get assignments](#get-assignments). Returns `204 No Content`.
 
-Identify the item by the **recording id** of the thing that carries the priority, not by the assignment id. For a plain to-do or card that's the item's `id`. For a card-table step shown normalized under its parent card, the item's `id` is the *card's* — use the item's `priority_recording_id` from [Get assignments](#get-assignments) instead, which points at the prioritized step.
+Identify the item by the **recording id** of the thing that carries the priority, not by the assignment id. [Get assignments](#get-assignments) normalizes a card table step under its parent card, so which id to send depends on what you're prioritizing:
+
+* **A to-do, or a card itself** — send the item's top-level `id`.
+* **A card table step that isn't prioritized yet** — send the step's own `id` from its parent card's `children`. Only already-prioritized top-level entries carry a `priority_recording_id`, so a step you haven't prioritized has just its own id.
+* **A step that is already prioritized** — the top-level entry's `id` is the *card's*, so send that entry's `priority_recording_id`, which points at the prioritized step. Use it to reorder or deprioritize.
 
 **Required parameters**: `id` — the recording id to prioritize.
 
