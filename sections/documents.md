@@ -165,13 +165,13 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCO
 Create a document
 -----------------
 
-* `POST /vaults/2/documents.json` publishes a document under the vault with an ID of `2`.
+* `POST /vaults/2/documents.json` creates a document under the vault with an ID of `2`.
 
 **Required parameters**: `title` as the title of the document, and `content` as the body of the document. See our [Rich text guide][rich] for what HTML tags are allowed.
 
 _Optional parameters_:
 
-* `status`, set to `active` to publish immediately.
+* `status` — set to `active` to publish the document immediately. **When `status` is omitted the document is created as a draft** (it defaults to `drafted`); a draft is not posted and notifies no one until you publish it. See [Publishing a draft](#publishing-a-draft).
 * `visible_to_clients` - top-level boolean. When the project has clients enabled, whether the document is visible to them. Defaults to `false` (team callers creating directly under the docked tool); a **client** caller always creates client-visible records. Applies only when creating directly in the tool's vault; items created inside a folder inherit the folder's visibility. See [Client visibility][client_visibility] to change it after creation.
 
 This endpoint will return `201 Created` with the current JSON representation of the document if the creation was a success. See the [Get a document](#get-a-document) endpoint for more info on the payload.
@@ -217,6 +217,22 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
   -d '{"title":"New Hire Information","content":"<div><strong>Let's get started</strong></div>"}' -X PUT \
   https://3.basecampapi.com/$ACCOUNT_ID/documents/2.json
 ```
+
+Publishing a draft
+------------------
+
+Publish a [draft](drafts.md) document by updating it with `status` set to `active`. Unlike a message, a document update **replaces** the document rather than merging, so you must resend `title` and `content` alongside `status`:
+
+```json
+{
+  "title": "New Hire Info",
+  "content": "<div><strong>Getting started</strong></div>",
+  "status": "active"
+}
+```
+
+A status-only update fails with `400 Bad Request` (the `document` parameters are required), and omitting a field clears its value. Publishing posts the document and notifies its subscribers exactly once — the same publication side-effects as [publishing a message](messages.md#publishing-a-draft).
+
 
 Legacy project-scoped routes
 -----------------------------

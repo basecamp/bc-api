@@ -414,12 +414,13 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCO
 Create a message
 ----------------
 
-* `POST /message_boards/3/messages.json` publishes a message under the message board with an ID of `3`.
+* `POST /message_boards/3/messages.json` creates a message under the message board with an ID of `3`.
 
-**Required parameters**: `subject` as the title of the message, and `status`, set to `active` to publish immediately.
+**Required parameters**: `subject` as the title of the message.
 
-_Optional parameters_: 
+_Optional parameters_:
 
+* `status` — set to `active` to publish the message immediately. **When `status` is omitted the message is created as a draft** (it defaults to `drafted`); a draft is not posted and notifies no one until you publish it. See [Publishing a draft](#publishing-a-draft).
 * `content` as the body of the message. See our [Rich text guide][4] for what HTML tags are allowed.
 * `category_id` to set a type for the message. To get a list of all the message types for a project, see the [Get message types][5] endpoint. 
 * `subscriptions` an array of people IDs to be notified of the new message when it's posted and subscribed to it. If not present, all people on the project will be notified and subscribed.
@@ -469,6 +470,20 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
   -d '{"subject":"Spin-down","content":"<div><strong>Oops, we lost that client.</strong></div>"}' -X PUT \
   https://3.basecampapi.com/$ACCOUNT_ID/messages/2.json
 ```
+
+Publishing a draft
+------------------
+
+Publish a [draft](drafts.md) message by updating it with `status` set to `active`:
+
+```json
+{ "status": "active" }
+```
+
+A message update **merges** the fields you send, so you don't need to resend `subject` or `content` — the draft's existing content is preserved.
+
+Publishing is what actually posts the message, and it happens exactly once. It records a single publication event; once the resulting `Event::RelayJob` runs, each subscriber who should hear about the message receives exactly one notification. Creating or re-saving a draft notifies no one — only publishing does. (Documents publish the same way; see [Publishing a draft](documents.md#publishing-a-draft) in the documents section.)
+
 
 Pin a message
 ----------------
