@@ -13,7 +13,9 @@ Endpoints:
 - [Get completed assignments](#get-completed-assignments)
 - [Get due assignments](#get-due-assignments)
 - [Act on assignments](#act-on-assignments)
-- [Prioritize assignments](#prioritize-assignments)
+- [Prioritize an assignment](#prioritize-an-assignment)
+- [Deprioritize an assignment](#deprioritize-an-assignment)
+- [Reorder Up Next](#reorder-up-next)
 
 
 Get assignments
@@ -651,16 +653,22 @@ Assignments are created and changed through the to-do, card, and card-table-step
 **Note:** these updates replace omitted fields. A to-do update and a card-table step update both clear any field you don't send — including `assignee_ids`, `due_on`, and (for steps) `title` — so resend the current values you want to keep. A card update is the one that preserves omitted `title` and `content`, but even there `due_on` is cleared unless you resend it. In short: to change only assignees or only the due date, echo the record's other current fields in the same request.
 
 
-Prioritize assignments
-----------------------
+Prioritize an assignment
+------------------------
 
-"Up Next" is the current user's ordered list of prioritized assignments, returned as `priorities` in [Get assignments](#get-assignments). These endpoints add to, remove from, and reorder that list, and each responds `204 No Content` on success. (Reordering additionally validates its input — see the error responses below.)
+* `POST /my/priorities.json` adds a recording to "Up Next" — the current user's ordered list of prioritized assignments, returned as `priorities` in [Get assignments](#get-assignments). Returns `204 No Content`.
 
 Identify the item by the **recording id** of the thing that carries the priority, not by the assignment id. For a plain to-do or card that's the item's `id`. For a card-table step shown normalized under its parent card, the item's `id` is the *card's* — use the item's `priority_recording_id` from [Get assignments](#get-assignments) instead, which points at the prioritized step.
 
-* `POST /my/priorities.json` with `{ "id": 1069479801 }` adds the recording to Up Next.
-* `DELETE /my/priorities/1069479801.json` removes it from Up Next.
-* `POST /my/priority_moves.json` with `{ "source_id": 1069479801, "position": 1 }` moves the recording to `position` within Up Next. Positions are 1-based.
+**Required parameters**: `id` — the recording id to prioritize.
+
+###### Example JSON Request
+
+```json
+{
+  "id": 1069479801
+}
+```
 
 ###### Copy as cURL
 
@@ -671,11 +679,41 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" \
   https://3.basecampapi.com/$ACCOUNT_ID/my/priorities.json
 ```
 
+
+Deprioritize an assignment
+--------------------------
+
+* `DELETE /my/priorities/1069479801.json` removes the recording with an ID of `1069479801` from Up Next. Returns `204 No Content`.
+
+###### Copy as cURL
+
 ```shell
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" \
   -X DELETE \
   https://3.basecampapi.com/$ACCOUNT_ID/my/priorities/1069479801.json
 ```
+
+
+Reorder Up Next
+---------------
+
+* `POST /my/priority_moves.json` moves an already-prioritized recording to a new spot in Up Next. Returns `204 No Content`.
+
+**Required parameters**:
+
+* `source_id` — the recording id to move, chosen the same way as when [prioritizing](#prioritize-an-assignment).
+* `position` — the 1-based position to move it to.
+
+###### Example JSON Request
+
+```json
+{
+  "source_id": 1069479801,
+  "position": 1
+}
+```
+
+###### Copy as cURL
 
 ```shell
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" \
