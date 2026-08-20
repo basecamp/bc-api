@@ -6,6 +6,7 @@ Endpoints:
 - [Get all people](#get-all-people)
 - [Get people on a project](#get-people-on-a-project)
 - [Update who can access a project](#update-who-can-access-a-project)
+- [Join a project](#join-a-project)
 - [Enroll people](#enroll-people)
 - [Add and remove clients on a project](#add-and-remove-clients-on-a-project)
 - [Enable or disable clients on a project](#enable-or-disable-clients-on-a-project)
@@ -211,6 +212,28 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 }
 ```
 <!-- END PUT /projects/1/people/users.json -->
+
+Join a project
+--------------
+
+* `POST /buckets/1/admissions.json` joins the current person to the project with the given ID, when that project's admissions policy allows it (all-access: `team` or `employee`).
+
+No parameters. No request body.
+
+This is the API equivalent of opening an all-access project in the web app and joining it yourself. It is **not** the same as [Update who can access a project](#update-who-can-access-a-project), which grants or revokes other people.
+
+Returns `201 Created` with an empty body if the join succeeded. After a successful join, the project appears in [Get all projects](projects.md#get-projects) and [Get a project](projects.md#get-a-project) works for this person.
+
+If the person is not allowed to join (invite-only project, or a client on a `team` project), the API returns `403 Forbidden` with an error such as `"You must first seek admission"`.
+
+`GET /projects.json` only lists projects the current person has already joined. All-access projects they have not joined yet do not appear there. Use this endpoint with a known project ID (from a URL, a dashboard, or an admin) to join, then list again.
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -X POST \
+  https://3.basecampapi.com/$ACCOUNT_ID/buckets/1/admissions.json
+```
 
 Enroll people
 -------------
