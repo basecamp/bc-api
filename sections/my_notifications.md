@@ -339,9 +339,9 @@ Mark as read
 
 **Required parameters**:
 
-* `readables` - an array of `readable_sgid` values from the notifications response. These identify the items to mark as read.
+* `readables` - an array of `readable_sgid` values from the notifications response. These identify the items to mark as read. At most 500 per request.
 
-Returns `200 OK` on success with no body.
+Returns `200 OK` on success with no body, or `422 Unprocessable Entity` when `readables` exceeds 500 items.
 
 ###### Example JSON Request
 
