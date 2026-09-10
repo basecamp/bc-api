@@ -295,7 +295,13 @@ Create a Project Construction
 
 To create a project given a template, you need to create a project construction.
 
-* `POST /templates/:template_id/project_constructions.json` with at least a project `name`, and optionally a `description`.
+* `POST /templates/:template_id/project_constructions.json` with at least a project `name`, and optionally a `description` and a `start_date`.
+
+The parameters are nested under `project`:
+
+* `name` - the name of the new project. Required.
+* `description` - a description for the new project.
+* `start_date` - date (ISO 8601) the new project starts on. A template's dates (to-do start and due dates, to-do subtask and card step due dates, card due dates, schedule entries) are relative to the start of its first week, and weeks in templates start on a Sunday, so the new project's dates are anchored to the Sunday on or before `start_date`. Omit it and they are anchored to the week in which the construction is processed, which is the week it was requested unless the construction is delayed across a Sunday.
 
 ###### Example JSON Request
 
@@ -303,7 +309,8 @@ To create a project given a template, you need to create a project construction.
 {
   "project": {
     "name": "Marketing ",
-    "description": "2016-2017 Strategy"
+    "description": "2016-2017 Strategy",
+    "start_date": "2016-09-04"
   }
 }
 ```
@@ -311,7 +318,7 @@ To create a project given a template, you need to create a project construction.
 ###### Copy as cURL
 
 ```shell
-curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -d '{"project":{"name":"Marketing Campaign","description":"For Client: Xyz Corp Conference"}}' -X POST \
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -d '{"project":{"name":"Marketing Campaign","description":"For Client: Xyz Corp Conference","start_date":"2016-09-04"}}' -X POST \
   https://3.basecampapi.com/$ACCOUNT_ID/templates/2085958507/project_constructions.json
 ```
 
