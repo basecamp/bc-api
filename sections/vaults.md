@@ -9,6 +9,7 @@ Endpoints:
 - [Get a vault](#get-a-vault)
 - [Create a vault](#create-a-vault)
 - [Update a vault](#update-a-vault)
+- [Update a vault's view](#update-a-vaults-view)
 
 Get vaults
 ----------
@@ -205,6 +206,33 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
   https://3.basecampapi.com/$ACCOUNT_ID/vaults/3.json
 ```
 
+Update a vault's view
+---------------------
+
+* `PUT /vaults/3/view_preference.json` sets how the current user sees the vault with an ID of `3` in Docs & Files.
+
+**Required parameters**: `view`, either `grid` or `list`.
+
+The view belongs to the current user and to that one vault, so setting it leaves every other person, and every other vault, alone. To switch a whole project, set its primary vault, then call [Get vaults](#get-vaults) on every vault you set and set each vault it returns. Get vaults lists one level at a time and is [paginated][pagination].
+
+This endpoint will return `204 No Content` if the update was a success, or `400 Bad Request` if `view` is anything other than `grid` or `list`.
+
+###### Example JSON Request
+
+```json
+{
+  "view": "grid"
+}
+```
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
+  -d '{"view":"grid"}' -X PUT \
+  https://3.basecampapi.com/$ACCOUNT_ID/vaults/3/view_preference.json
+```
+
 Legacy project-scoped routes
 -----------------------------
 
@@ -214,6 +242,7 @@ The following project-scoped routes are still supported and will remain availabl
 * `GET /buckets/1/vaults/2.json` → [Get a vault](#get-a-vault)
 * `POST /buckets/1/vaults/2/vaults.json` → [Create a vault](#create-a-vault)
 * `PUT /buckets/1/vaults/3.json` → [Update a vault](#update-a-vault)
+* `PUT /buckets/1/vaults/3/view_preference.json` → [Update a vault's view](#update-a-vaults-view)
 
 [project]: projects.md#get-a-project
 [pagination]: ../README.md#pagination
