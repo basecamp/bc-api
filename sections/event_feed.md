@@ -296,7 +296,7 @@ Error responses:
   canonical filters preserved.
 
 ###### Example JSON Response
-
+<!-- START GET /events.json -->
 ```json
 {
   "events": [
@@ -315,6 +315,7 @@ Error responses:
   "position": "aBcD..."
 }
 ```
+<!-- END GET /events.json -->
 
 ###### Copy as cURL
 
@@ -443,7 +444,7 @@ position has seen none of the retained backlog, so that entry is exactly-once
 continuation.
 
 ###### Example JSON Response
-
+<!-- START GET /inbox.json -->
 ```json
 {
   "items": [
@@ -467,6 +468,7 @@ continuation.
   "position": "aBcD..."
 }
 ```
+<!-- END GET /inbox.json -->
 
 ###### Copy as cURL
 
@@ -508,7 +510,7 @@ socket, so mint-per-connection is connector discipline, not server
 enforcement. Every socket is bounded to a single subscription regardless.
 
 ###### Example JSON Response
-
+<!-- START POST /events/stream_ticket.json -->
 ```json
 {
   "ticket": "aBcD...",
@@ -516,6 +518,7 @@ enforcement. Every socket is bounded to a single subscription regardless.
   "url": "wss://chat.3.basecamp.com/195539477?ticket=aBcD..."
 }
 ```
+<!-- END POST /events/stream_ticket.json -->
 
 ###### Copy as cURL
 

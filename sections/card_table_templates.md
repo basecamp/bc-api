@@ -115,16 +115,9 @@ Create a card table template
 ```
 <!-- END POST PAYLOAD /template_library/card_tables.json -->
 
-###### Copy as cURL
-
-```shell
-curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
-  -d '{"name":"Client onboarding"}' -X POST \
-  https://3.basecampapi.com/$ACCOUNT_ID/template_library/card_tables.json
-```
-
 A successful request returns `201 Created` with the new [card table](card_tables.md). Its `parent` is the library's card table container, never the library's dock: a card table only counts as a template when it lives in that container, so a card table can't be added to the template library as a [dock tool](tools.md).
 
+###### Example JSON Response
 <!-- START POST /template_library/card_tables.json -->
 ```json
 {
@@ -485,6 +478,14 @@ A successful request returns `201 Created` with the new [card table](card_tables
 ```
 <!-- END POST /template_library/card_tables.json -->
 
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
+  -d '{"name":"Client onboarding"}' -X POST \
+  https://3.basecampapi.com/$ACCOUNT_ID/template_library/card_tables.json
+```
+
 Create a card table from a template
 -----------------------------------
 
@@ -508,17 +509,10 @@ A `destination_parent_id` naming the dock recording is accepted instead, for cal
 ```
 <!-- END POST PAYLOAD /template_library/copies.json (card table) -->
 
-###### Copy as cURL
-
-```shell
-curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
-  -d '{"template_recording_id":1069480295,"destination_project_id":2085958504}' -X POST \
-  https://3.basecampapi.com/$ACCOUNT_ID/template_library/copies.json
-```
-
 The copy resource, its people confirmation step, and polling work exactly as for a [to-do list template](template_library.md#create-a-to-do-list-from-a-template). A completed copy includes the new card table as `destination_card_table`:
 
-<!-- START GET /template_library/copies/2.json (card table) -->
+###### Example JSON Response (completed copy)
+<!-- START GET /template_library/copies/1.json (card table) -->
 ```json
 {
   "id": 1,
@@ -1057,4 +1051,12 @@ The copy resource, its people confirmation step, and polling work exactly as for
   }
 }
 ```
-<!-- END GET /template_library/copies/2.json (card table) -->
+<!-- END GET /template_library/copies/1.json (card table) -->
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
+  -d '{"template_recording_id":1069480295,"destination_project_id":2085958504}' -X POST \
+  https://3.basecampapi.com/$ACCOUNT_ID/template_library/copies.json
+```
