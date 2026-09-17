@@ -352,7 +352,7 @@ Answers `201 Created` with the template. Fill it in with the [to-do](todos.md) e
 ```shell
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
-  -d '{"name":"Client onboarding"}' -X POST \
+  -d '{"name":"New hire setup"}' -X POST \
   https://3.basecampapi.com/$ACCOUNT_ID/template_library/todolists.json
 ```
 
@@ -379,16 +379,9 @@ A `destination_parent_id` naming the to-do set is accepted instead, for callers 
 ```
 <!-- END POST PAYLOAD /template_library/copies.json -->
 
-###### Copy as cURL
-
-```shell
-curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
-  -d '{"template_recording_id":1069480314,"destination_project_id":2085958504}' -X POST \
-  https://3.basecampapi.com/$ACCOUNT_ID/template_library/copies.json
-```
-
 A successful request returns `201 Created` with a copy resource. Follow its `url` to track progress.
 
+###### Example JSON Response
 <!-- START POST /template_library/copies.json -->
 ```json
 {
@@ -400,6 +393,14 @@ A successful request returns `201 Created` with a copy resource. Follow its `url
 }
 ```
 <!-- END POST /template_library/copies.json -->
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
+  -d '{"template_recording_id":1069480314,"destination_project_id":2085958504}' -X POST \
+  https://3.basecampapi.com/$ACCOUNT_ID/template_library/copies.json
+```
 
 When the template contains assignments or completion subscriptions for people who do not have access to the destination project, the response is `422 Unprocessable Entity` and identifies the people who would be added:
 
@@ -423,14 +424,14 @@ Repeat the request with `adding_people_confirmed` set to `true` to grant those p
 Get a template copy
 -------------------
 
-* `GET /template_library/copies/1.json` returns the current state of a template copy.
+* `GET /template_library/copies/2.json` returns the current state of a template copy.
 
 Only the person who started the copy can retrieve it. Requests from anyone else return `404 Not Found`, so poll with the same credentials that created the copy.
 
 The status is `pending`, `processing`, `completed`, or `failed`. Poll the URL no more than once per second while the copy is pending or processing. A completed response includes the newly created to-do list.
 
 ###### Example JSON Response
-<!-- START GET /template_library/copies/1.json -->
+<!-- START GET /template_library/copies/2.json -->
 ```json
 {
   "id": 2,
@@ -510,11 +511,11 @@ The status is `pending`, `processing`, `completed`, or `failed`. Poll the URL no
   }
 }
 ```
-<!-- END GET /template_library/copies/1.json -->
+<!-- END GET /template_library/copies/2.json -->
 
 ###### Copy as cURL
 
 ```shell
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" \
-  https://3.basecampapi.com/$ACCOUNT_ID/template_library/copies/1.json
+  https://3.basecampapi.com/$ACCOUNT_ID/template_library/copies/2.json
 ```

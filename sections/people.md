@@ -223,13 +223,13 @@ Join a project
 
 No parameters. No request body.
 
-This is the API equivalent of opening an all-access project in the web app and joining it yourself. It is **not** the same as [Update who can access a project](#update-who-can-access-a-project), which grants or revokes access for other people.
+This is the API equivalent of opening an all-access project in the web app and joining it yourself. It is **not** the same as [Update who can access a project](#update-who-can-access-a-project), which grants or revokes access for the people you name.
 
 Returns `201 Created` with an empty body if the join succeeded. After a successful join, an active project appears in [Get all projects](projects.md#get-all-projects) and [Get a project](projects.md#get-a-project) works for this person.
 
-If the project doesn't exist, or its policy doesn't let the current person in, the API returns `404 Not Found`. The policy is checked first, so that includes people who already have access but aren't admitted by the policy, such as a client, or anyone other than an owner on an `invite` project. If the policy admits the person and they already have access, nothing changes and the response is a `302 Found` redirect to the project. Agent tokens get `403 Forbidden`.
+If the project doesn't exist, or its policy doesn't let the current person in, the API returns `404 Not Found`. The policy is checked first, so that includes people who already have access but aren't admitted by the policy, such as a client, or anyone other than an owner on an `invite` project. If the policy admits the person and they already have access, nothing changes and the response is a `302 Found` redirect to the project. A token that acts as an agent itself gets `403 Forbidden`; a token a person delegated to an agent acts as that person.
 
-`GET /projects.json` only lists projects the current person has already joined, so the ID of a project to join has to come from elsewhere: the project's web URL (`https://3.basecamp.com/$ACCOUNT_ID/projects/1`), or someone who can see the project. Reading a project, or most resources inside one, that the person hasn't joined but could returns `403 Forbidden` with the URL to join. For example, `GET /projects/1.json` for such a project returns:
+`GET /projects.json` only lists projects the current person already has access to, so the ID of a project to join has to come from elsewhere: the project's web URL (`https://3.basecamp.com/$ACCOUNT_ID/projects/1`), or someone who can see the project. Reading a project, or most resources inside one, that the person doesn't have access to but could join returns `403 Forbidden` with the URL to join. For example, `GET /projects/1.json` for such a project returns:
 
 ###### Example JSON Response
 <!-- START GET /projects/1.json (seek admission) -->
@@ -242,7 +242,7 @@ If the project doesn't exist, or its policy doesn't let the current person in, t
 ```
 <!-- END GET /projects/1.json (seek admission) -->
 
-`admission_url` has no `.json` extension: POST to it with `Accept: application/json`, or add `.json`, to get `201 Created`. Without either, the join still happens but the response is a `302` redirect. Most writes (`POST`, `PUT`, `DELETE`) inside an all-access project the person hasn't joined but could don't return `403`: they join the person to the project and then carry out the request. The join stays even if the request itself is then refused.
+`admission_url` has no `.json` extension: POST to it with `Accept: application/json`, or add `.json`, to get `201 Created`. Without either, the join still happens but the response is a `302` redirect. Most writes (`POST`, `PUT`, `DELETE`) inside an all-access project the person doesn't have access to but could join don't return `403`: they join the person to the project and then carry out the request. The join stays even if the request itself is then refused.
 
 ###### Copy as cURL
 
