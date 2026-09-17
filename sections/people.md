@@ -229,8 +229,10 @@ Returns `201 Created` with an empty body if the join succeeded. After a successf
 
 If the project doesn't exist, or its policy doesn't let the current person in, the API returns `404 Not Found`. The policy is checked first, so that includes people who already have access but aren't admitted by the policy, such as a client, or anyone other than an owner on an `invite` project. If the policy admits the person and they already have access, nothing changes and the response is a `302 Found` redirect to the project. Agent tokens get `403 Forbidden`.
 
-`GET /projects.json` only lists projects the current person has already joined. Reading a project, or most resources inside one, that the person hasn't joined but could returns `403 Forbidden` with the URL to join:
+`GET /projects.json` only lists projects the current person has already joined. Reading a project, or most resources inside one, that the person hasn't joined but could returns `403 Forbidden` with the URL to join. For example, `GET /projects/1.json` for such a project returns:
 
+###### Example JSON Response
+<!-- START GET /projects/1.json (seek admission) -->
 ```json
 {
   "message": "You must first seek admission",
@@ -238,8 +240,9 @@ If the project doesn't exist, or its policy doesn't let the current person in, t
   "admission_method": "POST"
 }
 ```
+<!-- END GET /projects/1.json (seek admission) -->
 
-`admission_url` has no `.json` extension: POST to it with `Accept: application/json`, or add `.json`, to get `201 Created`. Without either, the join still happens but the response is a `302` redirect. Writes (`POST`, `PUT`, `DELETE`) inside an all-access project the person hasn't joined but could don't return `403`: they join the person to the project and then carry out the request.
+`admission_url` has no `.json` extension: POST to it with `Accept: application/json`, or add `.json`, to get `201 Created`. Without either, the join still happens but the response is a `302` redirect. Most writes (`POST`, `PUT`, `DELETE`) inside an all-access project the person hasn't joined but could don't return `403`: they join the person to the project and then carry out the request. The join stays even if the request itself is then refused.
 
 ###### Copy as cURL
 
