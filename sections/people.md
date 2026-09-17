@@ -229,7 +229,7 @@ Returns `201 Created` with an empty body if the join succeeded. After a successf
 
 If the project doesn't exist, or its policy doesn't let the current person in, the API returns `404 Not Found`. The policy is checked first, so that includes people who already have access but aren't admitted by the policy, such as a client, or anyone other than an owner on an `invite` project. If the policy admits the person and they already have access, nothing changes and the response is a `302 Found` redirect to the project. Agent tokens get `403 Forbidden`.
 
-`GET /projects.json` only lists projects the current person has already joined. Reading a project, or most resources inside one, that the person hasn't joined but could returns `403 Forbidden` with the URL to join. For example, `GET /projects/1.json` for such a project returns:
+`GET /projects.json` only lists projects the current person has already joined, so the ID of a project to join has to come from elsewhere: the project's web URL (`https://3.basecamp.com/$ACCOUNT_ID/projects/1`), or someone who can see the project. Reading a project, or most resources inside one, that the person hasn't joined but could returns `403 Forbidden` with the URL to join. For example, `GET /projects/1.json` for such a project returns:
 
 ###### Example JSON Response
 <!-- START GET /projects/1.json (seek admission) -->
