@@ -262,6 +262,22 @@ The resource is called **person** (not user). Endpoints:
 - `/projects/{id}/people.json` — people in a project
 - `/my/profile.json` — current authenticated user (GET and PUT)
 
+### Person types
+
+A full person object includes a `personable_type` saying what kind of person it is. The [people endpoints](sections/people.md) return full person objects, and most embedded people, such as a recording's `creator`, use them too. Some responses use a minimal person object with only `id`, `name`, and `avatar_url` instead, for example [out of office](sections/out_of_office.md) and the `assignees` in [my assignments](sections/my_assignments.md). Don't assume `personable_type` is present.
+
+The current types are:
+
+- `User` — a member of the account: a team member (`"client": false`) or a client member (`"client": true`).
+- `Agent` — an AI agent added to the account. Agents create content and use the API as themselves.
+- `Integration` — a chatbot or service integration that posts into Basecamp.
+- `Outsider` — someone outside the account whose email reached Basecamp, such as the sender of an [email forward](sections/forwards.md).
+- `Client` — a client contact from the legacy clientside ([client correspondences](sections/client_correspondences.md), [approvals](sections/client_approvals.md), and [replies](sections/client_replies.md)). These people have `"client": false`, so check `personable_type` to identify them.
+- `DummyUser` — a sample person in the example projects Basecamp creates for new accounts.
+- `Tombstone` — a person who has been removed from the account, or an agent or chatbot that has been deleted. Their past content keeps its author.
+
+**New person types may be added at any time, without a version change.** Treat `personable_type` as an open set: when you see a value you don't recognize, handle the person like any other (show their `name` and `avatar_url`) rather than failing to parse the response, and rely on the `admin`, `client`, and `can_*` flags, not the type, for what a person can do.
+
 ### To-do specifics
 
 **Completion**: To-dos have a boolean `completed` field. By default, endpoints return active, pending (not completed) items. Use `?completed=true` for completed items. Use `?status=archived` or `?status=trashed` to see those.
@@ -291,6 +307,7 @@ API endpoints
 - [Card table cards](sections/card_table_cards.md#card-table-cards)
 - [Card table columns](sections/card_table_columns.md#card-table-columns)
 - [Card table steps](sections/card_table_steps.md#card-table-steps)
+- [Card table templates](sections/card_table_templates.md#card-table-templates)
 - [Card table wormholes](sections/card_table_wormholes.md#card-table-wormholes)
 - [Card tables](sections/card_tables.md#card-tables)
 - [Chatbots](sections/chatbots.md#chatbots)
@@ -302,6 +319,7 @@ API endpoints
 - [Comments](sections/comments.md#comments)
 - [Documents](sections/documents.md#documents)
 - [Drafts](sections/drafts.md#drafts)
+- [Event feed](sections/event_feed.md#event-feed)
 - [Events](sections/events.md#events)
 - [Everything](sections/everything.md#everything)
 - [External links](sections/external_links.md#external-links)
@@ -336,6 +354,7 @@ API endpoints
 - [Subscriptions](sections/subscriptions.md#subscriptions)
 - [Subtasks](sections/subtasks.md#subtasks)
 - [Templates](sections/templates.md#templates)
+- [Templatifications](sections/templatifications.md#templatifications)
 - [Timeline](sections/timeline.md#timeline)
 - [Timesheets](sections/timesheets.md#timesheets)
 - [To-do list groups](sections/todolist_groups.md#to-do-list-groups)

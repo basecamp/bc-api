@@ -23,6 +23,8 @@ Get all people
 
 Wherever a person is represented, the `email_address` is only returned in full to account administrators and owners, and to the person themselves. For everyone else it is redacted (e.g. `"j••••@•••••••••.•••"`).
 
+The `personable_type` field says what kind of person this is — `User`, `Agent`, `Tombstone`, and so on. New types may appear at any time, so handle a value you don't recognize gracefully. See [Person types](../README.md#person-types).
+
 ###### Example JSON Response
 <!-- START GET /people.json -->
 ```json
@@ -499,7 +501,10 @@ Update my personal info
 **Optional parameters**:
 
 * `name` - the user's display name.
-* `email_address` - the user's email address.
+* `email_address` - the user's email address. This is the 37signals login identity shared across
+  every account, so changing it requires a trusted client with session-equivalent authority: a
+  full-scope, identity-wide token (a personal access token, or a first-party app's identity-wide
+  token). Any other token gets `403 Forbidden` with an `error` message and changes nothing.
 * `title` - the user's job title.
 * `bio` - a short bio.
 * `location` - the user's location.

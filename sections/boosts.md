@@ -160,9 +160,9 @@ Create a boost
 * `POST /recordings/2/boosts.json` publishes a boost on the recording with an ID of `2`.
 * `POST /recordings/2/events/3/boosts.json` publishes a boost on the event with ID `3` on the recording with ID of `2`. Only boostable events (`completed`, `adopted`, `column_changed`) accept boosts; other events will return `403 Forbidden`.
 
-**Required parameters**: `content` as the body of the boost.
+**Required parameters**: `content` as the body of the boost, up to 191 characters.
 
-This endpoint will return `201 Created` with the current JSON representation of the boost if the creation was a success. See the [Get a boost](#get-a-boost) endpoint for more info on the payload.
+This endpoint will return `201 Created` with the current JSON representation of the boost if the creation was a success, or `422 Unprocessable Entity` if `content` is missing or too long. See the [Get a boost](#get-a-boost) endpoint for more info on the payload.
 
 ###### Example JSON Request
 

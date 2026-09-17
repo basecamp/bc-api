@@ -137,17 +137,15 @@ Get authorization from Basecamp
 
 Basecamp serves its own authorization document at the API root — no account
 prefix — for any token it accepts: a Basecamp-issued OAuth token or personal
-access token, or a legacy Launchpad-issued token. It mirrors Launchpad's
-document above, with a few deliberate differences:
+access token, or a legacy Launchpad-issued token. It carries the same
+`identity` and `accounts` fields as Launchpad's document above — the same
+`product: "bc3"` selection works against either issuer, and the identity's
+name and email remain **not** for identifying users within Basecamp (use the
+[Get person][people] endpoints) — plus a few additions:
 
-- `identity` carries only `id`. The name and email fields are omitted: they
-  were never suitable for identifying users within Basecamp (see the note on
-  the Launchpad document above) — use the [Get person][people] endpoints.
-- Each account carries a `resource` indicator (`urn:bc:account:<id>`,
-  RFC 8707) instead of Launchpad's `product` and `app_href`. Pass it as the
-  `resource` parameter when requesting a token scoped to that account. A
-  client that reads both documents must treat `product` and `app_href` as
-  optional and select accounts by `href` or `resource`.
+- Each account also carries a `resource` indicator (`urn:bc:account:<id>`,
+  RFC 8707). Pass it as the `resource` parameter when requesting a token
+  scoped to that account.
 - `scope` is present for every Basecamp-issued token — OAuth and personal
   access tokens alike. Legacy Launchpad-issued tokens predate scopes, so a
   missing `scope` is not an error.
@@ -158,13 +156,18 @@ document above, with a few deliberate differences:
 ```json
 {
   "identity": {
-    "id": 9999999
+    "id": 9999999,
+    "first_name": "Jason",
+    "last_name": "Fried",
+    "email_address": "jason@basecamp.com"
   },
   "accounts": [
     {
+      "product": "bc3",
       "id": 99999999,
       "name": "Honcho Design",
       "href": "https://3.basecampapi.com/99999999",
+      "app_href": "https://app.basecamp.com/99999999",
       "resource": "urn:bc:account:99999999"
     }
   ],
