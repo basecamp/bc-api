@@ -1154,7 +1154,8 @@ Each timeline event includes these fields:
 | `parent_recording_id` | ID of the parent container (e.g., to-do list for a to-do), if applicable |
 | `url` | API URL to fetch the item |
 | `app_url` | Link to view the item in Basecamp |
-| `creator` | The [person][person] who performed the action |
+| `creator` | The [person][person] the action is attributed to |
+| `performed_by` | The agent that carried out the action on the creator's behalf, as a [person][person] with `"personable_type": "Agent"`. Present only for [delegated events](events.md#delegated-events) |
 | `action` | Human-readable description of the action |
 | `target` | The name of the parent container or item affected |
 | `title` | Combined action and target as a complete sentence |
