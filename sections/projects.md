@@ -738,9 +738,9 @@ _Optional parameters_:
     required.
 * `admissions` - specifies access policy for a project within the same account. Available options
     are:
-    * `invite` - only invited users can see the project.
-    * `employee` - anyone from the account can see the project.
-    * `team` - anyone from the account (except clients) can see the project.
+    * `invite` - only people added to the project have access. Account owners can also join it.
+    * `employee` - team members from the account's own company can join (not clients, and not team members from other companies).
+    * `team` - any team member, except clients, can join.
 
 ###### Example JSON Request
 

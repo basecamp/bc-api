@@ -6,6 +6,7 @@ Endpoints:
 - [Get all people](#get-all-people)
 - [Get people on a project](#get-people-on-a-project)
 - [Update who can access a project](#update-who-can-access-a-project)
+- [Join a project](#join-a-project)
 - [Enroll people](#enroll-people)
 - [Add and remove clients on a project](#add-and-remove-clients-on-a-project)
 - [Enable or disable clients on a project](#enable-or-disable-clients-on-a-project)
@@ -211,6 +212,44 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 }
 ```
 <!-- END PUT /projects/1/people/users.json -->
+
+Join a project
+--------------
+
+* `POST /buckets/1/admissions.json` joins the current person to the project with an ID of `1`, when the project's `admissions` policy lets them in:
+  * `team` - any member of the account's team (not clients).
+  * `employee` - team members who belong to the account's own company.
+  * `invite` - only account owners. Everyone else has to be added with [Update who can access a project](#update-who-can-access-a-project).
+
+No parameters. No request body.
+
+This is the API equivalent of opening an all-access project in the web app and joining it yourself. It is **not** the same as [Update who can access a project](#update-who-can-access-a-project), which grants or revokes access for other people.
+
+Returns `201 Created` with an empty body if the join succeeded. After a successful join, an active project appears in [Get all projects](projects.md#get-all-projects) and [Get a project](projects.md#get-a-project) works for this person.
+
+If the project doesn't exist, or its policy doesn't let the current person in, the API returns `404 Not Found`. The policy is checked first, so that includes people who already have access but aren't admitted by the policy, such as a client, or anyone other than an owner on an `invite` project. If the policy admits the person and they already have access, nothing changes and the response is a `302 Found` redirect to the project. Agent tokens get `403 Forbidden`.
+
+`GET /projects.json` only lists projects the current person has already joined, so the ID of a project to join has to come from elsewhere: the project's web URL (`https://3.basecamp.com/$ACCOUNT_ID/projects/1`), or someone who can see the project. Reading a project, or most resources inside one, that the person hasn't joined but could returns `403 Forbidden` with the URL to join. For example, `GET /projects/1.json` for such a project returns:
+
+###### Example JSON Response
+<!-- START GET /projects/1.json (seek admission) -->
+```json
+{
+  "message": "You must first seek admission",
+  "admission_url": "https://3.basecampapi.com/195539477/buckets/2085958499/admissions",
+  "admission_method": "POST"
+}
+```
+<!-- END GET /projects/1.json (seek admission) -->
+
+`admission_url` has no `.json` extension: POST to it with `Accept: application/json`, or add `.json`, to get `201 Created`. Without either, the join still happens but the response is a `302` redirect. Most writes (`POST`, `PUT`, `DELETE`) inside an all-access project the person hasn't joined but could don't return `403`: they join the person to the project and then carry out the request. The join stays even if the request itself is then refused.
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -X POST \
+  https://3.basecampapi.com/$ACCOUNT_ID/buckets/1/admissions.json
+```
 
 Enroll people
 -------------
