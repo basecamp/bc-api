@@ -219,17 +219,17 @@ Join a project
 * `POST /buckets/1/admissions.json` joins the current person to the project with an ID of `1`, when the project's `admissions` policy lets them in:
   * `team` - any member of the account's team (not clients).
   * `employee` - team members who belong to the account's own company.
-  * `invite` - only the account owner. Everyone else has to be added with [Update who can access a project](#update-who-can-access-a-project).
+  * `invite` - only account owners. Everyone else has to be added with [Update who can access a project](#update-who-can-access-a-project).
 
 No parameters. No request body.
 
 This is the API equivalent of opening an all-access project in the web app and joining it yourself. It is **not** the same as [Update who can access a project](#update-who-can-access-a-project), which grants or revokes access for other people.
 
-Returns `201 Created` with an empty body if the join succeeded. After a successful join, the project appears in [Get all projects](projects.md#get-all-projects) and [Get a project](projects.md#get-a-project) works for this person.
+Returns `201 Created` with an empty body if the join succeeded. After a successful join, an active project appears in [Get all projects](projects.md#get-all-projects) and [Get a project](projects.md#get-a-project) works for this person.
 
-If the project doesn't exist, or its policy doesn't let the current person in (for example, a client, or anyone other than the owner on an `invite` project), the API returns `404 Not Found`. If the person already has access, nothing changes and the response is a `302 Found` redirect to the project.
+If the project doesn't exist, or its policy doesn't let the current person in, the API returns `404 Not Found`. The policy is checked first, so that includes people who already have access but aren't admitted by the policy, such as a client, or anyone other than an owner on an `invite` project. If the policy admits the person and they already have access, nothing changes and the response is a `302 Found` redirect to the project. Agent tokens get `403 Forbidden`.
 
-`GET /projects.json` only lists projects the current person has already joined, so all-access projects they haven't joined yet don't appear there. Reading a resource inside such a project returns `403 Forbidden` with the URL to join:
+`GET /projects.json` only lists projects the current person has already joined. Reading a project, or most resources inside one, that the person hasn't joined but could returns `403 Forbidden` with the URL to join:
 
 ```json
 {
@@ -238,6 +238,8 @@ If the project doesn't exist, or its policy doesn't let the current person in (f
   "admission_method": "POST"
 }
 ```
+
+`admission_url` has no `.json` extension: POST to it with `Accept: application/json`, or add `.json`, to get `201 Created`. Without either, the join still happens but the response is a `302` redirect. Writes (`POST`, `PUT`, `DELETE`) inside an all-access project the person hasn't joined but could don't return `403`: they join the person to the project and then carry out the request.
 
 ###### Copy as cURL
 
