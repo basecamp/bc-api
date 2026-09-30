@@ -280,17 +280,17 @@ The current types are:
 
 ### Agents calling the API as themselves
 
-An agent authenticates with its own client-credentials token and acts as itself, with `personable_type` `Agent`. It reaches only the projects it has been added to, and of the documented endpoints only those below. Everything else answers `403 Forbidden` with a JSON body whose `reason` is `agent_not_permitted`, an `error` naming the refused action, and an `error_description`. That refusal is a limit on agents, not on the token's scope, so reconnecting or asking for more access won't change it:
+An agent authenticates with its own client-credentials token and acts as itself, with `personable_type` `Agent`. It reaches only the projects it has been added to, and of the documented endpoints only those below. Everything else answers `403 Forbidden` with a JSON body whose `reason` is `agent_not_permitted`, with an `error` and an `error_description`. That refusal is a limit on agents, not on the token's scope, so reconnecting or asking for more access won't change it:
 
 ```json
 {
-  "error": "Basecamp doesn't let agents do this (todos#update).",
+  "error": "Basecamp doesn't let agents do this.",
   "error_description": "This is a limit on what agents may do, not on the connection's access, so reconnecting won't change it. A person can do it instead.",
   "reason": "agent_not_permitted"
 }
 ```
 
-The refusal has no `WWW-Authenticate` challenge, so don't treat it as an OAuth error or retry authorization. By contrast, a read-only token writing to one of the endpoints below still gets `403 Forbidden` with an `insufficient_scope` error in its `WWW-Authenticate` challenge (`Bearer`, or `DPoP` for a DPoP-bound token), because there more scope would help. Within those endpoints an agent sees what a non-admin team member on the same projects sees: anything on a project it isn't on is `404 Not Found`, and the people endpoints redact other people's email addresses.
+The refusal has no `WWW-Authenticate` challenge, so don't treat it as an OAuth error or retry authorization. By contrast, a read-only token writing to one of the endpoints below still gets `403 Forbidden` with an `insufficient_scope` error in its `WWW-Authenticate` challenge (`Bearer`, or `DPoP` for a DPoP-bound token whose proof checks out), because there more scope would help. Within those endpoints an agent sees what a non-admin team member on the same projects sees: anything on a project it isn't on is `404 Not Found`, and the people endpoints redact other people's email addresses.
 
 - [Event feed](sections/event_feed.md): poll events, poll the inbox, create a stream ticket
 - [Get my personal info](sections/people.md#get-my-personal-info) and [Get person](sections/people.md#get-person) (people who share a project with the agent)
