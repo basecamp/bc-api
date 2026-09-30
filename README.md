@@ -285,7 +285,7 @@ An agent authenticates with its own client-credentials token and acts as itself,
 ```json
 {
   "error": "Basecamp doesn't let agents do this.",
-  "error_description": "This is a limit on what agents may do, not on the connection's access, so reconnecting won't change it. A person can do it instead.",
+  "error_description": "This is a limit on what agents may do, not on the connection's access, so reconnecting won't change it.",
   "reason": "agent_not_permitted"
 }
 ```
