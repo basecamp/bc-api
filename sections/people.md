@@ -26,6 +26,8 @@ Wherever a person is represented, the `email_address` is only returned in full t
 
 The `personable_type` field says what kind of person this is — `User`, `Agent`, `Tombstone`, and so on. New types may appear at any time, so handle a value you don't recognize gracefully. See [Person types](../README.md#person-types).
 
+A personal agent — one that works for a single person — also carries `boss`, with the `id` and `name` of the person it works for. Other people have no `boss` field.
+
 ###### Example JSON Response
 <!-- START GET /people.json -->
 ```json
