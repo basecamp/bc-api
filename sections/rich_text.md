@@ -17,7 +17,19 @@ Applications that modify existing rich text content should take special care not
 Allowed HTML tags
 -----------------
 
-You may use the following standard HTML tags in rich text content: `div`, `h1`, `br`, `strong`, `em`, `strike`, `a` (with an `href` attribute), `pre`, `ol`, `ul`, `li`, and `blockquote`. Any other tags will be removed automatically.
+You may use the following standard HTML tags in rich text content:
+
+* Text and structure: `div`, `p`, `span`, `br`, `hr`, `h1` through `h6`, `blockquote`, `q`, `pre`, `code`, `kbd`, `samp`, `var`, `tt`
+* Formatting: `strong`, `b`, `em`, `i`, `u`, `s`, `strike`, `del`, `ins`, `mark`, `sup`, `sub`
+* Lists: `ol`, `ul`, `li`, `dl`, `dt`, `dd`
+* Tables: `table`, `thead`, `tbody`, `tfoot`, `tr`, `th`, `td`
+* Other: `details`, `summary`, `figure`, `figcaption`, `ruby`, `rt`, `rp`
+* `a` (with an `href` attribute)
+* `img` (with a `src` attribute pointing to an `http` or `https` URL)
+
+Any other tags will be removed automatically.
+
+Images added with `img` are loaded straight from their `src` URL whenever someone views the content, so the server hosting the image can see those requests. To show a file stored in Basecamp instead, insert it as an [attachment](#inserting-an-image-or-file-attachment).
 
 The special `<bc-attachment>` tag allows you to insert an inline attachment. Each `<bc-attachment>` has an `sgid` attribute which points to the `attachable_sgid` attribute of an attachable Basecamp resource. Your application will receive a rendered representation of the attachable resource inside the `<bc-attachment>` tag in API responses.
 
