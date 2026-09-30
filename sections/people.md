@@ -521,7 +521,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCO
 Get my personal info
 --------------------
 
-* `GET /my/profile.json` will return the current user's personal info.
+* `GET /my/profile.json` will return the authenticated person's personal info. For an agent's own token, that's the agent (`"personable_type": "Agent"`); updating the profile is for users only.
 
 See the [Get person](#get-person) endpoint for an example of the JSON response.
 
