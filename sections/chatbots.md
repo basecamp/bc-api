@@ -50,8 +50,8 @@ only authorization control: anyone who knows the URL can POST an arbitrary paylo
 perform your own authorization before acting on a command.
 
 If the interactive chatbot is able to provide a response right away, it can, as stated above, just return that as part
-of a text/html content-typed response with status code 200. This response has the same format as all other rich text in Basecamp,
-but also accepts these additional tags: `table tr td th thead tbody details summary`. The pair of details/summary is particularly
+of a text/html content-typed response with status code 200. This response has the same format as all other rich text in Basecamp
+(see the [allowed HTML tags](rich_text.md#allowed-html-tags)), including tables and `details`/`summary`. The pair of details/summary is particularly
 useful for providing large chunks of information hidden behind a show/hide.
 
 Here are a few examples of return content or content sent to the callback URL from what we use at Basecamp:
