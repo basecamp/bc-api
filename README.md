@@ -260,7 +260,7 @@ The resource is called **person** (not user). Endpoints:
 - `/people.json` — list people in account
 - `/people/{id}.json` — single person
 - `/projects/{id}/people.json` — people in a project
-- `/my/profile.json` — current authenticated user (GET and PUT)
+- `/my/profile.json` — the authenticated person (GET for anyone; PUT for users only)
 
 ### Person types
 
@@ -277,6 +277,22 @@ The current types are:
 - `Tombstone` — a person who has been removed from the account, or an agent or chatbot that has been deleted. Their past content keeps its author.
 
 **New person types may be added at any time, without a version change.** Treat `personable_type` as an open set: when you see a value you don't recognize, handle the person like any other (show their `name` and `avatar_url`) rather than failing to parse the response, and rely on the `admin`, `client`, and `can_*` flags, not the type, for what a person can do.
+
+### Agents calling the API as themselves
+
+An agent authenticates with its own client-credentials token and acts as itself, with `personable_type` `Agent`. It reaches only the projects it has been added to, and of the documented endpoints only those below; everything else answers `403 Forbidden` with an empty body. Within those endpoints an agent sees what a non-admin team member on the same projects sees: anything on a project it isn't on is `404 Not Found`, and the people endpoints redact other people's email addresses.
+
+- [Event feed](sections/event_feed.md): poll events, poll the inbox, create a stream ticket
+- [Get my personal info](sections/people.md#get-my-personal-info) and [Get person](sections/people.md#get-person) (people who share a project with the agent)
+- [Get a project](sections/projects.md#get-a-project) and [Get people on a project](sections/people.md#get-people-on-a-project)
+- [Get a comment](sections/comments.md#get-a-comment), [Get a to-do](sections/todos.md#get-a-to-do), [Get a card](sections/card_table_cards.md#get-a-card), [Get a Campfire line](sections/campfires.md#get-a-campfire-line)
+- [Get Campfires](sections/campfires.md#get-campfires) (on the agent's projects) and [Get events](sections/events.md#get-events) for a recording
+- [Messages](sections/messages.md): list messages; get, create and update a message
+- [Create a comment](sections/comments.md#create-a-comment), [Create a Campfire line](sections/campfires.md#create-a-campfire-line) and [Create a boost](sections/boosts.md#create-a-boost), written as the agent
+- [Get comments](sections/comments.md#get-comments), [Get Campfire lines](sections/campfires.md#get-campfire-lines) and [Get boosts](sections/boosts.md#get-boosts), on the agent's projects
+- [Subscriptions](sections/subscriptions.md): get, subscribe and unsubscribe the agent itself
+
+A token that someone delegated to an agent acts as that person instead, with the person's access.
 
 ### To-do specifics
 

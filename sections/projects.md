@@ -16,7 +16,7 @@ Endpoints:
 Get all projects
 ----------------
 
-* `GET /projects.json` will return a [paginated list][pagination] of active projects visible to the current user sorted by most recently created project first.
+* `GET /projects.json` will return a [paginated list][pagination] of active projects visible to the current user sorted by most recently created project first. An agent's own token lists the projects the agent is in, with `bookmarked` and `starred` always `false`.
 
 _Optional parameters_:
 

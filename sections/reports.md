@@ -1085,6 +1085,8 @@ The response includes:
 * `recurring_schedule_entry_occurrences` - occurrences of recurring schedule entries within the window
 * `assignables` - to-dos, cards, and steps with due dates within the window
 
+Each schedule entry and occurrence has a `parent` with the `id` and `title` of the schedule it belongs to. Use it to separate entries from different schedules in the same project.
+
 ###### Example JSON Response
 <!-- START GET /reports/schedules/upcoming.json -->
 ```json
@@ -1111,6 +1113,10 @@ The response includes:
       "bucket": {
         "id": 2085958504,
         "name": "Honcho HQ"
+      },
+      "parent": {
+        "id": 1069479832,
+        "title": "Calendar"
       },
       "comments_count": 0
     },
@@ -1141,6 +1147,10 @@ The response includes:
       "bucket": {
         "id": 2085958505,
         "name": "The Leto Laptop"
+      },
+      "parent": {
+        "id": 1069479831,
+        "title": "Calendar"
       },
       "comments_count": 0
     }
@@ -1209,6 +1219,10 @@ The response includes:
         "id": 2085958504,
         "name": "Honcho HQ"
       },
+      "parent": {
+        "id": 1069479832,
+        "title": "Calendar"
+      },
       "comments_count": 0
     },
     {
@@ -1232,6 +1246,10 @@ The response includes:
       "bucket": {
         "id": 2085958504,
         "name": "Honcho HQ"
+      },
+      "parent": {
+        "id": 1069479832,
+        "title": "Calendar"
       },
       "comments_count": 0
     }
