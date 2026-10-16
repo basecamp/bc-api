@@ -58,7 +58,7 @@ Get hill chart progress updates
 Each progress update includes:
 
 * `description` - the full note, as [rich text][3].
-* `dots` - where each tracked to-do list sat on the hill when the update was made. `id` is the to-do list's ID, `label` is the list's full name at the time of the update, and `position` is on the same `0`–`100` scale as the hill chart's `dots`. If the to-do list has since been permanently deleted, `id` is `null` and `url` and `app_url` are omitted.
+* `dots` - where each tracked to-do list sat on the hill when the update was made. `id` is the to-do list's ID, `label` is the list's full name at the time of the update, and `position` is on the same `0`–`100` scale as the hill chart's `dots`. If the to-do list has since been permanently deleted or moved to another project, `id` is `null` and `url` and `app_url` are omitted.
 * `comments_count` and `comments_url` - discussion on the update. See [Get comments][4].
 
 The hill chart JSON includes `versions_url` when the hill chart has any progress updates.
