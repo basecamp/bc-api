@@ -394,9 +394,9 @@ Reposition a to-do
 
 _Optional parameters_:
 
-* `parent_id` - the ID of a to-do list to move this to-do into. When provided, the to-do will be repositioned within the specified to-do list instead of its current parent.
+* `parent_id` - the ID of a to-do list, or of the project's to-do set, to move this to-do into. When provided, the to-do will be repositioned within the specified to-do list or to-do set instead of its current parent. It must be in the same project.
 
-This endpoint will return `204 No Content` if the update was a success.
+This endpoint will return `204 No Content` if the update was a success, or `422 Unprocessable Entity` if `parent_id` isn't a to-do list or to-do set in the same project.
 
 ###### Example JSON Request
 
