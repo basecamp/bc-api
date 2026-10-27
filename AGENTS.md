@@ -39,15 +39,17 @@ Landing path: `bin/bc-api-sync --apply --merge`
 
 The scheduled docs sync may merge its own sync PR, and nothing else, by that
 one path; the line above is the grant it reads. It merges only a PR it opened from the
-`bc3-docs-sync` branch into `master`, squash-merged at the head it pushed, and
-only when its risk check scores the sync low. Every other PR here, edits to this file
+`bc3-docs-sync` branch into `master`, squash-merged at the head it pushed, only
+when its risk check scores the sync low, and only while this line is still on
+`master` when it merges. Every other PR here, edits to this file
 included, lands on a person's word.
 
 **The risk check.** Before anything is pushed, every line the sync would add,
 and the name of every file it adds, is scored. A score of 5 or more is high risk, and any one of these makes it high
 on its own:
 
-- a credential shape, or a NUL byte;
+- a credential shape, a password in a URL, a line inside a private key block,
+  or a NUL byte;
 - a Basecamp account URL outside the example accounts, or an email address
   outside the example domains;
 - wording that says it is internal-only, confidential or unreleased, or that a
@@ -57,7 +59,8 @@ on its own:
 - an endpoint whose path names something bc3's routes don't;
 - a link or reference to a basecamp repository that isn't public;
 - an HTML comment other than the example `<!-- START … -->` and
-  `<!-- END … -->` markers.
+  `<!-- END … -->` markers, or a line added inside one;
+- a bc3 change that landed without a PR, so no one reviewed it.
 
 Lower-weight signals add up and make a sync high at 5: a host these docs don't
 link yet (1 each), a removed section (2 each), more than 40 files at once (1).
