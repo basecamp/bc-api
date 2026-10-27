@@ -35,10 +35,12 @@ here directly and carry no footer.
 
 ## Agent-led landing: the scheduled sync only
 
-The scheduled docs sync may merge its own sync PR, and nothing else, by one
-path: `bin/bc-api-sync --apply --merge`. It merges only a PR it opened from the
-`bc3-docs-sync` branch, squash-merged at the head it pushed, and only when its
-risk check scores the sync low. Every other PR here, edits to this file
+Landing path: `bin/bc-api-sync --apply --merge`
+
+The scheduled docs sync may merge its own sync PR, and nothing else, by that
+one path; the line above is the grant it reads. It merges only a PR it opened from the
+`bc3-docs-sync` branch into `master`, squash-merged at the head it pushed, and
+only when its risk check scores the sync low. Every other PR here, edits to this file
 included, lands on a person's word.
 
 **The risk check.** Before anything is pushed, every line the sync would add is
