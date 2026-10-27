@@ -43,8 +43,8 @@ one path; the line above is the grant it reads. It merges only a PR it opened fr
 only when its risk check scores the sync low. Every other PR here, edits to this file
 included, lands on a person's word.
 
-**The risk check.** Before anything is pushed, every line the sync would add is
-scored. A score of 5 or more is high risk, and any one of these makes it high
+**The risk check.** Before anything is pushed, every line the sync would add,
+and the name of every file it adds, is scored. A score of 5 or more is high risk, and any one of these makes it high
 on its own:
 
 - a credential shape, or a NUL byte;
