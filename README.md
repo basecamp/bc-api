@@ -153,6 +153,22 @@ Many resources, including messages, documents, and comments, represent their con
 See the [Rich text](sections/rich_text.md) section for more information about working with HTML and attachments in rich text content.
 
 
+Downloading files
+-----------------
+
+Uploads, their versions, and files attached to rich text all include a `download_url`. To download a file, make an authenticated `GET` request to its `download_url` and follow the redirect. The redirect points to a short-lived URL, so don't store it, and don't send your `Authorization` header to it.
+
+```shell
+curl -s -L -H "Authorization: Bearer $ACCESS_TOKEN" -o company-logo.png "$DOWNLOAD_URL"
+```
+
+Treat `download_url` as opaque: always use the URL from the response rather than building one. These are examples of what it looks like today, and the shapes may change:
+
+* `GET /buckets/1/uploads/2/download/company-logo.png` for an upload. It always serves the upload's latest file.
+* `GET /buckets/1/uploads/2/versions/3/download/company-logo.png` for one version of an upload.
+* `GET /blobs/f628dbcc65dd018a72ae025824ffa8fb4fe3ecf8/download/company-logo.png` for a file attached to rich text or posted to a Campfire.
+
+
 Key concepts
 ------------
 
@@ -280,17 +296,33 @@ The current types are:
 
 ### Agents calling the API as themselves
 
-An agent authenticates with its own client-credentials token and acts as itself, with `personable_type` `Agent`. It reaches only the projects it has been added to, and of the documented endpoints only those below; everything else answers `403 Forbidden` with an empty body. Within those endpoints an agent sees what a non-admin team member on the same projects sees: anything on a project it isn't on is `404 Not Found`, and the people endpoints redact other people's email addresses.
+An agent authenticates with its own client-credentials token and acts as itself, with `personable_type` `Agent`. What it creates is its own. It is a team member: it reaches the projects it has been added to, the all-access projects it may join (see [Join a project](sections/people.md#join-a-project)), and the Pings it is in, and there it sees and does what a non-admin team member on the same projects sees and does. Anything on a project it isn't on and can't join is `404 Not Found`, and the people endpoints redact other people's email addresses. It can create, assign, complete, edit, move, archive and trash, and save a to-do list or card table as a template. In a template it has access to, it edits and adds as a team member does.
 
-- [Event feed](sections/event_feed.md): poll events, poll the inbox, create a stream ticket
-- [Get my personal info](sections/people.md#get-my-personal-info) and [Get person](sections/people.md#get-person) (people who share a project with the agent)
-- [Get a project](sections/projects.md#get-a-project) and [Get people on a project](sections/people.md#get-people-on-a-project)
-- [Get a comment](sections/comments.md#get-a-comment), [Get a to-do](sections/todos.md#get-a-to-do), [Get a card](sections/card_table_cards.md#get-a-card), [Get a Campfire line](sections/campfires.md#get-a-campfire-line)
-- [Get Campfires](sections/campfires.md#get-campfires) (on the agent's projects) and [Get events](sections/events.md#get-events) for a recording
-- [Messages](sections/messages.md): list messages; get, create and update a message
-- [Create a comment](sections/comments.md#create-a-comment), [Create a Campfire line](sections/campfires.md#create-a-campfire-line) and [Create a boost](sections/boosts.md#create-a-boost), written as the agent
-- [Get comments](sections/comments.md#get-comments), [Get Campfire lines](sections/campfires.md#get-campfire-lines) and [Get boosts](sections/boosts.md#get-boosts), on the agent's projects
-- [Subscriptions](sections/subscriptions.md): get, subscribe and unsubscribe the agent itself
+Where Basecamp refuses an agent something a team member may do, the answer is `403 Forbidden` with a JSON body whose `reason` is `agent_not_permitted`, with an `error` and an `error_description`. That refusal is a limit on agents, not on the token's scope, so reconnecting or asking for more access won't change it:
+
+```json
+{
+  "error": "Basecamp doesn't let agents do this.",
+  "error_description": "This is a limit on what agents may do, not on the connection's access, so reconnecting won't change it.",
+  "reason": "agent_not_permitted"
+}
+```
+
+The refusal has no `WWW-Authenticate` challenge, so don't treat it as an OAuth error or retry authorization. By contrast, a read-only token making a write still gets `403 Forbidden` with an `insufficient_scope` error in its `WWW-Authenticate` challenge (`Bearer`, or `DPoP` for a DPoP-bound token whose proof checks out), because there more scope would help.
+
+An agent never does account administration: Adminland, managing people and who is on a project, invitation links, creating projects or listing templates, and trashing, archiving or restoring a project or template. Assigning, subscribing or mentioning someone who may join an all-access project still adds them to it, as it does for any team member, but copying a template that would put the people it names on the project is refused. Nor does it hold what only a user has: readings, bookmarks, drafts, pins, stars, edit locks, notification and timeline settings, out of office, and removing its avatar. And for now it doesn't export, read or change webhooks, or reset a demo account. These answer `403 Forbidden`; where the refusal is about agents rather than about a team member's own permissions, the body carries `agent_not_permitted`.
+
+Where the account's Admin Pro Pack restricts a change to admins, or to admins and creators, an agent is never an admin, and it is the creator only of what it made itself.
+
+In a group Ping an agent reads and writes as the people in it do, and can leave, but it doesn't rename or archive the Ping or change who is in it. It writes a Campfire line or uploads a file, or gives, edits or removes a boost, in a Ping only while the Ping is active, as long as the agent can ping (`can_ping`) and someone in the Ping still can.
+
+An agent with no boss stays on the team whatever becomes of whoever added it, and each of its connections answers to the person who approved it. Once that person may no longer stand behind it, because they were removed or made a client for example, the agent's tokens from that connection answer `401 Unauthorized` with an `invalid_token` error in the `WWW-Authenticate` challenge, as a disconnected connection's do, and it gets no new ones. Its other connections work on.
+
+#### Personal agents
+
+A personal agent works for one person, its `boss` (see [people](sections/people.md)), and is a team member as its boss is. It reaches what a team member reaches, not everything its boss can: the projects it has been added to, and the all-access projects its boss is already on, which it may join as a team member does. An all-access project its boss hasn't joined answers `404 Not Found`, and asking doesn't add its boss. Whatever its boss may do, it never does account administration, and under the Admin Pro Pack it is not the creator of what its boss made.
+
+It is held to the account's two-factor authentication requirement as its boss is: until its boss has set up two-factor authentication, its requests answer `403 Forbidden` with `two_factor_authentication_required`.
 
 A token that someone delegated to an agent acts as that person instead, with the person's access.
 
@@ -335,6 +367,7 @@ API endpoints
 - [Comments](sections/comments.md#comments)
 - [Documents](sections/documents.md#documents)
 - [Drafts](sections/drafts.md#drafts)
+- [Embeds](sections/embeds.md#embeds)
 - [Event feed](sections/event_feed.md#event-feed)
 - [Events](sections/events.md#events)
 - [Everything](sections/everything.md#everything)
@@ -356,6 +389,7 @@ API endpoints
 - [My notifications](sections/my_notifications.md#my-notifications)
 - [Out of office](sections/out_of_office.md#out-of-office)
 - [People](sections/people.md#people)
+- [Pings](sections/pings.md#pings)
 - [Projects](sections/projects.md#projects)
 - [Question answers](sections/question_answers.md#question-answers)
 - [Question reminders](sections/question_reminders.md#question-reminders)

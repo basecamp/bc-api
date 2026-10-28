@@ -211,6 +211,7 @@ Create a question
 
 _Optional parameters_:
 
+* `respondents` - a **top-level** array of person IDs to ask — a sibling of the `question` object, *not* inside it. Only people with access to the project are asked. When omitted, the question asks nobody.
 * `visible_to_clients` - a **top-level** boolean — a sibling of the `question` object, *not* inside it. When the project has clients enabled, whether the question is visible to them. Defaults to `false`; a **client** caller always creates client-visible records. See [Client visibility][client_visibility] to change it after creation.
 
 This endpoint will return `201 Created` with the current JSON representation of the question if the creation was a success. See the [Get a question](#get-a-question) endpoint for more info on the payload.
@@ -244,6 +245,14 @@ Update a question
 -----------------
 
 * `PUT /questions/2.json` allows changing the question with an ID of `2`.
+
+The `question` object is required and must include `title`, `schedule`, or both; whichever is omitted is unchanged.
+
+_Optional parameters_:
+
+* `question[title]` - the question to ask. When omitted, the title is unchanged.
+* `question[schedule]` - a hash containing the schedule configuration, as in [Create a question](#create-a-question). It replaces the whole schedule. When omitted, the schedule is unchanged.
+* `respondents` - a **top-level** array of person IDs to ask — a sibling of the `question` object, *not* inside it. It replaces everyone the question asks; an empty array asks nobody. When omitted or `null`, the people asked are unchanged.
 
 This endpoint will return `200 OK` with the current JSON representation of the question if the update was a success. Client users may only update a question they created; updating any other question returns `403 Forbidden`. See the [Get a question](#get-a-question) endpoint for more info on the payload.
 

@@ -7,6 +7,7 @@ Endpoints:
 - [Get a document](#get-a-document)
 - [Create a document](#create-a-document)
 - [Update a document](#update-a-document)
+- [Move a document][move]
 - [Trash a document][trash]
 
 Get documents
@@ -248,6 +249,7 @@ The following project-scoped routes are still supported and will remain availabl
 
 [pagination]: ../README.md#pagination
 [trash]: recordings.md#trash-a-recording
+[move]: vaults.md#move-a-document-upload-or-vault
 [vaults]: vaults.md#vaults
 [rich]: rich_text.md
 [client_visibility]: client_visibility.md

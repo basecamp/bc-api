@@ -57,6 +57,7 @@ Pings additionally include:
 * `participants` - an array of other people in the ping.
 * `named` - whether the ping has a custom name.
 * `image_url` - the ping's custom image, if one is set.
+* `avatar_url` - the one image that stands for the ping: its custom image if one is set, the other person's avatar in a one-on-one, or otherwise a single image of the first four other people tiled into a circle, with a count of everyone in the ping when there are more.
 
 ###### Example JSON Response
 <!-- START GET /my/readings.json -->

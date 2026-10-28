@@ -1,7 +1,9 @@
 Card table wormholes
 ====================
 
-A wormhole sends cards dropped into it straight to a column on another card table. Wormholes appear in the `wormholes` array of a [card table](card_tables.md#get-a-card-table), titled "Project › Board › Column" after their destination — see that payload for the JSON representation.
+A wormhole is a standing shortcut on a card table that sends cards dropped into it straight to a column on another card table, usually in another project. Moving a card onto a wormhole teleports it there; see [Move a card](card_table_cards.md#move-a-card).
+
+A wormhole isn't needed to move a card within its project: [Move a card](card_table_cards.md#move-a-card) accepts any column in the card's project as `column_id`, including a column on another card table. Nor is one needed to move a card to another project: [Move a recording to another project](recordings.md#move-a-recording-to-another-project) takes the destination card table. Create a wormhole when a card table should keep a shortcut to another project's card table, not as a step of each move. Wormholes appear in the `wormholes` array of a [card table](card_tables.md#get-a-card-table), titled "Project › Board › Column" after their destination — see that payload for the JSON representation.
 
 Endpoints:
 

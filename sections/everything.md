@@ -15279,7 +15279,7 @@ List comments
         "height": 700,
         "key": "f0a5ba5dc32559cd4760f83b6bbf0d0fbc1a74b9",
         "filename": "home_screen_17",
-        "download_url": "https://storage.3.basecamp.com/195539477/blobs/f0a5ba5dc32559cd4760f83b6bbf0d0fbc1a74b9/download/home_screen_17",
+        "download_url": "https://3.basecampapi.com/195539477/blobs/f0a5ba5dc32559cd4760f83b6bbf0d0fbc1a74b9/download/home_screen_17",
         "previewable": true,
         "preview_url": "https://3.basecampapi.com/195539477/blobs/f0a5ba5dc32559cd4760f83b6bbf0d0fbc1a74b9/previews/full",
         "thumbnail_url": "https://3.basecampapi.com/195539477/blobs/f0a5ba5dc32559cd4760f83b6bbf0d0fbc1a74b9/previews/card"
@@ -15354,7 +15354,7 @@ List comments
         "height": 700,
         "key": "ad1a8965b79a5f650f77ce2bb903030da98e48b2",
         "filename": "home_screen_16",
-        "download_url": "https://storage.3.basecamp.com/195539477/blobs/ad1a8965b79a5f650f77ce2bb903030da98e48b2/download/home_screen_16",
+        "download_url": "https://3.basecampapi.com/195539477/blobs/ad1a8965b79a5f650f77ce2bb903030da98e48b2/download/home_screen_16",
         "previewable": true,
         "preview_url": "https://3.basecampapi.com/195539477/blobs/ad1a8965b79a5f650f77ce2bb903030da98e48b2/previews/full",
         "thumbnail_url": "https://3.basecampapi.com/195539477/blobs/ad1a8965b79a5f650f77ce2bb903030da98e48b2/previews/card"
@@ -15812,7 +15812,7 @@ Two optional query parameters narrow the list:
     "height": 467,
     "key": "3c95443f8e466abc23c29b6a3cb36d5ad68d3bf1",
     "filename": "chicago_5",
-    "download_url": "https://storage.3.basecamp.com/195539477/blobs/3c95443f8e466abc23c29b6a3cb36d5ad68d3bf1/download/chicago_5",
+    "download_url": "https://3.basecampapi.com/195539477/blobs/3c95443f8e466abc23c29b6a3cb36d5ad68d3bf1/download/chicago_5",
     "previewable": true,
     "preview_url": "https://3.basecampapi.com/195539477/blobs/3c95443f8e466abc23c29b6a3cb36d5ad68d3bf1/previews/full",
     "thumbnail_url": "https://3.basecampapi.com/195539477/blobs/3c95443f8e466abc23c29b6a3cb36d5ad68d3bf1/previews/card"

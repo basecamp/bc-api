@@ -368,7 +368,7 @@ _Optional parameters_:
 * `due_on` - due date (ISO 8601) of the card
 * `notify` - whether to notify assignees, value `true` or `false`. Defaults to `false`.
 
-This endpoint will return `201 Created` with the current JSON representation of the card if the creation was a success. See the [Get a card](#get-a-card) endpoint for more info on the payload.
+This endpoint will return `201 Created` with the current JSON representation of the card if the creation was a success. See the [Get a card](#get-a-card) endpoint for more info on the payload. It returns `422 Unprocessable Entity` if the column is in the trash.
 
 ###### Example JSON Request
 
@@ -426,7 +426,7 @@ Move a card
 
 * `POST /card_tables/cards/2/moves.json` allows moving of a card with id `2`.
 
-**Required parameters**: `column_id` of the column destination
+**Required parameters**: `column_id` of the column destination. It may be any column in the card's project, including a column on another card table in the same project; the card moves there directly, with no wormhole needed.
 
 _Optional parameters_:
 
@@ -434,14 +434,13 @@ _Optional parameters_:
 
 This endpoint will return `204 No Content` if the move was a success. Returns `400 Bad Request` if `position` is zero, negative, or non-numeric.
 
-Passing a [wormhole](card_table_wormholes.md)'s `id` as the `column_id` moves the card to **another card table**, including one in another project. A wormhole on the source card table points at a destination column on the other card table; create one with the [card table wormholes](card_table_wormholes.md) endpoints, or reuse a linked one already listed in the card table's `wormholes` array (see [Get a card table](card_tables.md#get-a-card-table)); the wormhole must be linked (`"linked": true`) and its destination reachable by the requester, so moving onto an unlinked or unreachable wormhole returns `404 Not Found`.
+A card in the trash, or in a column that's in the trash, comes out of the trash with the move, as if it had been restored.
 
-So the recipe is:
+**Moving a card to another project**
 
-1. Create a wormhole on the source card table (id `2`) pointing at the destination column — `POST /buckets/1/card_tables/2/wormholes.json` with `{"destination_recording_id": <id of the destination column>}` — and capture the new wormhole's `id` from the `201 Created` response.
-2. Move the card (id `2`) onto that wormhole — `POST /card_tables/cards/2/moves.json` with `{"column_id": <the wormhole's id>}`, expecting `204 No Content`.
+To send a card to a card table in **another project**, either [move it as a recording](recordings.md#move-a-recording-to-another-project), naming the destination card table, or pass a [wormhole](card_table_wormholes.md)'s `id` as the `column_id`. A wormhole is a standing shortcut on the source card table that points at a destination column on another card table. Use one already listed in the card table's `wormholes` array (see [Get a card table](card_tables.md#get-a-card-table)); the wormhole must be linked (`"linked": true`) and its destination reachable by the requester, so moving onto an unlinked or unreachable wormhole returns `404 Not Found`. Create a wormhole with the [card table wormholes](card_table_wormholes.md) endpoints only when the card table should keep that shortcut; it isn't a step of each move.
 
-The endpoint returns `204 No Content` once the teleport is queued. Completion is asynchronous; the response does not expose the destination card's new recording ID, and the original card ID returns `404 Not Found` after completion. `position` does not control a teleport's destination placement; if supplied, it must still be a positive integer. Placement is determined when the move completes.
+A move through a wormhole teleports the card. The endpoint returns `204 No Content` once the teleport is queued. Completion is asynchronous: the card arrives under a new recording ID, which the response does not expose, and the original card ID returns `404 Not Found` after completion. `position` does not control a teleport's destination placement; if supplied, it must still be a positive integer. Placement is determined when the move completes.
 
 ###### Example JSON Request
 

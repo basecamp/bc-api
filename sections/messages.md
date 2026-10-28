@@ -93,7 +93,7 @@ _Optional query parameters_:
         "height": 420,
         "key": "3243b8ef1545f2e08368bc6e8d6c529d54373466",
         "filename": "laptop_1",
-        "download_url": "https://storage.3.basecamp.com/195539477/blobs/3243b8ef1545f2e08368bc6e8d6c529d54373466/download/laptop_1",
+        "download_url": "https://3.basecampapi.com/195539477/blobs/3243b8ef1545f2e08368bc6e8d6c529d54373466/download/laptop_1",
         "previewable": true,
         "preview_url": "https://3.basecampapi.com/195539477/blobs/3243b8ef1545f2e08368bc6e8d6c529d54373466/previews/full",
         "thumbnail_url": "https://3.basecampapi.com/195539477/blobs/3243b8ef1545f2e08368bc6e8d6c529d54373466/previews/card"
@@ -110,7 +110,7 @@ _Optional query parameters_:
         "height": 337,
         "key": "cfd794c8fbfc72690a025c43d84b38039e634e46",
         "filename": "laptop_2",
-        "download_url": "https://storage.3.basecamp.com/195539477/blobs/cfd794c8fbfc72690a025c43d84b38039e634e46/download/laptop_2",
+        "download_url": "https://3.basecampapi.com/195539477/blobs/cfd794c8fbfc72690a025c43d84b38039e634e46/download/laptop_2",
         "previewable": true,
         "preview_url": "https://3.basecampapi.com/195539477/blobs/cfd794c8fbfc72690a025c43d84b38039e634e46/previews/full",
         "thumbnail_url": "https://3.basecampapi.com/195539477/blobs/cfd794c8fbfc72690a025c43d84b38039e634e46/previews/card"
@@ -127,7 +127,7 @@ _Optional query parameters_:
         "height": 435,
         "key": "9e378b655648a83d179c5e1cea24229ce47d27fc",
         "filename": "laptop_3",
-        "download_url": "https://storage.3.basecamp.com/195539477/blobs/9e378b655648a83d179c5e1cea24229ce47d27fc/download/laptop_3",
+        "download_url": "https://3.basecampapi.com/195539477/blobs/9e378b655648a83d179c5e1cea24229ce47d27fc/download/laptop_3",
         "previewable": true,
         "preview_url": "https://3.basecampapi.com/195539477/blobs/9e378b655648a83d179c5e1cea24229ce47d27fc/previews/full",
         "thumbnail_url": "https://3.basecampapi.com/195539477/blobs/9e378b655648a83d179c5e1cea24229ce47d27fc/previews/card"
@@ -144,7 +144,7 @@ _Optional query parameters_:
         "height": 355,
         "key": "06ccb206c39b8e3733068755d92dec8950b9bbfc",
         "filename": "laptop_4",
-        "download_url": "https://storage.3.basecamp.com/195539477/blobs/06ccb206c39b8e3733068755d92dec8950b9bbfc/download/laptop_4",
+        "download_url": "https://3.basecampapi.com/195539477/blobs/06ccb206c39b8e3733068755d92dec8950b9bbfc/download/laptop_4",
         "previewable": true,
         "preview_url": "https://3.basecampapi.com/195539477/blobs/06ccb206c39b8e3733068755d92dec8950b9bbfc/previews/full",
         "thumbnail_url": "https://3.basecampapi.com/195539477/blobs/06ccb206c39b8e3733068755d92dec8950b9bbfc/previews/card"
@@ -161,7 +161,7 @@ _Optional query parameters_:
         "height": 427,
         "key": "61adc12477f400be55791300213409067b771974",
         "filename": "laptop_5",
-        "download_url": "https://storage.3.basecamp.com/195539477/blobs/61adc12477f400be55791300213409067b771974/download/laptop_5",
+        "download_url": "https://3.basecampapi.com/195539477/blobs/61adc12477f400be55791300213409067b771974/download/laptop_5",
         "previewable": true,
         "preview_url": "https://3.basecampapi.com/195539477/blobs/61adc12477f400be55791300213409067b771974/previews/full",
         "thumbnail_url": "https://3.basecampapi.com/195539477/blobs/61adc12477f400be55791300213409067b771974/previews/card"
@@ -178,7 +178,7 @@ _Optional query parameters_:
         "height": 365,
         "key": "a82ccb835fbce9e23e92ce823bccaaf72eeba2e1",
         "filename": "laptop_6",
-        "download_url": "https://storage.3.basecamp.com/195539477/blobs/a82ccb835fbce9e23e92ce823bccaaf72eeba2e1/download/laptop_6",
+        "download_url": "https://3.basecampapi.com/195539477/blobs/a82ccb835fbce9e23e92ce823bccaaf72eeba2e1/download/laptop_6",
         "previewable": true,
         "preview_url": "https://3.basecampapi.com/195539477/blobs/a82ccb835fbce9e23e92ce823bccaaf72eeba2e1/previews/full",
         "thumbnail_url": "https://3.basecampapi.com/195539477/blobs/a82ccb835fbce9e23e92ce823bccaaf72eeba2e1/previews/card"
@@ -195,7 +195,7 @@ _Optional query parameters_:
         "height": 462,
         "key": "a013c0ed4add669675d3ad8e3580be2d8dcb340e",
         "filename": "laptop_7",
-        "download_url": "https://storage.3.basecamp.com/195539477/blobs/a013c0ed4add669675d3ad8e3580be2d8dcb340e/download/laptop_7",
+        "download_url": "https://3.basecampapi.com/195539477/blobs/a013c0ed4add669675d3ad8e3580be2d8dcb340e/download/laptop_7",
         "previewable": true,
         "preview_url": "https://3.basecampapi.com/195539477/blobs/a013c0ed4add669675d3ad8e3580be2d8dcb340e/previews/full",
         "thumbnail_url": "https://3.basecampapi.com/195539477/blobs/a013c0ed4add669675d3ad8e3580be2d8dcb340e/previews/card"
@@ -212,7 +212,7 @@ _Optional query parameters_:
         "height": 334,
         "key": "76a4c2a04ac3754f3e77f48a6af356d69f41100f",
         "filename": "laptop_8",
-        "download_url": "https://storage.3.basecamp.com/195539477/blobs/76a4c2a04ac3754f3e77f48a6af356d69f41100f/download/laptop_8",
+        "download_url": "https://3.basecampapi.com/195539477/blobs/76a4c2a04ac3754f3e77f48a6af356d69f41100f/download/laptop_8",
         "previewable": true,
         "preview_url": "https://3.basecampapi.com/195539477/blobs/76a4c2a04ac3754f3e77f48a6af356d69f41100f/previews/full",
         "thumbnail_url": "https://3.basecampapi.com/195539477/blobs/76a4c2a04ac3754f3e77f48a6af356d69f41100f/previews/card"
@@ -229,7 +229,7 @@ _Optional query parameters_:
         "height": 394,
         "key": "1ab1187d4845ac5dd50778f1b15e81a1ed80b884",
         "filename": "laptop_9",
-        "download_url": "https://storage.3.basecamp.com/195539477/blobs/1ab1187d4845ac5dd50778f1b15e81a1ed80b884/download/laptop_9",
+        "download_url": "https://3.basecampapi.com/195539477/blobs/1ab1187d4845ac5dd50778f1b15e81a1ed80b884/download/laptop_9",
         "previewable": true,
         "preview_url": "https://3.basecampapi.com/195539477/blobs/1ab1187d4845ac5dd50778f1b15e81a1ed80b884/previews/full",
         "thumbnail_url": "https://3.basecampapi.com/195539477/blobs/1ab1187d4845ac5dd50778f1b15e81a1ed80b884/previews/card"
@@ -246,7 +246,7 @@ _Optional query parameters_:
         "height": 413,
         "key": "500197d2736c33318b55340cf67dab8c7dd5ab4d",
         "filename": "laptop_10",
-        "download_url": "https://storage.3.basecamp.com/195539477/blobs/500197d2736c33318b55340cf67dab8c7dd5ab4d/download/laptop_10",
+        "download_url": "https://3.basecampapi.com/195539477/blobs/500197d2736c33318b55340cf67dab8c7dd5ab4d/download/laptop_10",
         "previewable": true,
         "preview_url": "https://3.basecampapi.com/195539477/blobs/500197d2736c33318b55340cf67dab8c7dd5ab4d/previews/full",
         "thumbnail_url": "https://3.basecampapi.com/195539477/blobs/500197d2736c33318b55340cf67dab8c7dd5ab4d/previews/card"
@@ -263,7 +263,7 @@ _Optional query parameters_:
         "height": 413,
         "key": "15936fb62eb77c481f37191dd4ca76a7a9adac8d",
         "filename": "laptop_11",
-        "download_url": "https://storage.3.basecamp.com/195539477/blobs/15936fb62eb77c481f37191dd4ca76a7a9adac8d/download/laptop_11",
+        "download_url": "https://3.basecampapi.com/195539477/blobs/15936fb62eb77c481f37191dd4ca76a7a9adac8d/download/laptop_11",
         "previewable": true,
         "preview_url": "https://3.basecampapi.com/195539477/blobs/15936fb62eb77c481f37191dd4ca76a7a9adac8d/previews/full",
         "thumbnail_url": "https://3.basecampapi.com/195539477/blobs/15936fb62eb77c481f37191dd4ca76a7a9adac8d/previews/card"
@@ -280,7 +280,7 @@ _Optional query parameters_:
         "height": 387,
         "key": "15a92aa218d272e909ad9328566672cce66b95d8",
         "filename": "laptop_12",
-        "download_url": "https://storage.3.basecamp.com/195539477/blobs/15a92aa218d272e909ad9328566672cce66b95d8/download/laptop_12",
+        "download_url": "https://3.basecampapi.com/195539477/blobs/15a92aa218d272e909ad9328566672cce66b95d8/download/laptop_12",
         "previewable": true,
         "preview_url": "https://3.basecampapi.com/195539477/blobs/15a92aa218d272e909ad9328566672cce66b95d8/previews/full",
         "thumbnail_url": "https://3.basecampapi.com/195539477/blobs/15a92aa218d272e909ad9328566672cce66b95d8/previews/card"
@@ -297,7 +297,7 @@ _Optional query parameters_:
         "height": 466,
         "key": "8b89c0c9411d682b81b3e955a579862e438978c3",
         "filename": "laptop_13",
-        "download_url": "https://storage.3.basecamp.com/195539477/blobs/8b89c0c9411d682b81b3e955a579862e438978c3/download/laptop_13",
+        "download_url": "https://3.basecampapi.com/195539477/blobs/8b89c0c9411d682b81b3e955a579862e438978c3/download/laptop_13",
         "previewable": true,
         "preview_url": "https://3.basecampapi.com/195539477/blobs/8b89c0c9411d682b81b3e955a579862e438978c3/previews/full",
         "thumbnail_url": "https://3.basecampapi.com/195539477/blobs/8b89c0c9411d682b81b3e955a579862e438978c3/previews/card"
@@ -314,7 +314,7 @@ _Optional query parameters_:
         "height": 466,
         "key": "10579991420c97cb6891a59c47eb848d4cb5fc8b",
         "filename": "laptop_14",
-        "download_url": "https://storage.3.basecamp.com/195539477/blobs/10579991420c97cb6891a59c47eb848d4cb5fc8b/download/laptop_14",
+        "download_url": "https://3.basecampapi.com/195539477/blobs/10579991420c97cb6891a59c47eb848d4cb5fc8b/download/laptop_14",
         "previewable": true,
         "preview_url": "https://3.basecampapi.com/195539477/blobs/10579991420c97cb6891a59c47eb848d4cb5fc8b/previews/full",
         "thumbnail_url": "https://3.basecampapi.com/195539477/blobs/10579991420c97cb6891a59c47eb848d4cb5fc8b/previews/card"

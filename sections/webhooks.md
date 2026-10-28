@@ -255,6 +255,8 @@ Starting the 1st of July 2024, Basecamp won't notify of changes that are automat
 
 **Note:** client users aren't allowed to perform any of the webhook related actions, so calling these endpoints while being authenticated with a client user will get a `403 Forbidden` response. 
 
+**Note:** only the person who created a webhook and account admins can get, update, or destroy it, since its deliveries can include details only they should see. Anyone else gets a `403 Forbidden` response from those endpoints. Every project member who can use webhooks can still list them and create new ones.
+
 Get webhooks
 ------------
 

@@ -10,6 +10,7 @@ Endpoints:
 - [Get boosts](#get-boosts)
 - [Get a boost](#get-a-boost)
 - [Create a boost](#create-a-boost)
+- [Update a boost](#update-a-boost)
 - [Destroy a boost](#destroy-a-boost)
 
 Get boosts
@@ -160,9 +161,9 @@ Create a boost
 * `POST /recordings/2/boosts.json` publishes a boost on the recording with an ID of `2`.
 * `POST /recordings/2/events/3/boosts.json` publishes a boost on the event with ID `3` on the recording with ID of `2`. Only boostable events (`completed`, `adopted`, `column_changed`) accept boosts; other events will return `403 Forbidden`.
 
-**Required parameters**: `content` as the body of the boost, up to 191 characters.
+**Required parameters**: `content` as the body of the boost. Keep it a short note: the Basecamp web app limits boosts to 16 characters.
 
-This endpoint will return `201 Created` with the current JSON representation of the boost if the creation was a success, or `422 Unprocessable Entity` if `content` is missing or too long. See the [Get a boost](#get-a-boost) endpoint for more info on the payload.
+This endpoint will return `201 Created` with the current JSON representation of the boost if the creation was a success, or `422 Unprocessable Entity` if `content` is missing. See the [Get a boost](#get-a-boost) endpoint for more info on the payload.
 
 ###### Example JSON Request
 
@@ -178,6 +179,32 @@ This endpoint will return `201 Created` with the current JSON representation of 
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
   -d '{"content":"Great work!"}' \
   https://3.basecampapi.com/$ACCOUNT_ID/recordings/2/boosts.json
+```
+
+
+Update a boost
+--------------
+
+* `PUT /boosts/2.json` replaces the content of the boost with an ID of `2`.
+
+**Required parameters**: `content` as the new body of the boost. Keep it a short note: the Basecamp web app limits boosts to 16 characters.
+
+Only the boost's creator can update a boost; unlike destroying one, admins can't update someone else's. This endpoint will return `200 OK` with the current JSON representation of the boost if the update was a success, `403 Forbidden` if the authenticated user does not have permission or comments are closed on the boosted recording, or `422 Unprocessable Entity` if `content` is missing. See the [Get a boost](#get-a-boost) endpoint for more info on the payload.
+
+###### Example JSON Request
+
+```json
+{
+  "content": "Done!"
+}
+```
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
+  -d '{"content":"Done!"}' -X PUT \
+  https://3.basecampapi.com/$ACCOUNT_ID/boosts/2.json
 ```
 
 

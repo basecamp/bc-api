@@ -16,7 +16,9 @@ Endpoints:
 Get Campfires
 -------------
 
-* `GET /chats.json` will return a [paginated list][pagination] of all active Campfires visible to the current user.
+* `GET /chats.json` will return a [paginated list][pagination] of the active Campfires on the current user's active projects. A Campfire turned off for its project is left out.
+
+Pings (direct and group messages) each have a Campfire of their own, but they aren't project Campfires and this endpoint doesn't list them. To find them, use [Get Pings](pings.md#get-pings). The lines in a Ping's Campfire are read and written with the endpoints below; see [Pings](pings.md#reading-and-writing-lines-in-a-ping).
 
 ###### Example JSON Response
 <!-- START GET /chats.json -->
@@ -523,7 +525,7 @@ Get Campfire uploads
         "filename": "company-logo.png",
         "content_type": "image/png",
         "byte_size": 1281,
-        "download_url": "https://storage.3.basecamp.com/195539477/blobs/b092e1a5f8192edc092f7acc644142725ce5e65c/download/company-logo.png"
+        "download_url": "https://3.basecampapi.com/195539477/blobs/b092e1a5f8192edc092f7acc644142725ce5e65c/download/company-logo.png"
       }
     ]
   }
@@ -613,7 +615,7 @@ This endpoint will return `201 Created` with the current JSON representation of 
       "filename": "company-logo.png",
       "content_type": "image/png",
       "byte_size": 1281,
-      "download_url": "https://storage.3.basecamp.com/195539477/blobs/b092e1a5f8192edc092f7acc644142725ce5e65c/download/company-logo.png"
+      "download_url": "https://3.basecampapi.com/195539477/blobs/b092e1a5f8192edc092f7acc644142725ce5e65c/download/company-logo.png"
     }
   ]
 }

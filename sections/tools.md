@@ -5,6 +5,8 @@ Tools are the features available in a project's dock. Every project has a dock c
 
 To find a project's tools, see the `dock` array in the [Get a project][project] response. Each dock entry includes the tool's `id`, `name`, `title`, `enabled` status, and `position`.
 
+Only what's in a dock is a tool. A [Ping](pings.md)'s Campfire isn't one: getting, updating or trashing it here answers `404 Not Found`, and enabling, repositioning or disabling it answers `403 Forbidden`.
+
 Endpoints:
 
 - [Get a tool](#get-a-tool)
@@ -204,11 +206,12 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 Trash a tool
 ------------
 
-* `DELETE /dock/tools/2.json` trashes the tool with ID `2`.
+* `DELETE /dock/tools/2.json` removes the tool with ID `2` from the dock. What that does depends on the tool:
 
-This permanently removes the tool and all its content. Use with caution.
+- **Deleted** — an [external link][external_links], or a tool that is empty while the project has another tool of exactly the same type (enabled or disabled), say an empty second Chat. "Empty" means nothing inside it at all, not even in the trash; for a Card Table only cards count, not columns. A deleted tool does not go to the trash; Basecamp permanently destroys it about five days later, together with anything left inside it.
+- **Disabled** — every other tool: one with anything inside it (including archived, draft or trashed items), or the only tool of its type. Items already in the trash stay there and can still be restored for the rest of their 25 days. It's disabled exactly as [Disable a tool](#disable-a-tool) does: it leaves the dock, keeps its status and content, and can be brought back with [Enable a tool](#enable-a-tool).
 
-This endpoint will return `204 No Content` if successful.
+This endpoint will return `204 No Content` in both cases. To tell which happened, [get the tool](#get-a-tool) afterwards: a deleted tool has `status` `"deleted"`, while a disabled one keeps its status (normally `"active"`) and has no `position`. That reflects the tool's state when you read it, not a record of the earlier request: deleting it again also answers `204`, and once it's destroyed, getting it returns `404 Not Found`. Until then, a deleted tool other than an external link still appears in the [project][project]'s `dock` with `enabled` `false`, the same as a disabled one, so check `status` rather than `enabled`.
 
 ###### Copy as cURL
 
@@ -230,3 +233,4 @@ The following project-scoped routes are still supported and will remain availabl
 
 [project]: projects.md#get-a-project
 [client_visibility]: client_visibility.md
+[external_links]: external_links.md

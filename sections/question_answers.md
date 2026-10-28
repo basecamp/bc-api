@@ -208,7 +208,7 @@ Create a question answer
 * `content` containing the answer text. See our [Rich text guide][rich_text] for what HTML tags are allowed.
 * `group_on` - a date (ISO 8601) to group this answer with others from the same day.
 
-This endpoint will return `201 Created` with the current JSON representation of the answer if the creation was a success. See the [Get a question answer](#get-a-question-answer) endpoint for more info on the payload.
+This endpoint will return `201 Created` with the current JSON representation of the answer if the creation was a success. See the [Get a question answer](#get-a-question-answer) endpoint for more info on the payload. It returns `422 Unprocessable Entity` if the question is in the trash.
 
 ###### Example JSON Request
 

@@ -9,6 +9,12 @@ Endpoints:
 - [Record a project visit](#record-a-project-visit)
 - [Create a project](#create-a-project)
 - [Update a project](#update-a-project)
+- [Get project logo](#get-project-logo)
+- [Update project logo](#update-project-logo)
+- [Remove project logo](#remove-project-logo)
+- [Get project wallpaper](#get-project-wallpaper)
+- [Update project wallpaper](#update-project-wallpaper)
+- [Remove project wallpaper](#remove-project-wallpaper)
 - [Archive a project](#archive-a-project)
 - [Unarchive a project](#unarchive-a-project)
 - [Trash a project](#trash-a-project)
@@ -343,6 +349,25 @@ Get a project
 The `dock` key contains an array of the current tools for this project. The `enabled` flag will be `true` if the tool is turned on for use. You can use the `url` parameter from each tool to jump to the resources available inside of this project.
 
 `bookmarked` and `starred` reflect the current user's home page, as in [Get all projects](#get-projects).
+
+Single-project responses include `logo` when the project has a logo, and omit it when there is none. It is not included in project lists or home responses. Its `url` requires authentication and redirects to the image file. The URL changes whenever the logo attachment is replaced:
+
+```json
+{
+  "logo": {
+    "url": "https://3.basecampapi.com/195539477/projects/2085958504/logo?v=957436214"
+  }
+}
+```
+
+Single-project responses include `wallpaper` when the project has a wallpaper. It is omitted when there is none, and is not included in project lists or home responses. Its `url` redirects to the image file, and changes whenever the wallpaper is replaced. Its `mode` is `fill` when the image fills the screen and `tile` when it repeats:
+
+```json
+"wallpaper": {
+  "url": "https://3.basecampapi.com/195539477/projects/2085958504/wallpaper?v=1758000000",
+  "mode": "tile"
+}
+```
 
 ###### Example JSON Response
 <!-- START GET /projects/1.json -->
@@ -739,8 +764,9 @@ _Optional parameters_:
 * `admissions` - specifies access policy for a project within the same account. Available options
     are:
     * `invite` - only people added to the project have access. Account owners can also join it.
-    * `employee` - team members from the account's own company can join (not clients, and not team members from other companies).
-    * `team` - any team member, except clients, can join.
+    * `employee` - team members and agents from the account's own company can join (not clients, agents added by a client or by someone since removed, or team members from other companies).
+    * `team` - any team member or agent, except clients and agents added by a client or by someone since removed, can join.
+* `wallpaper_mode` - how the project's wallpaper is displayed: `fill` to fill the screen, or `tile` to repeat it. To upload or remove the wallpaper itself, see [Update project wallpaper](#update-project-wallpaper) and [Remove project wallpaper](#remove-project-wallpaper).
 
 ###### Example JSON Request
 
@@ -769,12 +795,107 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 
+Get project logo
+----------------
+
+* `GET /projects/1/logo.json` will redirect to the logo image of the project with the given ID. People and agents who can read the project can use this endpoint, including those who cannot edit it. Requests must be authenticated. The same endpoint is available without the `.json` suffix, as returned by `logo.url`.
+
+Returns `302 Found` with the image URL in the `Location` header, or `404 Not Found` when the project has no logo. Follow the redirect to download the image. Storage URLs expire, so request this endpoint again rather than reusing a saved storage URL.
+
+Update project logo
+-------------------
+
+* `PUT /projects/1/logo.json` will upload or replace the logo of the project with the given ID. People and agents who can edit the project can use this endpoint. Readers without edit permission get `403 Forbidden`. Projects outside the caller's visibility return `404 Not Found`.
+
+First [create a project](#create-a-project), then upload its logo using this endpoint. Logo upload is not supported as part of project creation. Logos use direct multipart file upload, not the `/attachments` flow or a signed global ID (SGID).
+
+**Required parameters**:
+
+* `logo` - the image file, sent as a multipart form upload. Accepted formats: PNG, JPEG, GIF, WebP, AVIF, HEIF, HEIC. Maximum file size: 5 MB (5,242,880 bytes). The existing server-side image validations used by the web app apply.
+
+Returns `204 No Content` on success. Returns `422 Unprocessable Entity` with a JSON `error` message when the file is missing, is not a file upload, has an unsupported format, or exceeds the size limit. A rejected replacement leaves the existing logo unchanged. Other project fields are not changed by this endpoint.
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" \
+  -X PUT \
+  -F "logo=@logo.png" \
+  https://3.basecampapi.com/$ACCOUNT_ID/projects/2085958504/logo.json
+```
+
+Remove project logo
+-------------------
+
+* `DELETE /projects/1/logo.json` will remove the logo of the project with the given ID. The same edit permission as [Update project logo](#update-project-logo) is required.
+
+Returns `204 No Content`, including when the project had no logo. Subsequent single-project responses omit `logo`, and the logo download endpoint returns `404 Not Found`.
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" \
+  -X DELETE \
+  https://3.basecampapi.com/$ACCOUNT_ID/projects/2085958504/logo.json
+```
+
+Get project wallpaper
+---------------------
+
+* `GET /projects/1/wallpaper.json` will redirect to the wallpaper image of the project with the given ID. People and agents who can read the project can use this endpoint, including those who cannot edit it. Requests must be authenticated.
+
+Returns `302 Found` with the image URL in the `Location` header. Returns `404 Not Found` when the project has no wallpaper.
+
+Update project wallpaper
+------------------------
+
+* `PUT /projects/1/wallpaper.json` will upload or replace the wallpaper of the project with the given ID. People and agents who can edit the project can use this endpoint. Everyone else gets a `403 Forbidden`.
+
+Project wallpapers use direct multipart file upload rather than the standard two-stage `/attachments` flow used elsewhere in the API.
+
+**Required parameters**:
+
+* `wallpaper` - the wallpaper image file, sent as a multipart form upload. Accepted formats: PNG, JPEG, GIF, WebP, AVIF, HEIF, HEIC. Maximum file size: 10 MB. The same server-side image validations used by the web app apply; the web file picker offers a narrower selection.
+
+_Optional parameters_:
+
+* `mode` - `fill` to fill the screen, or `tile` to repeat the image. Sent as a form field or in the query string. Leaving it out keeps the project's current mode.
+
+Returns `204 No Content` on success. Returns `422 Unprocessable Entity` with an `error` message when the file is missing, the format is not accepted, the file exceeds 10 MB, or `mode` is neither `fill` nor `tile`.
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" \
+  -X PUT \
+  -F "wallpaper=@wallpaper.png" \
+  -F "mode=tile" \
+  https://3.basecampapi.com/$ACCOUNT_ID/projects/2085958506/wallpaper.json
+```
+
+
+Remove project wallpaper
+------------------------
+
+* `DELETE /projects/1/wallpaper.json` will remove the wallpaper of the project with the given ID. People and agents who can edit the project can use this endpoint. Everyone else gets a `403 Forbidden`.
+
+Returns `204 No Content` on success, including when the project had no wallpaper.
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" \
+  -X DELETE \
+  https://3.basecampapi.com/$ACCOUNT_ID/projects/2085958506/wallpaper.json
+```
+
+
 Archive a project
 ------------------
 
 * `PUT /projects/1/status/archived.json` will mark the project with the given ID as archived.
 
-No parameters required. Returns `204 No Content` if successful. On accounts where archiving and trashing projects is limited to admins and the project's creator, everyone else gets a `403 Forbidden`.
+No parameters required. Returns `204 No Content` if successful. On accounts where archiving and trashing projects is limited to admins and the project's creator, everyone else gets a `403 Forbidden`. Accounts whose plan can't archive projects (`limits.can_archive_and_trash_projects` is `false`, see [Get account](account.md#get-account)) get a `403 Forbidden` too.
 
 ###### Copy as cURL
 
@@ -805,6 +926,8 @@ Trash a project
 * `DELETE /projects/1.json` will mark the project with the given ID as trashed.
 
 Trashed projects will be deleted from Basecamp 5 after 30 days. No parameters required. Returns `204 No Content` if successful.
+
+On accounts whose plan can't trash projects, the project is deleted permanently instead and can't be restored. The account's `limits.can_archive_and_trash_projects` says which applies; see [Get account](account.md#get-account).
 
 ###### Copy as cURL
 
