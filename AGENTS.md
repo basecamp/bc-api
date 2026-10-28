@@ -51,8 +51,8 @@ on its own:
 - a credential shape, a password in a URL, a line inside a private key block,
   or a NUL byte;
 - a Basecamp account URL outside the example accounts, an email address
-  outside the example domains, or an IP address outside the documentation
-  ranges;
+  outside the example domains, a phone number, or an IP address outside the
+  documentation ranges;
 - wording that says it is internal-only, confidential or unreleased, or that a
   feature is behind a flag, in beta or coming soon;
 - a host that isn't public: localhost, a private network, an internal 37signals
@@ -68,7 +68,7 @@ link yet (1 each), a removed section (2 each), more than 40 files at once (1).
 
 **High risk** pushes nothing and waits for a person, who either fixes the source
 in bc3 or accepts the findings; an accepted sync's PR then waits for a person to
-merge. **Low risk** opens the PR, lists the findings it scored, and merges it.
+merge. A credential or personal data can't be accepted, only fixed. **Low risk** opens the PR, lists the findings it scored, and merges it.
 
 ## Section file format
 
