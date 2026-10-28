@@ -6,7 +6,8 @@ Docs-only repo — no code, no build system. `README.md` is the main guide (auth
 
 This repo is a read-only mirror of the authoritative docs in the private
 `basecamp/bc3` repo at `doc/api/`. `README.md`, `CONDUCT.md`, and everything
-under `sections/` is copied verbatim by bc3's `script/api/sync_to_bc3_api` —
+under `sections/` is copied verbatim by bc3's `script/api/sync_to_bc3_api`, or
+by the scheduled sync that copies the same files —
 any change made directly here will be overwritten by the next sync and will
 silently diverge from the source in the meantime.
 
@@ -26,6 +27,19 @@ expected and correct — review the documentation on its merits; don't flag the 
 itself as an unauthorized direct edit. A sync PR's description carries this footer:
 
 > Synced from bc3 `doc/api/` by `script/api/sync_to_bc3_api` — not a hand-edit.
+
+A scheduled job also keeps one sync PR open, from the `bc3-docs-sync` branch,
+that brings this repo level with bc3's `doc/api/` at master. It covers every bc3
+change since the last sync, not one, lists them by bc3 PR number, and is updated
+in place as bc3's docs change: its description is rewritten on each run and
+carries this footer instead:
+
+> Synced from bc3 `doc/api/` by the scheduled bc-api-sync job, the same files `script/api/sync_to_bc3_api` copies — not a hand-edit.
+
+Review it like any sync PR. Don't push to its branch: the job won't overwrite a
+commit it didn't make, and stops updating the PR until the branch is back where
+it left it. Closing it unmerged holds that content back until bc3's docs change
+again.
 
 An **off-target edit** hand-changes that content on a branch, bypassing the sync:
 no footer, and it won't match bc3's `doc/api/`. Those are what to redirect to bc3;
