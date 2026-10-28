@@ -50,8 +50,9 @@ on its own:
 
 - a credential shape, a password in a URL, a line inside a private key block,
   or a NUL byte;
-- a Basecamp account URL outside the example accounts, or an email address
-  outside the example domains;
+- a Basecamp account URL outside the example accounts, an email address
+  outside the example domains, or an IP address outside the documentation
+  ranges;
 - wording that says it is internal-only, confidential or unreleased, or that a
   feature is behind a flag, in beta or coming soon;
 - a host that isn't public: localhost, a private network, an internal 37signals
