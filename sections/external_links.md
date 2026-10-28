@@ -207,10 +207,10 @@ Trash an external link
 * `DELETE /dock/tools/2.json` (or the legacy `DELETE /buckets/1/dock/doors/2.json`)
   trashes the external link.
 
-This soft-deletes the external link: its `status` becomes `"deleted"` and it no longer
-appears in the project's External links section, but the record is not permanently
-removed. This differs from [Trash a tool][trash_a_tool], which permanently removes a
-regular tool — only the request shape is shared.
+This deletes the external link: its `status` becomes `"deleted"` and it no longer
+appears in the project's External links section. It doesn't go to the trash, and Basecamp
+permanently destroys it about five days later. Deleting a regular tool through the same
+request doesn't always delete it — see [Trash a tool][trash_a_tool].
 
 This endpoint returns `204 No Content` if successful.
 

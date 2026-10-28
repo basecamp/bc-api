@@ -10,6 +10,7 @@ Endpoints:
 - [Create a vault](#create-a-vault)
 - [Update a vault](#update-a-vault)
 - [Update a vault's view](#update-a-vaults-view)
+- [Move a document, upload, or vault](#move-a-document-upload-or-vault)
 
 Get vaults
 ----------
@@ -233,6 +234,43 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
   https://3.basecampapi.com/$ACCOUNT_ID/vaults/3/view_preference.json
 ```
 
+Move a document, upload, or vault
+---------------------------------
+
+* `POST /recordings/2/filing.json` moves the document, upload, or vault with an ID of `2` into another vault in the same project, or changes its position within the vault it's already in.
+
+**Required parameters**: `parent_id`, the ID of the destination vault. A `parent_id` equal to the item's own ID is treated as its current vault, so only its position changes.
+
+_Optional parameters_:
+
+* `position` - 1-indexed position within the destination vault. It must be a positive whole number; anything else returns `422` with `{ "error": "Position must be a positive whole number" }`. Omitted, it defaults to `1`, placing the item first. A position past the end places it last.
+
+The item moves in place, so its ID, comments, bookmarks, and history stay with it, and moving it to another vault records an `adopted` event (`document_adopted`, `upload_adopted`, or `vault_adopted`) that is delivered to [webhooks][webhooks] subscribed to that type. Moving a vault takes everything inside it along. To move something to another project, use the Move menu in Basecamp; this endpoint only moves within a project.
+
+This endpoint will return `204 No Content` if the move was a success. It returns:
+
+* `400 Bad Request` if `parent_id` is missing.
+* `403 Forbidden` if the current user isn't allowed to move the item. When an account restricts moves to admins and creators, other people can still change an item's position within its current vault.
+* `404 Not Found` if the destination isn't in the same project as the item.
+* `422 Unprocessable Entity` if `position` isn't a positive whole number, if the item is moving to a different vault that isn't active (it's archived, trashed, or a draft), if the destination isn't a vault, if the item being moved to a different vault is archived, trashed, or a draft, if an archived, trashed, or draft item is reordered within an active vault, or if a vault is moved into one of the vaults inside it. That last case returns a JSON body such as `{ "error": "Parent must not be self or descendant" }`.
+
+###### Example JSON Request
+
+```json
+{
+  "parent_id": 3,
+  "position": 2
+}
+```
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
+  -d '{"parent_id":3,"position":2}' \
+  https://3.basecampapi.com/$ACCOUNT_ID/recordings/2/filing.json
+```
+
 Legacy project-scoped routes
 -----------------------------
 
@@ -243,6 +281,8 @@ The following project-scoped routes are still supported and will remain availabl
 * `POST /buckets/1/vaults/2/vaults.json` → [Create a vault](#create-a-vault)
 * `PUT /buckets/1/vaults/3.json` → [Update a vault](#update-a-vault)
 * `PUT /buckets/1/vaults/3/view_preference.json` → [Update a vault's view](#update-a-vaults-view)
+* `POST /buckets/1/recordings/2/filing.json` → [Move a document, upload, or vault](#move-a-document-upload-or-vault)
 
 [project]: projects.md#get-a-project
 [pagination]: ../README.md#pagination
+[webhooks]: webhooks.md

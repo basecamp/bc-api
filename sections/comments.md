@@ -166,7 +166,7 @@ Create a comment
 
 Note: All people who are subscribed to the recording will be notified when the comment is posted.
 
-This endpoint will return `201 Created` with the current JSON representation of the comment if the creation was a success. See the [Get a comment](#get-a-comment) endpoint for more info on the payload. The `Location` header will contain a URL to the HTML version of the new comment.
+This endpoint will return `201 Created` with the current JSON representation of the comment if the creation was a success. See the [Get a comment](#get-a-comment) endpoint for more info on the payload. The `Location` header will contain a URL to the HTML version of the new comment. It returns `422 Unprocessable Entity` if the recording is in the trash.
 
 ###### Example JSON Request
 

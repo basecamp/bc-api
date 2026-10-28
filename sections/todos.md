@@ -297,7 +297,7 @@ _Optional parameters_:
 * `due_on` - a date when the to-do should be completed.
 * `starts_on` - allows the to-do to run from this date to the `due_on` date.
 
-This endpoint will return `201 Created` with the current JSON representation of the to-do if the creation was a success. See the [Get a to-do](#get-a-to-do) endpoint for more info on the payload.
+This endpoint will return `201 Created` with the current JSON representation of the to-do if the creation was a success. See the [Get a to-do](#get-a-to-do) endpoint for more info on the payload. It returns `422 Unprocessable Entity` if the to-do list is in the trash.
 
 ###### Example JSON Request
 
@@ -396,7 +396,9 @@ _Optional parameters_:
 
 * `parent_id` - the ID of a to-do list, or of the project's to-do set, to move this to-do into. When provided, the to-do will be repositioned within the specified to-do list or to-do set instead of its current parent. It must be in the same project.
 
-This endpoint will return `204 No Content` if the update was a success, or `422 Unprocessable Entity` if `parent_id` isn't a to-do list or to-do set in the same project.
+This endpoint will return `204 No Content` if the update was a success, or `422 Unprocessable Entity` if `parent_id` isn't a to-do list or to-do set in the same project. To move a to-do into a list in another project, see [Move a recording to another project](recordings.md#move-a-recording-to-another-project).
+
+A to-do in a list that's in the trash comes out of the trash when it moves into another list, as if it had been restored.
 
 ###### Example JSON Request
 

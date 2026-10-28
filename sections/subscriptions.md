@@ -120,6 +120,8 @@ Update subscription
 
 * `PUT /recordings/2/subscription.json` will add and remove the people given from the list of subscribers for the recording with an ID of `2`. It returns `200 OK` with the current JSON representation of the recording subscriptions if the creation was a success.
 
+A Ping's Campfire answers `403 Forbidden` here: nobody changes who else a Ping notifies. You can still [subscribe](#subscribe-current-user) or [unsubscribe](#unsubscribe-current-user) yourself.
+
 **Parameters**: Requests should include at least one of the following parameters.
 
 * `subscriptions` - an array of people IDs.

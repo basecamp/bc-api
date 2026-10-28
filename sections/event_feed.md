@@ -28,13 +28,41 @@ The contract:
   newly granted access shows up in polls immediately — including re-polls of
   older positions — but requires reconnecting the live stream, since its
   access set is built at subscribe.
-- OAuth deauthorization is looser: it does not disconnect an already-open
-  live stream, and short-lived server-side authentication caching plus the
+- OAuth deauthorization is looser. Revoking a token, personal access token,
+  grant or connected app drops every live stream its person has open, not
+  only that client's, once the revocation commits — best-effort, like every
+  disconnect. But short-lived server-side authentication caching plus the
   stream-ticket lifetime mean a deauthorized client's polls and freshly
-  minted tickets can keep working for a few minutes before going dark. That
+  minted tickets can keep working for a few minutes, and a stream a
+  person's ticket opens in that window stays open until another drop. That
   grace window is best-effort and unpinned — it emerges from cache and
   ticket lifetimes rather than a tested contract, so don't build on its
   exact duration.
+- A token's expiry drops nothing. Two things close a live stream on it
+  instead. An agent's live stream, its own or one delegated to it, ends
+  when the token its ticket was minted with expires: it delivers nothing
+  past that, and its first frame past it, the server's next ping at the
+  latest, about 3 seconds on, closes the socket, unless the client has
+  renewed the stream with a fresh ticket first (see
+  [Renewing an agent's stream](#renewing-an-agents-stream)). It also checks
+  the agent's token again as it delivers, so once the token is revoked, the
+  agent may no longer use it, or Basecamp-issued tokens are no longer
+  accepted, the stream may deliver for up to about 30 seconds more, and its
+  next delivery after that closes the socket instead. A connection
+  authenticated by a Basecamp-issued OAuth token or personal access token
+  itself, sent in the handshake's `Authorization` header rather than as a
+  ticket, is leased to that token: it delivers nothing past the token's
+  expiry when the token lapses within the hour, as a fresh token does, and
+  otherwise nothing past an hour after it opened, cut short at random by up
+  to a fifth so that connections opened together don't all close together.
+  Its first frame past the lease, in either
+  direction, closes it instead. No timer ends a lease: a connection idle
+  past it stays open, sending nothing, until its next frame. Each closes
+  with the same `"reconnect":true` disconnect as a drop. Reconnect with a
+  fresh ticket or token, as after any disconnect: the reconnect is judged
+  like any new connection, so an expired or revoked token is refused with
+  `"reconnect":false`: refresh it and connect again. A person's ticket
+  stream and a legacy Launchpad-issued token's connection aren't leased.
 - Only cataloged event types are served (see [Event types](#event-types)).
   Draft publication is delivered as the corresponding `.created` type.
 - The catalog grows, and it grows under you: a poll or subscription with no
@@ -504,10 +532,20 @@ minted on a delegated request carries its agent, so `self` on the socket it
 opens resolves to the agent exactly as it does for that request's polls.
 
 Mint a fresh ticket for every connection attempt: tickets expire in about two
-minutes and are not refreshed by an open socket. A ticket is a replayable
+minutes and are not refreshed by an open socket. An agent's stream takes a
+fresh one over its open socket to run past its token's expiry (see
+[Renewing an agent's stream](#renewing-an-agents-stream)). A ticket is a replayable
 bearer within that window — it is stateless and can open more than one
 socket, so mint-per-connection is connector discipline, not server
 enforcement. Every socket is bounded to a single subscription regardless.
+
+A ticket minted with a Basecamp-issued OAuth token (`bc_at_…`) is bound to
+that token. It redeems only while the token is valid, so revoking the token or
+its grant (Disconnect in Connected apps, or the revocation endpoint) refuses
+every later redemption of any ticket minted with it, including one that has
+already opened a socket. A socket that is already open stays open. A ticket
+minted with a legacy Launchpad (SignalId) OAuth token isn't bound, and stays
+good for its two minutes.
 
 ###### Example JSON Response
 <!-- START POST /events/stream_ticket.json -->
@@ -573,9 +611,11 @@ A ticket connection carries **exactly one** `EventsChannel` subscription.
 Retransmitting the identical subscribe while awaiting confirmation is fine
 (that's the stock client's behavior); a subscribe with different parameters is
 rejected. To change filters, reconnect with a fresh ticket. Subscriptions to
-any other channel are rejected, and malformed or oversized commands close the
-connection with `"reconnect":false` and the disconnect reason
-`invalid_event_stream_command` — a terminal protocol error, not a cue to retry.
+any other channel are rejected, and so is every other command but an agent
+stream's `renew` (see [Renewing an agent's stream](#renewing-an-agents-stream)).
+Malformed or oversized commands close the connection with `"reconnect":false`
+and the disconnect reason `invalid_event_stream_command` — a terminal
+protocol error, not a cue to retry.
 
 ### Liveness
 
@@ -595,6 +635,78 @@ An explicit subscription **rejection** (bad filters, restricted channel) does
 not close the socket. Treat it as terminal configuration error: dispose the
 consumer (closing the socket) and surface the error — do not reconnect into
 the same rejection.
+
+### Renewing an agent's stream
+
+An agent's stream, its own or one delegated to it, ends when the token its
+ticket was minted with expires. The welcome frame says when, in
+`stream_expires_at`:
+
+```json
+{"type":"welcome","reload_window_ms":0,"stream_expires_at":"2026-10-26T06:33:09.000Z"}
+```
+
+A welcome without `stream_expires_at`, as a person's stream gets, means the
+stream has no end of its own and can't be renewed. Renewal is optional: a
+stream that never renews closes at its end with the same `"reconnect":true`
+disconnect as a drop, and you reconnect with a fresh ticket as after any
+disconnect.
+
+To keep the socket instead, send a fresh ticket over it before its end, on
+the identifier you subscribed with, byte for byte:
+
+```json
+{"command":"renew","identifier":"{\"channel\":\"EventsChannel\",\"types\":\"message.created\"}","ticket":"aBcD..."}
+```
+
+Mint the ticket with a token that expires later than the stream does,
+which means after your token has been refreshed: a ticket minted on the
+token the stream already runs on moves nothing. A few minutes before
+`stream_expires_at`, jittered, leaves room for a refusal and one retry.
+
+The ticket is redeemed exactly as a handshake would redeem it, so a renewal
+grants what reconnecting on it would and no more. It must be minted for the
+same person, and on a delegated request for the same agent, as the stream's
+own ticket, and it must name its token, as every ticket a Basecamp-issued
+token mints does. From then on the stream checks the new token as it
+delivers, not the old one, though revoking a delegated token still drops
+every live stream its person has open, as any such revocation does. Its
+project access and client visibility are taken afresh, as at a new
+subscription, so access granted since you subscribed starts arriving and
+access removed stops. Its filters don't change.
+
+The server answers the renewing socket alone, on the same identifier:
+
+```json
+{"identifier":"…","type":"renewed","stream_expires_at":"2026-10-26T07:31:02.000Z"}
+{"identifier":"…","type":"renew_refused","reason":"not_later"}
+```
+
+`renewed` gives the stream's new end. `renew_refused` leaves the end where
+it was; its `reason` is one of:
+
+| Reason | Meaning |
+|---|---|
+| `too_soon` | A renew within 30 seconds of the last one judged, renewed or refused. Wait, then send again. |
+| `unauthorized` | The ticket doesn't redeem: expired, forged, for another account, or its token or principals can no longer stream. |
+| `no_token` | The ticket names no token. |
+| `different_principals` | The ticket is for another person, or another agent, than the stream. |
+| `not_later` | The ticket's token expires no later than the stream does. Refresh the token, then mint again. |
+| `unavailable` | The server couldn't judge the renewal. Try again after 30 seconds. |
+
+A renewal judges the stream as it stands first. A stream that has lost its
+standing (its token revoked, its agent quarantined or disconnected) closes
+instead, with the same disconnect its next delivery would have sent, and a
+stream already closing sends nothing more: its disconnect frame is the
+answer. If no reply comes, treat it as refused.
+
+Send `renew` only on a socket whose welcome carried `stream_expires_at`.
+Anywhere else — another identifier, before the subscribe, a person's
+stream, or a server that doesn't renew streams — it is rejected like any
+other command, with `reject_subscription` on the identifier it named, and
+the socket and its subscription stay open: read that as the renewal
+refused, not the subscription. A `renew` with no identifier is malformed,
+and closes the connection with `invalid_event_stream_command`.
 
 ### Reconnection
 

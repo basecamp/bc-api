@@ -9,6 +9,7 @@ Endpoints:
 - [Create an upload version](#create-an-upload-version)
 - [Create an upload](#create-an-upload)
 - [Update an upload](#update-an-upload)
+- [Move an upload][move]
 - [Trash an upload][trash]
 
 Get uploads
@@ -382,6 +383,7 @@ The following project-scoped routes are still supported and will remain availabl
 [pagination]: ../README.md#pagination
 [attachments]: attachments.md#create-an-attachment
 [trash]: recordings.md#trash-a-recording
+[move]: vaults.md#move-a-document-upload-or-vault
 [vaults]: vaults.md#vaults
 [rich]: rich_text.md
 [client_visibility]: client_visibility.md

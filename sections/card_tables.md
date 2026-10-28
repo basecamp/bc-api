@@ -1,7 +1,7 @@
 Card tables
 ================
 
-A card table is made of multiple columns which contain cards. It can also hold wormholes: portals that send cards dropped into them to a column on another card table.
+A card table is made of multiple columns which contain cards. It can also hold wormholes: standing shortcuts that send cards dropped into them to a column on another card table, usually in another project.
 
 Endpoints:
 
@@ -610,7 +610,7 @@ Get a card table
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/card_tables/2.json
 ```
 
-The `wormholes` array lists the card table's wormholes. Wormholes are only listed for people who can reach the destination — a wormhole whose destination project the requester can't reach is omitted entirely. A wormhole is `linked` while its destination column still exists and its card table is enabled, and `destination_url` points at the destination column — it is `null` while the wormhole is unlinked. To send a card through a wormhole, pass the wormhole's `id` as the `column_id` when [moving a card](card_table_cards.md#move-a-card). Wormholes are managed through the [card table wormholes](card_table_wormholes.md) endpoints.
+The `wormholes` array lists the card table's wormholes. Wormholes are only listed for people who can reach the destination — a wormhole whose destination project the requester can't reach is omitted entirely. A wormhole is `linked` while its destination column still exists and its card table is enabled, and `destination_url` points at the destination column — it is `null` while the wormhole is unlinked. To send a card through a wormhole, pass the wormhole's `id` as the `column_id` when [moving a card](card_table_cards.md#move-a-card). A move within the card's project, even to another card table, takes the destination column's `id` directly and needs no wormhole. Wormholes are managed through the [card table wormholes](card_table_wormholes.md) endpoints.
 
 Move a card on the board
 ------------------------

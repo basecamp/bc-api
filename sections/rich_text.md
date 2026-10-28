@@ -117,6 +117,17 @@ You can also present image attachments grouped in a _gallery_. For this, you nee
 </div>
 ```
 
+Inserting an embed
+------------------
+
+To embed content from another site, such as a YouTube video, first [create an embed](embeds.md#create-an-embed) for its URL. Wait until the embed's `status` is `active`, then submit rich text content with a `<bc-attachment>` tag using its `sgid`:
+
+```html
+  <bc-attachment sgid="BAh7BkkiC1..."></bc-attachment>
+```
+
+An embed that isn't `active` shows as a link to its URL. Rich text that has already been rendered keeps showing it that way until it's edited, so wait for `active` before you submit.
+
 Structured attachment metadata
 ------------------------------
 
@@ -152,4 +163,5 @@ The following attributes contain rich text content in HTML format:
 The following resources contain an `attachable_sgid` attribute which can be used to create a `<bc-attachment>` tag in rich text content:
 
 - [Attachment](attachments.md)
+- [Embed](embeds.md) (as `sgid`)
 - [Person](people.md)

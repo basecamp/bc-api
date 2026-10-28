@@ -250,7 +250,7 @@ _Optional parameters_:
 
 * `color` - the color. Available values: `[ white red orange yellow green blue aqua purple gray pink brown ]`
 
-This endpoint will return `201 Created` with the current JSON representation of the to-do list if the creation was a success. See the [Get a to-do list](#get-a-to-do-list) endpoint for more info on the payload.
+This endpoint will return `201 Created` with the current JSON representation of the to-do list if the creation was a success. See the [Get a to-do list](#get-a-to-do-list) endpoint for more info on the payload. It returns `422 Unprocessable Entity` if the to-do list is in the trash.
 
 ###### Example JSON Request
 

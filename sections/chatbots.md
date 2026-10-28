@@ -54,6 +54,20 @@ of a text/html content-typed response with status code 200. This response has th
 (see the [allowed HTML tags](rich_text.md#allowed-html-tags)), including tables and `details`/`summary`. The pair of details/summary is particularly
 useful for providing large chunks of information hidden behind a show/hide.
 
+If it needs longer, it can reply later by POSTing to the payload's `callback_url`, the same way as [Create a line](#create-a-line),
+and as many times as it has something to say. Treat that URL as a secret: anyone who has it can post as the chatbot. Use it whole,
+exactly as given, and keep it as you got it. Don't rebuild it from its parts or drop its query string.
+
+In a Ping the chatbot isn't one of the people in, the `callback_url` carries a `reply_token` from the person who sent the command,
+and that's what lets the chatbot reply there. It lasts a day, 24 hours from when the command reaches the chatbot, and stops
+working sooner if that person leaves the Ping, or is removed from it or from the account. After that the URL returns
+`404 Not Found`. Until then the chatbot can reply as often as it needs to. Being one of a Ping's people is what lets a chatbot
+post there at any time, not only in reply, and that's unchanged by any `reply_token`.
+
+So a chatbot that posts into a Ping on its own, rather than in reply to a command sent there, needs to be one of the Ping's
+people. Add it to the Ping, or start a Ping with it: the people picker offers every chatbot that has a command URL. A URL kept
+from an earlier command won't do; it stops working once its `reply_token` does.
+
 Here are a few examples of return content or content sent to the callback URL from what we use at Basecamp:
 
 Alert warning from Nagios with inline resolution links:
@@ -256,6 +270,8 @@ Create a line
 **Note:** This endpoint uses the full project-scoped URL because it authenticates via the chatbot's access key, not via OAuth. The `/buckets/{project_id}/` prefix is required.
 
 * `POST /integrations/$CHATBOT_KEY/buckets/1/chats/2/lines.json` creates a line in the Campfire with ID `2` in the project with ID `1`.
+
+A chatbot posts into a Ping when it's one of the Ping's people, or by the `callback_url` of a command sent from that Ping, while its `reply_token` lasts (see [above](#chatbots)). Any other Ping returns `404 Not Found`.
 
 **Required parameters**: `content` as the body for the Campfire line. See our [Rich text guide][1] for what HTML tags are allowed.
 

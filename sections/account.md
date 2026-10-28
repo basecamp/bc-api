@@ -15,6 +15,14 @@ Get account
 
 The `logo` field is only present when the account has a logo configured. It is omitted entirely when no logo exists.
 
+The `limits` booleans say what the account's plan allows:
+
+* `can_create_projects` - whether a new project fits under the plan's project limit.
+* `can_archive_and_trash_projects` - whether the plan can archive projects and put them in the trash. When it's `false`, [archiving a project](projects.md#archive-a-project) returns `403 Forbidden`, and [trashing a project](projects.md#trash-a-project) deletes it permanently instead: it can't be restored from the trash.
+* `can_pin_projects` - whether projects can be pinned.
+* `can_create_users` - whether another person fits under the plan's user and invitation limits.
+* `can_upload_files` - whether the account is under its storage limit.
+
 ###### Example JSON Response
 <!-- START GET /account.json -->
 ```json
@@ -31,6 +39,7 @@ The `logo` field is only present when the account has a logo configured. It is o
   "paused": false,
   "limits": {
     "can_create_projects": true,
+    "can_archive_and_trash_projects": true,
     "can_pin_projects": true,
     "can_create_users": true,
     "can_upload_files": true
@@ -95,6 +104,7 @@ This endpoint returns `200 OK` with the full [account](#get-account) JSON repres
   "paused": false,
   "limits": {
     "can_create_projects": true,
+    "can_archive_and_trash_projects": true,
     "can_pin_projects": true,
     "can_create_users": true,
     "can_upload_files": true

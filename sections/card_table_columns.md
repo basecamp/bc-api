@@ -186,6 +186,8 @@ _Optional parameters_:
 
 This endpoint will return `204 No Content` if the update was a success.
 
+A column in the trash comes out of the trash with the move, as if it had been restored.
+
 ###### Example JSON Request
 
 ```json
