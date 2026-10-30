@@ -12,6 +12,7 @@ Endpoints:
 - [Get hill chart](#get-hill-chart)
 - [Get hill chart progress updates](#get-hill-chart-progress-updates)
 - [Get a hill chart progress update](#get-a-hill-chart-progress-update)
+- [Create a hill chart progress update](#create-a-hill-chart-progress-update)
 - [Update hill chart settings](#update-hill-chart-settings)
 
 
@@ -233,6 +234,42 @@ Get a hill chart progress update
 
 ```shell
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCOUNT_ID/todosets/1/hills/versions/2.json
+```
+
+
+Create a hill chart progress update
+-----------------------------------
+
+* `POST /todosets/1/hills/versions.json` moves dots on the hill chart for the to-do set with an ID of `1` and saves a progress update, as updating the hill chart in Basecamp does.
+
+Each entry in `dots` moves one tracked to-do list: `id` is the to-do list's ID, and `position` is a whole number from `0` to `100`, on the same scale as the hill chart's `dots`. To-do lists you leave out keep their current position, so you can move one dot without sending the others. To track or untrack a to-do list, use [Update hill chart settings](#update-hill-chart-settings).
+
+_Optional parameters_:
+
+* `dots` - an array of to-do lists to move, each with an `id` and a `position`.
+* `description` - a note about the update, as [rich text][3].
+* `subscriptions` - an array of people IDs to notify of the update and subscribe to it. If not present, nobody else is notified.
+
+This endpoint will return `201 Created` with the JSON representation of the new [progress update](#get-a-hill-chart-progress-update), including where every tracked to-do list now sits. It will return `422 Unprocessable Entity` with an `error` message, and save nothing, if `dots` isn't a list of objects, if a to-do list in `dots` appears more than once or isn't tracked on the hill chart, if a `position` isn't a whole number from `0` to `100`, or if the hill chart has no tracked to-do lists.
+
+###### Example JSON Request
+
+```json
+{
+  "description": "<div>Research is done. Building starts Monday.</div>",
+  "dots": [
+    { "id": 1069479863, "position": 55 }
+  ],
+  "subscriptions": [1049715913]
+}
+```
+
+###### Copy as cURL
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" \
+  -d '{"description": "<div>Research is done.</div>", "dots": [{"id": 1069479863, "position": 55}]}' \
+  https://3.basecampapi.com/$ACCOUNT_ID/todosets/1/hills/versions.json
 ```
 
 

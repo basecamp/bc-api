@@ -48,10 +48,12 @@ The contract:
   the agent's token again as it delivers, so once the token is revoked, the
   agent may no longer use it, or Basecamp-issued tokens are no longer
   accepted, the stream may deliver for up to about 30 seconds more, and its
-  next delivery after that closes the socket instead. A connection
-  authenticated by a Basecamp-issued OAuth token or personal access token
-  itself, sent in the handshake's `Authorization` header rather than as a
-  ticket, is leased to that token: it delivers nothing past the token's
+  next delivery after that closes the socket instead. Only Basecamp's own
+  apps and personal access tokens may authenticate a connection with the
+  token itself, sent in the handshake's `Authorization` header rather than
+  as a ticket; any other client's token is refused there with
+  `"reconnect":false`, so connect with a ticket. Such a connection is
+  leased to its token: it delivers nothing past the token's
   expiry when the token lapses within the hour, as a fresh token does, and
   otherwise nothing past an hour after it opened, cut short at random by up
   to a fifth so that connections opened together don't all close together.
