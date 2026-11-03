@@ -195,11 +195,10 @@ Renaming is a shared dock-tool operation: use [Update a tool][update_a_tool].
 Change a URL, service, or description
 -------------------------------------
 
-There is **no reliable JSON endpoint** for changing an external link's `url`, `service`,
-or `description`. The door route `PUT /buckets/1/dock/doors/2.json` applies the change but
-then returns `406 Not Acceptable` (the record is updated before content negotiation), so
-it can't be depended on as a JSON API. Make these edits in the Basecamp web app, or trash
-the external link and [create](#create-an-external-link) a new one.
+There is **no JSON endpoint** for changing an external link's `url`, `service`, or
+`description`: the web app's door update isn't part of the API, and answers
+`404 Not Found` on the API host. Make these edits in the Basecamp web app, or trash the
+external link and [create](#create-an-external-link) a new one.
 
 Trash an external link
 ----------------------
