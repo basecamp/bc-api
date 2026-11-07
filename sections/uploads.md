@@ -311,6 +311,10 @@ _Optional parameters_:
 * `description` - containing information about the upload. See our [Rich text guide][rich] for what HTML tags are allowed.
 * `base_name` - a new file name for the upload. `base_name` should be a file name *without* an extension (e.g. `"pizza"` for `"pizza.png"`).
 * `visible_to_clients` - top-level boolean. When the project has clients enabled, whether the upload is visible to them. Defaults to `false` (team callers creating directly under the docked tool); a **client** caller always creates client-visible records. Applies only when creating directly in the tool's vault; items created inside a folder inherit the folder's visibility. See [Client visibility][client_visibility] to change it after creation.
+* `notify` - who to notify about the new upload: `default` (people subscribed to project notifications), `everyone` (clients too, when the upload is visible to them), or `custom` (specific people via `subscriptions`). Omit both `notify` and `subscriptions` to notify nobody.
+* `subscriptions` - an array of people IDs to notify about the new upload and subscribe to it. Used when `notify` is `custom`, which is also how a `subscriptions` array sent without `notify` is read.
+
+Notified people are subscribed to the upload, and the creator always is.
 
 This endpoint will return `201 Created` with the current JSON representation of the upload if the creation was a success. See the [Get an upload](#get-an-upload) endpoint for more info on the payload. If the account has reached its storage limit you'll see a `507 Insufficient Storage` and a response of:
 
