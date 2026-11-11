@@ -543,9 +543,11 @@ Update my personal info
 
 * `name` - the user's display name.
 * `email_address` - the user's email address. This is the 37signals login identity shared across
-  every account, so changing it requires a trusted client with session-equivalent authority: a
-  full-scope, identity-wide token (a personal access token, or a first-party app's identity-wide
-  token). Any other token gets `403 Forbidden` with an `error` message and changes nothing.
+  every account, so it can't be changed with a Basecamp OAuth access token or a personal access
+  token (`bc_at_` tokens): change it in Basecamp on the web, from your profile. Such a request gets
+  `403 Forbidden` with an `error` message and changes nothing; requests that leave it out, or send
+  the current address, update the other fields as before. A legacy Launchpad token from a trusted
+  client may still change it.
 * `title` - the user's job title.
 * `bio` - a short bio.
 * `location` - the user's location.
