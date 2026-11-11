@@ -131,8 +131,9 @@ _Optional parameters_:
 * `creator_ids[]` - Array of creator [person][3] IDs to filter by. Available since Basecamp 5.
 * `file_type` - Filter attachments by type. Use `key` values from the `file_search_types` array returned by [Get search metadata](#get-search-metadata).
 * `exclude_chat` - Set to `1` to exclude chat results.
-* `since` - Time-range filter. One of `last_7_days`, `last_30_days`, `last_90_days`, `last_12_months`, or `forever` (the default — search across all time). Unrecognized values are normalized to `forever`. Available since Basecamp 5.
-* `sort` - Sort order. `best_match` (the default, also used when blank) ranks by relevance with a recency boost; `recency` orders strictly by recency, newest first. Unrecognized values fall back to recency ordering.
+* `since` - Time-range filter. One of `last_7_days`, `last_30_days`, `last_90_days`, `last_12_months`, `custom`, or `forever` (the default — search across all time). The four presets match when a recording was last updated. `custom` matches when a recording was created, between `from` and `to`. Unrecognized values are normalized to `forever`. Available since Basecamp 5.
+* `from`, `to` - With `since=custom`, the first and last day of the range, as `YYYY-MM-DD`. Both days are included in full, in UTC. Reversed dates are swapped, and dates after today are treated as today. If either date is missing or unreadable, the search covers all time.
+* `sort` - Sort order. `best_match` (the default, also used when blank) ranks by relevance with a recency boost; `recency` orders newest first by the date the time-range filter matches on: when a recording was last updated for a preset, and when it was created for `custom` and `forever`. Unrecognized values fall back to recency ordering.
 * `page` - Page number for pagination (default: 1).
 * `per_page` - Number of results per page (default: 50).
 
@@ -142,7 +143,7 @@ _Deprecated parameters_ (kept for backwards compatibility with older clients; pr
 * `bucket_id` - Single [project][2] ID. Prefer `bucket_ids[]`.
 * `creator_id` - Single creator [person][3] ID. Prefer `creator_ids[]`.
 
-By default results are ordered by relevance with a recency boost. Pass `sort=recency` to order strictly by recency, newest first.
+By default results are ordered by relevance with a recency boost. Pass `sort=recency` to order newest first, by the same date the `since` filter matches on.
 
 ###### Copy as cURL
 
