@@ -366,7 +366,8 @@ _Optional parameters_:
 
 * `content` - containing information about the card. See our [Rich text guide][rich] for what HTML tags are allowed.
 * `due_on` - due date (ISO 8601) of the card
-* `notify` - whether to notify assignees, value `true` or `false`. Defaults to `false`.
+* `assignee_ids` - an array of people that will be assigned to this card. Please see the [Get people][people] endpoints to retrieve them.
+* `notify` - whether to notify the people assigned through `assignee_ids`, value `true` or `false`. Defaults to `false`.
 
 This endpoint will return `201 Created` with the current JSON representation of the card if the creation was a success. See the [Get a card](#get-a-card) endpoint for more info on the payload. It returns `422 Unprocessable Entity` if the column is in the trash.
 
@@ -399,6 +400,7 @@ _Optional parameters_:
 * `content` - containing information about the card. See our [Rich text guide][rich] for what HTML tags are allowed.
 * `due_on` - due date (ISO 8601) of the card
 * `assignee_ids` - an array of people that will be assigned to this card. Please see the [Get people][people] endpoints to retrieve them.
+* `notify` - whether to notify people newly assigned through `assignee_ids`, value `true` or `false`. Defaults to `false`. People already assigned aren't notified again.
 
 **Note:** this is a partial update — omitting any of `title`, `content`, `due_on`, or `assignee_ids` leaves it unchanged. To clear the due date, send `"due_on": null` explicitly; to remove all assignees, send `"assignee_ids": []`.
 
