@@ -55,11 +55,11 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCO
 Get to-do assignments for a person
 ----------------------------------
 
-* `GET /reports/todos/assigned/1.json` will return a list of all active, pending to-dos assigned to the person with an ID of `1`.
+* `GET /reports/todos/assigned/1.json` will return the person with an ID of `1` and a [paginated list][pagination] (`todos`), 50 per page, of the active, pending to-dos assigned to them, oldest first. Each page carries the same `person` and `grouped_by`.
 
 _Optional query parameters_:
 
-* `group_by` - when set to `bucket`, will group to-dos by project. When set to `date`, will group by due date. Default: `bucket`.
+* `group_by` - `bucket` (by project) or `date` (by due date), returned as `grouped_by`. `todos` is the same flat list either way. Default: `bucket`.
 
 ###### Example JSON Response
 <!-- START GET /reports/todos/assigned/1.json -->
@@ -197,9 +197,9 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCO
 Get overdue to-dos
 ------------------
 
-* `GET /reports/todos/overdue.json` will return all overdue to-dos across all projects, grouped by how late they are.
+* `GET /reports/todos/overdue.json` will return a [paginated list][pagination] of overdue to-dos across all projects, 50 per page, most recently due first, grouped by how late they are.
 
-The response includes four groups:
+Each page includes the same four groups, holding only that page's to-dos, so a group can continue onto the next page:
 * `under_a_week_late` - to-dos due within the last 7 days
 * `over_a_week_late` - to-dos due between 7 and 30 days ago
 * `over_a_month_late` - to-dos due between 30 and 90 days ago

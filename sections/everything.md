@@ -14417,8 +14417,8 @@ without an additional fetch.
 Get overdue to-dos
 ------------------
 
-* `GET /todos/overdue.json` — to-dos with a `due_on` date in the past, sorted
-  oldest-first by due date.
+* `GET /todos/overdue.json` — a [paginated][pagination] list of to-dos with a
+  `due_on` date in the past, 50 per page, sorted oldest-first by due date.
 
 This endpoint is preserved as the canonical API path; the standalone
 all-to-dos web page was removed — the BC5 web app shows these tasks in the
@@ -14835,8 +14835,8 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCO
 Get overdue cards
 -----------------
 
-* `GET /cards/overdue.json` — cards with a `due_on` date in the past, sorted
-  oldest-first by due date.
+* `GET /cards/overdue.json` — a [paginated][pagination] list of cards with a
+  `due_on` date in the past, 50 per page, sorted oldest-first by due date.
 
 This endpoint is preserved as the canonical API path; the standalone
 all-cards web page was removed — the BC5 web app shows these tasks in the

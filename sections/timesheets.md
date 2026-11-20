@@ -14,9 +14,7 @@ Endpoints:
 Get timesheet report
 --------------------
 
-* `GET /reports/timesheet.json` will return a list of all timesheet entries across the account, within a given timeframe.
-
-**Note:** This endpoint is currently not paginated.
+* `GET /reports/timesheet.json` will return a [paginated list][pagination] of timesheet entries across the account, within a given timeframe, 50 per page, most recent date first.
 
 _Optional query parameters_:
 
@@ -709,3 +707,4 @@ The following project-scoped routes are still supported and will remain availabl
 
 [1]: people.md#people
 [2]: projects.md#projects
+[pagination]: ../README.md#pagination
