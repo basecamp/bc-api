@@ -5,7 +5,7 @@ Retrieve the current user's assignments — active ones split by priority, compl
 
 Each assignment includes its content, type, bucket, parent, assignees, due dates, completion status, and any child assignments (e.g. card table steps nested under their parent card).
 
-**Note:** the retrieval endpoints below — Get assignments, Get completed assignments, and Get due assignments — return the full result set and are not paginated.
+**Note:** Get assignments and Get due assignments return the full result set and are not paginated. Get completed assignments is paginated.
 
 Endpoints:
 
@@ -405,7 +405,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCO
 Get completed assignments
 -------------------------
 
-* `GET /my/assignments/completed.json` will return the current user's completed assignments. Archived and trashed recordings are excluded.
+* `GET /my/assignments/completed.json` will return a [paginated list][pagination] of the current user's completed assignments, 50 per page, most recently completed first. Archived and trashed recordings are excluded.
 
 ###### Example JSON Response
 <!-- START GET /my/assignments/completed.json -->
@@ -736,3 +736,5 @@ Reordering validates `position` and, on failure, returns an error body of the fo
 * `position` outside the list → `422 Unprocessable Entity`, `{ "error": "Position must be between 1 and N." }`, where `N` is the number of prioritized assignments.
 * A recording that isn't prioritized → `422 Unprocessable Entity`, `{ "error": "Recording is not prioritized." }`.
 * A recording you can't access → `404 Not Found`.
+
+[pagination]: ../README.md#pagination
