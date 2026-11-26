@@ -13,6 +13,8 @@ Get a card table
 
 * `GET /card_tables/2.json` will return the card table with an ID of `2`.
 
+The response tells you what the current user can do with the card table, as its menu in Basecamp does. `can_move` is true when they can move it to another project, and `can_share_publicly` when they can get a public link to it. `archived_columns_count` counts the columns that were archived in it. Each list in `lists` has `archived_cards_count`, and a list of type `Kanban::Column` also has `can_move` and `can_archive_or_trash`, as described in [Get a column](card_table_columns.md#get-a-column).
+
 ###### Example JSON Response
 <!-- START GET /card_tables/2.json -->
 ```json
@@ -94,6 +96,9 @@ Get a card table
     }
   ],
   "public_link_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479833/publication",
+  "archived_columns_count": 0,
+  "can_move": true,
+  "can_share_publicly": true,
   "lists": [
     {
       "id": 1069479834,
@@ -181,6 +186,7 @@ Get a card table
       ],
       "color": null,
       "cards_count": 1,
+      "archived_cards_count": 0,
       "comment_count": 0,
       "cards_url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/lists/1069479834/cards.json"
     },
@@ -270,6 +276,7 @@ Get a card table
       ],
       "color": null,
       "cards_count": 1,
+      "archived_cards_count": 0,
       "comment_count": 0,
       "cards_url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/lists/1069479835/cards.json"
     },
@@ -360,8 +367,11 @@ Get a card table
       ],
       "color": "purple",
       "cards_count": 1,
+      "archived_cards_count": 0,
       "comment_count": 0,
-      "cards_url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/lists/1069479836/cards.json"
+      "cards_url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/lists/1069479836/cards.json",
+      "can_move": true,
+      "can_archive_or_trash": true
     },
     {
       "id": 1069479837,
@@ -450,8 +460,11 @@ Get a card table
       ],
       "color": "orange",
       "cards_count": 1,
+      "archived_cards_count": 0,
       "comment_count": 0,
-      "cards_url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/lists/1069479837/cards.json"
+      "cards_url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/lists/1069479837/cards.json",
+      "can_move": true,
+      "can_archive_or_trash": true
     },
     {
       "id": 1069479838,
@@ -539,6 +552,7 @@ Get a card table
       ],
       "color": null,
       "cards_count": 0,
+      "archived_cards_count": 0,
       "comment_count": 0,
       "cards_url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/lists/1069479838/cards.json"
     }

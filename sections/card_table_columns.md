@@ -16,6 +16,8 @@ Get a column
 
 * `GET /card_tables/columns/2.json` will return the column with an ID of `2`.
 
+`archived_cards_count` counts the cards that were archived in the column, on hold included. A column of type `Kanban::Column` also tells you what the current user can do with it, as its menu in Basecamp does: `can_move` is true when they can move it, and `can_archive_or_trash` when they can archive it or put it in the trash. These fields answer for the user only, not for the recording's `status`. Basecamp also looks at `status`: it offers Move only when the recording isn't in the trash. For a column, it doesn't look at `inherits_status`: it offers Archive when the recording isn't archived, and Trash when it isn't in the trash. So it offers Trash on an archived column too. The triage, Not now and Done lists have neither field, as Basecamp can't move, archive or trash them.
+
 ###### Example JSON Response
 <!-- START GET /card_tables/columns/2.json -->
 ```json
@@ -105,6 +107,7 @@ Get a column
   ],
   "color": null,
   "cards_count": 1,
+  "archived_cards_count": 0,
   "comment_count": 0,
   "cards_url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/lists/1069479834/cards.json"
 }
