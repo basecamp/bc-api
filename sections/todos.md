@@ -24,6 +24,8 @@ This endpoint without any parameters returns only active, pending (i.e. not comp
 * `status` - when set to `archived` or `trashed`, will return archived or trashed to-dos that are in this list, including both pending and completed.
 * `completed` - when set to `true`, will only return to-dos that are completed. Can be combined with the `status` parameter.
 
+Each to-do tells you what the current user can do with it, as its menu in Basecamp does. `can_move` is true when they can move or copy it, `can_archive_or_trash` when they can archive it or put it in the trash, and `can_share_publicly` when they can get a public link to it. These fields answer for the user only, not for the recording's `status`. Basecamp also looks at `status`: it offers Move only when the recording isn't in the trash, and a public link only when it's active. It offers Archive and Trash only when `inherits_status` is true: Archive when the recording isn't archived, and Trash when it isn't in the trash.
+
 ###### Example JSON Response
 <!-- START GET /todolists/3/todos.json -->
 ```json
@@ -98,7 +100,10 @@ This endpoint without any parameters returns only active, pending (i.e. not comp
     "assignees": [],
     "completion_subscribers": [],
     "completion_url": "https://3.basecampapi.com/195539477/todos/1069480013/completion.json",
-    "steps": []
+    "steps": [],
+    "can_move": true,
+    "can_archive_or_trash": true,
+    "can_share_publicly": true
   }
 ]
 ```
@@ -119,6 +124,8 @@ The `steps` array holds the to-do's first 100 [subtasks][subtasks], read-only he
 is the real total, so a to-do with more than 100 is detectable; `subtasks_url` returns a
 [paginated list][2] of all of them.
 Use the [subtasks][subtasks] endpoints to create, update, complete and reorder them.
+
+The to-do tells you what the current user can do with it, as its menu in Basecamp does. `can_move` is true when they can move or copy it, `can_archive_or_trash` when they can archive it or put it in the trash, and `can_share_publicly` when they can get a public link to it. These fields answer for the user only, not for the recording's `status`. Basecamp also looks at `status`: it offers Move only when the recording isn't in the trash, and a public link only when it's active. It offers Archive and Trash only when `inherits_status` is true: Archive when the recording isn't archived, and Trash when it isn't in the trash.
 
 ###### Example JSON Response
 <!-- START GET /todos/2.json -->
@@ -269,7 +276,10 @@ Use the [subtasks][subtasks] endpoints to create, update, complete and reorder t
     }
   ],
   "completion_url": "https://3.basecampapi.com/195539477/todos/1069480015/completion.json",
-  "steps": []
+  "steps": [],
+  "can_move": true,
+  "can_archive_or_trash": true,
+  "can_share_publicly": true
 }
 ```
 <!-- END GET /todos/2.json -->

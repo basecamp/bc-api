@@ -225,6 +225,8 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -A 'MyApp (yourname@example.com
 
 The `plain_text_content` field contains HTML with search terms wrapped in `<em>` tags for highlighting. Be sure to escape this content appropriately when rendering.
 
+A chat line that replies to another line carries `original`, the line it quotes, as described in [Replies and the line they quote](campfires.md#replies-and-the-line-they-quote). In search results, `original` also has `plain_text_content`, without highlighted search terms.
+
 [1]: ../README.md#pagination
 [2]: projects.md#projects
 [3]: people.md#people

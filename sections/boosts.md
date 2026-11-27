@@ -213,7 +213,7 @@ Destroy a boost
 
 * `DELETE /boosts/2.json` will destroy the boost with an ID of `2`.
 
-Only the boost's creator or an admin can destroy a boost. Returns `204 No Content` on success, or `403 Forbidden` if the authenticated user does not have permission.
+Only the boost's creator or an admin can destroy a boost. Returns `204 No Content` if the boost was destroyed or was already gone, or `403 Forbidden` if the authenticated user does not have permission.
 
 ###### Copy as cURL
 
