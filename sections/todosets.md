@@ -15,6 +15,8 @@ Get to-do set
 
 To get the to-do set ID for a project, see the [Get a project][1] endpoint's `dock` payload. To retrieve its to-do lists, see the [Get to-do lists][2] endpoint.
 
+The response tells you what the current user can do with the to-do set, as its menu in Basecamp does. `can_move` is true when they can move it to another project. `can_share_publicly` is true when they can get a public link to it. `archived_todos_count` and `archived_todolists_count` count the to-dos and the to-do lists that were archived in it, so you can offer a link to the archive only when it isn't empty.
+
 ###### Example JSON Response
 <!-- START GET /todosets/2.json -->
 ```json
@@ -71,6 +73,8 @@ To get the to-do set ID for a project, see the [Get a project][1] endpoint's `do
   "todos_count": 2,
   "todolists_count": 10,
   "completed_loose_todos_count": 1,
+  "archived_todos_count": 0,
+  "archived_todolists_count": 1,
   "todolists": [
     {
       "id": 1069480012,
@@ -167,7 +171,9 @@ To get the to-do set ID for a project, see the [Get a project][1] endpoint's `do
   "app_todos_url": "https://3.basecamp.com/195539477/buckets/2085958505/todosets/1069479829/todos",
   "hill_chart_url": "https://3.basecampapi.com/195539477/buckets/2085958505/todosets/1069479829/hill.json",
   "todolists_url": "https://3.basecampapi.com/195539477/buckets/2085958505/todosets/1069479829/todolists.json",
-  "app_todoslists_url": "https://3.basecamp.com/195539477/buckets/2085958505/todosets/1069479829/todolists"
+  "app_todoslists_url": "https://3.basecamp.com/195539477/buckets/2085958505/todosets/1069479829/todolists",
+  "can_move": true,
+  "can_share_publicly": true
 }
 ```
 <!-- END GET /todosets/2.json -->

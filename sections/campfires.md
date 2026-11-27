@@ -156,6 +156,8 @@ Get Campfire lines
 
 * `GET /chats/2/lines.json` will return a [paginated list][pagination] of Campfire lines of the Campfire with ID `2`.
 
+A line that replies to another line carries `original`, the line it quotes. See [Replies and the line they quote](#replies-and-the-line-they-quote).
+
 ###### Example JSON Response
 <!-- START GET /chats/2/lines.json -->
 ```json
@@ -225,6 +227,61 @@ Get a Campfire line
 -------------------
 
 * `GET /chats/2/lines/3.json` will return the Campfire line with ID `3` in the Campfire with ID `2`.
+
+##### Replies and the line they quote
+
+A line that replies to another line carries `original_id`, the ID of the line it quotes, and `original`, that line itself. A line that is not a reply has neither key. Replies carry it wherever a line is returned: [Get Campfire lines](#get-campfire-lines), this endpoint, [Create a Campfire line](#create-a-campfire-line), [Update a Campfire line](#update-a-campfire-line), [Get Campfire uploads](#get-campfire-uploads) and a [Ping](pings.md#reading-and-writing-lines-in-a-ping)'s lines and files, and Campfire lines in [search](search.md) results.
+
+While the quoted line is still there, `original` has:
+
+* `id` - the quoted line's ID.
+* `status` - `active`.
+* `title` - the quoted line as plain text, cut to its first 100 characters. For a short preview, show `excerpt` when there is one, otherwise `title`.
+* `created_at` - when the quoted line was posted.
+* `type` - the quoted line's type, such as `Chat::Lines::Text`, `Chat::Lines::RichText` or `Chat::Lines::Upload`.
+* `url` - the quoted line's API URL.
+* `app_url` - the quoted line in the Basecamp web app.
+* `creator` - who posted it: `id`, `name` and `avatar_url`.
+* `excerpt` - the part of the quoted line the reply picked out, as plain text. Only present when the reply was created with an `excerpt`. When it is present, show it instead of `content`.
+* `content` - the quoted line's content as HTML, formatted like a line's own `content`. As on the line itself, an upload line has `attachments` instead of `content`, a code line also has `language`, and a `/play` line has `sound_url` with either `image_url` or `content`.
+
+In [search](search.md) results, `original` also has `plain_text_content`: the quoted line as plain text, up to 300 characters. Unlike the result's own `plain_text_content`, it has no highlighted search terms, since search matches the reply's own words.
+
+Once the quoted line has been deleted, the reply keeps `original_id` but has no `original`. Show that the original message was deleted.
+
+A quoted line never carries its own `original`, even when it is a reply itself.
+
+###### Example `original` (the quoted line is still there)
+
+```json
+{
+  "id": 1069479442,
+  "status": "active",
+  "title": "Words to live by",
+  "created_at": "2026-03-12T16:43:00.000Z",
+  "type": "Chat::Lines::RichText",
+  "url": "https://3.basecampapi.com/195539477/buckets/2085958502/chats/1069478958/lines/1069479442.json",
+  "app_url": "https://3.basecamp.com/195539477/buckets/2085958502/chats/1069478958@1069479442",
+  "creator": {
+    "id": 1049715923,
+    "name": "Jerry Gibson",
+    "avatar_url": "https://3.basecampapi.com/195539477/people/BAhpBNNkkT4=--e3c2676dde30e7c13f87642e3a3dd46ad657f731/avatar"
+  },
+  "excerpt": "Words",
+  "content": "Words to live by"
+}
+```
+
+###### Example reply whose quoted line was deleted
+
+```json
+{
+  "id": 1069479500,
+  "original_id": 1069479442
+}
+```
+
+Only the reply's `original_id` is shown here; the rest of the line is unchanged.
 
 ###### Example JSON Response
 <!-- START GET /chats/2/lines/3.json -->
@@ -303,8 +360,15 @@ Create a Campfire line
 _Optional parameters_:
 
 * `content_type` - set to `text/html` to create a rich text line. Default: plain text.
+* `original_id` - the ID of the line this one replies to. It must be a line in the same Campfire (or Ping) that has not been trashed or deleted; otherwise, returns `422 Unprocessable Entity` without creating a line.
+* `excerpt` - the part of the original line being replied to, kept with the reply. Only used with `original_id`.
+* `uuid` - a unique string you generate for this line, up to 255 characters. Longer strings return `422 Unprocessable Entity`.
 
-This endpoint will return `201 Created` with the current JSON representation of the line if the creation was a success. See the [Get a Campfire line](#get-a-campfire-line) endpoint for more info on the payload.
+If a request fails or times out and you do not know whether the line was created, send the same request again with the same `uuid` and `content_type`. If the first attempt succeeded, the repeat returns `201 Created` with the existing line, without creating or announcing another line. Lines are matched per person within a Campfire for one day. If the earlier attempt is still being processed, the repeat can return `422 Unprocessable Entity`; send it again. Without a `uuid`, every request creates a line.
+
+This endpoint will return `201 Created` with the current JSON representation of the line if the creation was a success, including repeats with the same `uuid`. Blank `content` returns `422 Unprocessable Entity`. See the [Get a Campfire line](#get-a-campfire-line) endpoint for more info on the payload. A reply comes back with its [`original`](#replies-and-the-line-they-quote).
+
+In a Ping between you and an integration, this endpoint returns `202 Accepted` and sends the text to the integration as a command, carrying the reply and `uuid` over to the command line. The command is checked when it runs, so an `original_id` or `uuid` that would otherwise return `422 Unprocessable Entity` drops the command instead.
 
 ###### Example JSON Request (plain text)
 
@@ -320,6 +384,17 @@ This endpoint will return `201 Created` with the current JSON representation of 
 {
   "content": "<strong>Hello</strong> from the API",
   "content_type": "text/html"
+}
+```
+
+###### Example JSON Request (reply)
+
+```json
+{
+  "content": "Good morning to you, too!",
+  "original_id": 1069479442,
+  "excerpt": "Good morning",
+  "uuid": "e2ff1a32-8e78-4fd8-a739-53acb8b45751"
 }
 ```
 
@@ -459,6 +534,8 @@ Get Campfire uploads
 --------------------
 
 * `GET /chats/2/uploads.json` will return a [paginated list][pagination] of file uploads in the Campfire with ID `2`, sorted newest first.
+
+An upload that replies to another line carries [`original`](#replies-and-the-line-they-quote), as any reply does.
 
 ###### Example JSON Response
 <!-- START GET /chats/2/uploads.json -->
@@ -639,7 +716,7 @@ Update a Campfire line
 
 Only text and rich text lines can be edited, and only by their creator. The new content is treated as rich text: the line becomes a rich text line even if it was originally plain text, and `content` may include the HTML tags covered in our [Rich text guide][rich].
 
-Returns `204 No Content` if successful, or `403 Forbidden` if the current user isn't allowed to edit the line.
+This endpoint will return `200 OK` with the current JSON representation of the line if the update was a success, or `403 Forbidden` if the current user isn't allowed to edit the line. See the [Get a Campfire line](#get-a-campfire-line) endpoint for more info on the payload.
 
 ###### Example JSON Request
 

@@ -94,6 +94,8 @@ Update who can access a project
 * `revoke` - an array of people IDs.
 * `create` - an array of new people with `name` and `email_address` properties, and optional `title` and `company_name` properties.
 
+Only team members and agents are granted here. A client's ID in `grant`, or a `create` entry whose email address belongs to a client, is skipped: the client gets no access and appears in neither `granted` nor `revoked`, so the response can be a `200 OK` with both empty. Add clients with [Add and remove clients on a project](#add-and-remove-clients-on-a-project).
+
 ###### Example JSON Request
 <!-- START PUT PAYLOAD /projects/1/people/users.json -->
 ```json

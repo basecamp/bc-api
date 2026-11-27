@@ -266,6 +266,8 @@ A Ping's messages are the lines in its Campfire. Use the Ping's `links.lines` UR
 * `POST` to it to [post a line](campfires.md#create-a-campfire-line). People in the Ping are notified as for any Ping, and the line makes the Ping appear in [Get Pings](#get-pings).
 * `links.files` takes [Campfire uploads](campfires.md#upload-a-file-to-a-campfire) the same way.
 
+Replies in a Ping's lines and files carry [`original`](campfires.md#replies-and-the-line-they-quote), the line they quote, as in any Campfire.
+
 The Campfire's ID is the last number in `links.lines`, so the flat routes work too: for `.../buckets/1/chats/2/lines.json`, use `/chats/2/lines.json` with the Campfire endpoints.
 
 A Ping's Campfire isn't returned by [Get Campfires](campfires.md#get-campfires), and `GET /chats/2.json` on one answers `302 Found`, redirecting to the Ping at `/circles/{id}` on the same API host, without `.json`; the redirect target answers JSON to a client that accepts it. Use [Get a Ping](#get-a-ping) for the Ping itself.

@@ -84,7 +84,10 @@ _Optional query parameters_:
     "group_position_url": "https://3.basecampapi.com/195539477/buckets/2085958502/todolists/groups/1069479527/position.json",
     "todos_url": "https://3.basecampapi.com/195539477/buckets/2085958502/todolists/1069479527/todos.json",
     "app_todos_url": "https://3.basecamp.com/195539477/buckets/2085958502/todolists/1069479527/todos",
-    "comments_app_url": "https://3.basecamp.com/195539477/buckets/2085958502/recordings/1069479527/comments"
+    "comments_app_url": "https://3.basecamp.com/195539477/buckets/2085958502/recordings/1069479527/comments",
+    "can_move": true,
+    "can_archive_or_trash": true,
+    "can_share_publicly": true
   },
   {
     "id": 1069479530,
@@ -149,7 +152,10 @@ _Optional query parameters_:
     "group_position_url": "https://3.basecampapi.com/195539477/buckets/2085958502/todolists/groups/1069479530/position.json",
     "todos_url": "https://3.basecampapi.com/195539477/buckets/2085958502/todolists/1069479530/todos.json",
     "app_todos_url": "https://3.basecamp.com/195539477/buckets/2085958502/todolists/1069479530/todos",
-    "comments_app_url": "https://3.basecamp.com/195539477/buckets/2085958502/recordings/1069479530/comments"
+    "comments_app_url": "https://3.basecamp.com/195539477/buckets/2085958502/recordings/1069479530/comments",
+    "can_move": true,
+    "can_archive_or_trash": true,
+    "can_share_publicly": true
   }
 ]
 ```
@@ -167,6 +173,8 @@ To-do list groups can be read in exactly the same way as to-do lists. The only d
 include a groups_url in its response, while a group will have a group_position_url
 
 * `GET /todolists/3.json` will return the to-do list group with an ID of `3`.
+
+Like a to-do list, a group has `can_move`, `can_archive_or_trash` and `can_share_publicly`, the actions of its menu in Basecamp that the current user can use. A group has no `archived_todos_count` or `archived_groups_count`, as Basecamp's group menu has no link to an archive.
 
 ###### Example JSON Response
 <!-- START GET /todolists/3.json -->
@@ -234,7 +242,10 @@ include a groups_url in its response, while a group will have a group_position_u
   "group_position_url": "https://3.basecampapi.com/195539477/buckets/2085958502/todolists/groups/1069479527/position.json",
   "todos_url": "https://3.basecampapi.com/195539477/buckets/2085958502/todolists/1069479527/todos.json",
   "app_todos_url": "https://3.basecamp.com/195539477/buckets/2085958502/todolists/1069479527/todos",
-  "comments_app_url": "https://3.basecamp.com/195539477/buckets/2085958502/recordings/1069479527/comments"
+  "comments_app_url": "https://3.basecamp.com/195539477/buckets/2085958502/recordings/1069479527/comments",
+  "can_move": true,
+  "can_archive_or_trash": true,
+  "can_share_publicly": true
 }
 ```
 <!-- END GET /todolists/3.json -->

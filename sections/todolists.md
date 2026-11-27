@@ -17,6 +17,8 @@ Get to-do lists
 
 To get the to-do set ID for a project, see the [Get to-do set][todoset] endpoint.
 
+Each to-do list tells you what the current user can do with it, as its menu in Basecamp does. `can_move` is true when they can move it, `can_archive_or_trash` when they can archive it or put it in the trash, and `can_share_publicly` when they can get a public link to it. These fields answer for the user only, not for the recording's `status`. Basecamp also looks at `status`: it offers Move only when the recording isn't in the trash, and a public link only when it's active. It offers Archive and Trash only when `inherits_status` is true: Archive when the recording isn't archived, and Trash when it isn't in the trash. A to-do list also has `archived_todos_count` and `archived_groups_count`: the to-dos and the groups that were archived in it.
+
 _Optional query parameters_:
 
 * `status` - when set to `archived` or `trashed`, will return archived or trashed to-do lists that are in this to-do set.
@@ -90,9 +92,14 @@ _Optional query parameters_:
     "name": "Strategy ideas",
     "color": null,
     "groups_url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069480012/groups.json",
+    "archived_todos_count": 0,
+    "archived_groups_count": 0,
     "todos_url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069480012/todos.json",
     "app_todos_url": "https://3.basecamp.com/195539477/buckets/2085958505/todolists/1069480012/todos",
-    "comments_app_url": "https://3.basecamp.com/195539477/buckets/2085958505/recordings/1069480012/comments"
+    "comments_app_url": "https://3.basecamp.com/195539477/buckets/2085958505/recordings/1069480012/comments",
+    "can_move": true,
+    "can_archive_or_trash": true,
+    "can_share_publicly": true
   }
 ]
 ```
@@ -108,6 +115,8 @@ Get a to-do list
 ----------------
 
 * `GET /todolists/2.json` will return the to-do list with an ID of `2`.
+
+The to-do list tells you what the current user can do with it, as its menu in Basecamp does. `can_move` is true when they can move it, `can_archive_or_trash` when they can archive it or put it in the trash, and `can_share_publicly` when they can get a public link to it. These fields answer for the user only, not for the recording's `status`. Basecamp also looks at `status`: it offers Move only when the recording isn't in the trash, and a public link only when it's active. It offers Archive and Trash only when `inherits_status` is true: Archive when the recording isn't archived, and Trash when it isn't in the trash. It also has `archived_todos_count` and `archived_groups_count`: the to-dos and the groups that were archived in it.
 
 ###### Example JSON Response
 <!-- START GET /todolists/2.json -->
@@ -177,9 +186,14 @@ Get a to-do list
   "name": "Background and research",
   "color": "blue",
   "groups_url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069479863/groups.json",
+  "archived_todos_count": 0,
+  "archived_groups_count": 0,
   "todos_url": "https://3.basecampapi.com/195539477/buckets/2085958505/todolists/1069479863/todos.json",
   "app_todos_url": "https://3.basecamp.com/195539477/buckets/2085958505/todolists/1069479863/todos",
-  "comments_app_url": "https://3.basecamp.com/195539477/buckets/2085958505/recordings/1069479863/comments"
+  "comments_app_url": "https://3.basecamp.com/195539477/buckets/2085958505/recordings/1069479863/comments",
+  "can_move": true,
+  "can_archive_or_trash": true,
+  "can_share_publicly": true
 }
 ```
 <!-- END GET /todolists/2.json -->

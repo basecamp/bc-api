@@ -13,6 +13,8 @@ Get a card table
 
 * `GET /card_tables/2.json` will return the card table with an ID of `2`.
 
+The response tells you what the current user can do with the card table, as its menu in Basecamp does. `can_move` is true when they can move it to another project, and `can_share_publicly` when they can get a public link to it. `archived_columns_count` counts the columns that were archived in it. Each list in `lists` has `archived_cards_count`, and a list of type `Kanban::Column` also has `can_move` and `can_archive_or_trash`, as described in [Get a column](card_table_columns.md#get-a-column).
+
 ###### Example JSON Response
 <!-- START GET /card_tables/2.json -->
 ```json
@@ -94,6 +96,9 @@ Get a card table
     }
   ],
   "public_link_url": "https://3.basecampapi.com/195539477/buckets/2085958505/recordings/1069479833/publication",
+  "archived_columns_count": 0,
+  "can_move": true,
+  "can_share_publicly": true,
   "lists": [
     {
       "id": 1069479834,
@@ -181,6 +186,7 @@ Get a card table
       ],
       "color": null,
       "cards_count": 1,
+      "archived_cards_count": 0,
       "comment_count": 0,
       "cards_url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/lists/1069479834/cards.json"
     },
@@ -270,6 +276,7 @@ Get a card table
       ],
       "color": null,
       "cards_count": 1,
+      "archived_cards_count": 0,
       "comment_count": 0,
       "cards_url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/lists/1069479835/cards.json"
     },
@@ -360,8 +367,11 @@ Get a card table
       ],
       "color": "purple",
       "cards_count": 1,
+      "archived_cards_count": 0,
       "comment_count": 0,
-      "cards_url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/lists/1069479836/cards.json"
+      "cards_url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/lists/1069479836/cards.json",
+      "can_move": true,
+      "can_archive_or_trash": true
     },
     {
       "id": 1069479837,
@@ -450,8 +460,11 @@ Get a card table
       ],
       "color": "orange",
       "cards_count": 1,
+      "archived_cards_count": 0,
       "comment_count": 0,
-      "cards_url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/lists/1069479837/cards.json"
+      "cards_url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/lists/1069479837/cards.json",
+      "can_move": true,
+      "can_archive_or_trash": true
     },
     {
       "id": 1069479838,
@@ -539,6 +552,7 @@ Get a card table
       ],
       "color": null,
       "cards_count": 0,
+      "archived_cards_count": 0,
       "comment_count": 0,
       "cards_url": "https://3.basecampapi.com/195539477/buckets/2085958505/card_tables/lists/1069479838/cards.json"
     }
@@ -600,7 +614,8 @@ Get a card table
       "linked": false,
       "destination_url": null
     }
-  ]
+  ],
+  "signed_stream_name": "IloybGtPaTh2WW1NekwxSmxZMjl5WkdsdVp5OHhNRFk1TkRjNU9ETXoi--f2dda2eef8b81635f3b8809994f1a438a0ae73a73ee79b730120db6c42a5d975"
 }
 ```
 <!-- END GET /card_tables/2.json -->
@@ -611,6 +626,8 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://3.basecampapi.com/$ACCO
 ```
 
 The `wormholes` array lists the card table's wormholes. Wormholes are only listed for people who can reach the destination — a wormhole whose destination project the requester can't reach is omitted entirely. A wormhole is `linked` while its destination column still exists and its card table is enabled, and `destination_url` points at the destination column — it is `null` while the wormhole is unlinked. To send a card through a wormhole, pass the wormhole's `id` as the `column_id` when [moving a card](card_table_cards.md#move-a-card). A move within the card's project, even to another card table, takes the destination column's `id` directly and needs no wormhole. Wormholes are managed through the [card table wormholes](card_table_wormholes.md) endpoints.
+
+`signed_stream_name` names the card table's live update stream, for Basecamp's own apps. Third-party integrations can't subscribe to it, because Action Cable accepts only Basecamp's own clients: use [webhooks](webhooks.md) to be told about changes instead. Basecamp's apps subscribe to `Turbo::StreamsChannel` with `{ "channel": "Turbo::StreamsChannel", "signed_stream_name": "…" }`. Each change sends a Turbo Stream `refresh` action, which carries no data: get the card table again to see what changed.
 
 Move a card on the board
 ------------------------
